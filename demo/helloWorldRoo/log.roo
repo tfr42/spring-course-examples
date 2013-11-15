@@ -1,0 +1,20 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-04-21 03:31:13
+project --topLevelPackage net.gfu.seminar.spring --projectName helloWorld --java 6 --packaging JAR
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log closed at 2013-04-21 03:31:15
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-04-21 03:31:20
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+entity jpa --class ~.domain.Guest --testAutomatically
+field string --fieldName firstname --notNull --sizeMin 2
+field string --fieldName lastname --notNull --sizeMin 2
+perform test
+perform test
+perform test
+hint
+perform package
+perform test
+web mvc setup
+
+web mvc all --package ~.web
+perform test
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-11-10 19:32:50

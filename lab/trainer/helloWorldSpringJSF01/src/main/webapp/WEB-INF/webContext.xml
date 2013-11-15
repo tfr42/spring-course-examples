@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+  <bean id="guestDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
+  	<constructor-arg name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  <bean id="greetingService" class="net.gfu.seminar.spring.helloworld.Greeting">
+      <constructor-arg ref="guestDao"/>
+  </bean>
+  
+  <context:property-placeholder location="classpath:/jdbc.properties" />
+
+	<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL" enabled="true">
+ 		<jdbc:script location="classpath:/drop_hsql_schema.sql" />
+ 		<jdbc:script location="classpath:/create_hsql_schema.sql" />
+ 	</jdbc:initialize-database>
+ 	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialSize" value="1"/>
+		<property name="maxActive" value="1"/>
+		<property name="maxWait" value="100"/>
+	</bean>
+  
+<!--   <bean id="jndiDatasource" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+<!--     <property name="jndiName" value="java:comp/env/jdbc/DefaultDS"></property> -->
+<!--   </bean> -->
+    
+</beans>

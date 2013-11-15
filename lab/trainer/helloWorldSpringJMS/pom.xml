@@ -1,0 +1,168 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.gfu.seminar.spring</groupId>
+		<artifactId>trainer</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>net.gfu.seminar.spring.helloworld</groupId>
+	<artifactId>helloWorldSpringJMS</artifactId>
+	<name>helloWorldSpringJMS</name>
+	<description>Spring Remoting and JMS Integration</description>
+	<properties>
+		<activemq.version>5.7.0</activemq.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<configuration>
+						<excludes>
+							<exclude>**/AsyncGreetingIntegrationTest.java</exclude>						
+							<exclude>**/JmsRemotingGreetingIntegrationTest.java</exclude>						
+						</excludes>
+					</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.activemq.tooling</groupId>
+				<artifactId>maven-activemq-plugin</artifactId>
+				<version>${activemq.version}</version>
+				<!-- http://activemq.apache.org/maven2-activemq-broker-plugin.html mvn 
+					org.apache.activemq.tooling:maven-activemq-plugin:5.7.0:run mvn activemq:run 
+					start JmsMessagingServer start JmsRemotingServer -->
+				<configuration>
+					<!-- <configUri>xbean:file:../conf/activemq.xml</configUri> -->
+					<fork>true</fork>
+					<systemProperties>
+						<property>
+							<name>javax.net.ssl.keyStorePassword</name>
+							<value>password</value>
+						</property>
+						<property>
+							<name>org.apache.activemq.default.directory.prefix</name>
+							<value>./target/</value>
+						</property>
+					</systemProperties>
+				</configuration>
+				<executions>
+<!-- 					<execution> -->
+<!-- 						<id>start-activemq</id> -->
+<!-- 						<phase>pre-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>run</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+					<!-- <execution> -->
+					<!-- <id>stop-activemq</id> -->
+					<!-- <phase>post-integration-test</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>stop</goal> -->
+					<!-- </goals> -->
+					<!-- </execution> -->
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+						<version>2.5.5</version>
+					</dependency>
+					<dependency>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>jetty-xbean</artifactId>
+						<version>6.1.11</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.camel</groupId>
+						<artifactId>camel-activemq</artifactId>
+						<version>1.1.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
+<!-- 				<version>1.2.1</version> -->
+<!-- 				<configuration> -->
+<!--           			<mainClass>net.gfu.seminar.spring.helloworld.JmsRemotingServer</mainClass> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>start-jms</id> -->
+<!-- 						<phase>pre-integration-test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>java</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+	</dependencies>
+</project>

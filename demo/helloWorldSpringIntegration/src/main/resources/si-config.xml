@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:jms="http://www.springframework.org/schema/integration/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+	http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms-2.1.xsd
+	http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file-2.1.xsd">
+
+	<!-- In-memory queue example for unit test  net.gfu.seminar.spring.integration.HelloWorldTest.testSendAndReceive() -->
+	
+	<!-- send()->input->subscriber->output-> receive()-->
+	
+	<si:channel id="input" />
+
+	<!-- defines a Message Channel that is backed by a Java in-memory queue 
+		and will hold up to 10 Messages at a time -->
+	<si:channel id="output">
+		<si:queue capacity="10" />
+	</si:channel>
+
+	<bean id="subscriber"
+		class="net.gfu.seminar.spring.integration.HelloWorldMessageSubscriber">
+	</bean>
+	
+	<si:service-activator input-channel="input"
+		output-channel="output" ref="subscriber" method="sayHello" />
+		
+
+	<!-- JMS Integration -->
+	
+	<!-- JMS example for unit test  net.gfu.seminar.spring.integration.HelloWorldTest.testSendAndReceiveViaGateway() -->
+	<!-- send()->jmsIn->jmsOutGateway->activeMQQueue->subscriber->jmsOut-> -->
+
+	<si:channel id="jmsIn"/>
+
+	<jms:outbound-gateway id="jmsOutGateway"
+                      request-channel="jmsIn" 
+                      request-destination="activeMQQueue"
+                      reply-channel="jmsOut"/>
+	
+	<si:channel id="jmsOut"/>
+	
+	<si:gateway id="gateway" service-interface="net.gfu.seminar.spring.integration.Gateway" default-request-channel="jmsIn"/>
+	
+	<si:service-activator input-channel="jmsIn"
+		output-channel="jmsOut" ref="subscriber" method="sayHello"/>
+		
+    <jms:inbound-gateway id="jmsInGateway"
+                      request-destination="activeMQQueue"
+                      request-channel="jmsIn"/>
+                      
+	<si:poller id="poller" default="true" fixed-delay="1000"/>
+
+<!-- 		
+	<jms:inbound-channel-adapter id="jmsOutAdapter" destination="activeMQQueue" channel="jmsOut">
+    	 <si:poller><si:interval-trigger interval="100"/></si:poller>
+    </jms:inbound-channel-adapter>
+    <jms:outbound-channel-adapter id="jmsOutAdapter" destination="activeMQReplyQueue" channel="jmsOut">
+    	<si:poller><si:interval-trigger interval="100"/></si:poller>
+    </jms:outbound-channel-adapter>
+     -->
+    
+	<!--  
+    -->
+
+	
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+    
+    <bean id="activeMQQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="helloworld.jmsmessaging"/>
+    </bean>
+    
+    <bean id="activeMQReplyQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="helloworld.reply.jmsmessaging"/>
+    </bean>
+    
+    <bean id="activeMQErrQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="helloworld.err.jmsmessaging"/>
+    </bean>
+
+</beans>

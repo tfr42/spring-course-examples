@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="methodTraceAdvice" class="net.gfu.seminar.spring.helloworld.SimpleTraceAdvice"/>
+	
+	<bean id="globalDebug" class="org.springframework.aop.interceptor.DebugInterceptor"/>
+    <bean id="globalPerformance" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor"/>
+    <bean id="globalTrace" class="org.springframework.aop.interceptor.SimpleTraceInterceptor"/>
+
+	<aop:config>
+		<aop:pointcut id="welcomePointcut" expression="execution(* welcome(..))" />
+		<aop:advisor advice-ref="globalDebug" pointcut-ref="welcomePointcut" />
+		<aop:advisor advice-ref="globalPerformance" pointcut-ref="welcomePointcut"/>
+		<aop:advisor advice-ref="globalTrace" pointcut-ref="welcomePointcut"/>
+		
+		<aop:aspect id="methodTraceAspect" ref="methodTraceAdvice">
+			<aop:before method="enter" pointcut-ref="welcomePointcut" />
+			<aop:after-returning method="exit" returning="returnValue"
+				pointcut-ref="welcomePointcut" />
+			<aop:after-throwing method="fail" throwing="cause"
+				pointcut-ref="welcomePointcut" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

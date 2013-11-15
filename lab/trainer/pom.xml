@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.gfu.seminar.spring</groupId>
+    <artifactId>lab</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>trainer</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>helloWorldSpringAOP01</module>
+    <module>helloWorldSpringAOP02</module>
+    <module>helloWorldSpringAOP03</module>
+    <module>helloWorldSpringCACHE01</module>
+    <module>helloWorldSpringDI</module>
+    <module>helloWorldSpringDI01</module>
+    <module>helloWorldSpringDI05</module>
+    <module>helloWorldSpringDI06</module>
+    <module>helloWorldSpringDI07</module>
+    <module>helloWorldSpringDI08</module>
+    <module>helloWorldSpringDI09</module>
+    <module>helloWorldSpringJDBC01</module>
+    <module>helloWorldSpringJDBC02</module>
+    <module>helloWorldSpringJMS</module>
+    <module>helloWorldSpringJSF01</module>
+    <module>helloWorldSpringMVC01</module>
+    <module>helloWorldSpringMVC02</module>
+    <module>helloWorldSpringORM01</module>
+    <module>helloWorldSpringREST</module>
+    <module>helloWorldSpringSEC01</module>
+    <module>helloWorldSpringTEST01</module>
+    <module>helloWorldSpringTEST02</module>
+    <module>helloWorldSpringTX01</module>
+    <module>helloWorldSpringTX02</module>
+  </modules>
+  <description>Trainer workspace</description>
+  <name>trainer</name>
+</project>

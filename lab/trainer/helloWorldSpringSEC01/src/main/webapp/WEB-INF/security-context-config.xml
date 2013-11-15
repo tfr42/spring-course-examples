@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+  
+  <security:global-method-security secured-annotations="enabled" proxy-target-class="true"/>
+  
+  <security:http auto-config="true">
+         <!-- Restrict URLs based on role: grant access for anonymous user -->
+        <security:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/*/welcome*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        
+        <!-- Restrict URLs based on role: grant access only for authenticated user -->
+        <security:intercept-url pattern="/**" access="ROLE_USER" />
+
+        <!-- Override default login and logout pages -->
+        <security:form-login login-page="/login.jsp" 
+                             login-processing-url="/loginProcess" 
+                             default-target-url="/index.jsp" 
+                             authentication-failure-url="/login.jsp?login_error=1" />
+        <security:logout logout-url="/logout" logout-success-url="/logoutSuccess.jsp" />
+ </security:http>
+    
+    
+<!-- Creates a JdbcDaoImpl based user detail service with the following users:
+            david:newyork
+            alex:newjersey
+            tim:illinois
+     --> 
+     <!--   
+    <security:authentication-provider>
+        <security:jdbc-user-service data-source-ref="dataSource" />
+        <security:password-encoder hash="md5" />
+        <security:user-service>
+            <security:user name="david" password="369389d19e24204b4927e30dd7c39efc" authorities="ROLE_USER,ROLE_ADMIN" />
+            <security:user name="alex" password="847c6f184197dc1545d9891d42814a7d" authorities="ROLE_USER" />
+            <security:user name="tim" password="0513111ff330e25c631b5d3e9c0a4aae" authorities="ROLE_USER" />
+        </security:user-service>
+    </security:authentication-provider>
+      -->
+    <security:authentication-manager alias="inmemoryManager">
+      <security:authentication-provider>
+        <security:user-service>
+          <security:user password="pass" name="efall" authorities="ROLE_USER"/>
+          <security:user password="kg" name="agramm" authorities="ROLE_USER"/>
+          <security:user password="luft" name="hdampf" authorities="ROLE_USER,ROLE_ADMIN"/>
+        </security:user-service>
+      </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <!-- 
+    <security:global-method-security>
+    	<security:protect-pointcut access="ROLE_ADMIN" expression="execution(* delete*(..))"/>
+    </security:global-method-security>
+     -->
+    
+	
+</beans>

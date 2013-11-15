@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.Date">
+					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
+						<constructor-arg>
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg value="dd.MM.yyyy" />
+							</bean>
+						</constructor-arg>
+						<constructor-arg value="false" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
+		<property name="guest" ref="birthdayChild" />
+	</bean>
+
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+		<constructor-arg index="0" value="Anna" />
+		<constructor-arg index="1" value="Gramm" />
+	</bean>
+
+	<bean id="guest2" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+		<constructor-arg name="firstName" value="Hans" />
+		<constructor-arg name="lastName" value="Dampf" />
+	</bean>
+	
+	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild">
+		<constructor-arg index="0" value="Rainer" />
+		<constructor-arg index="1" value="Unsinn" />
+		<constructor-arg value="11.11.1911" />
+	</bean>
+
+	<util:list id="guestList">
+		<ref local="birthdayChild"/>
+		<ref local="guest"/>
+		<ref local="guest2"/>
+	</util:list>
+
+	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance" />
+	
+	<bean id="date" name="now" class="java.util.Date" factory-bean="calendar"
+		factory-method="getTime">
+	</bean>
+	
+</beans>

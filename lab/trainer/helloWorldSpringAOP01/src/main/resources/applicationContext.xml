@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting" >
+		<!-- set the property guest via the mutator/modifier method setGuest(Guest) -->
+		<property name="guest" ref="guest" />
+	</bean>
+
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+	    <!-- set the property name via the mutator/modifier method setName(String) -->
+		<property name="name" value="Hans Dampf" />
+	</bean>
+
+</beans>

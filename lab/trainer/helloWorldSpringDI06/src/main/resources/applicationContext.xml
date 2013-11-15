@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
+		<!-- set the property guest via the mutator/modifier method setGuest(String) -->
+		<property name="guest" ref="birthdayChild" />
+		<!-- <constructor-arg ref="guest"/> -->
+	</bean>
+
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+		<property name="firstName" value="${firstName}" />
+		<property name="lastName" value="${lastName}" />
+	</bean>
+
+	<bean id="specialGuest" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
+		<constructor-arg>
+			<props>
+				<prop key="firstName">Hans</prop>
+				<prop key="lastName">Fall</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild">
+		<constructor-arg index="0" value="Rainer" />
+		<constructor-arg index="1" value="Unsinn" />
+		<constructor-arg value="24.12.1981" />
+	</bean>
+
+	<context:property-placeholder location="classpath:/guest.properties" />
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.Date">
+					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
+						<constructor-arg>
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg value="dd.MM.yyyy" />
+							</bean>
+						</constructor-arg>
+						<constructor-arg value="false" /><!--allow emtpy string -->
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
