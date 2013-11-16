@@ -33,5 +33,5 @@ Im Unterverzeichnis
  mvn site:attach-descriptor site-deploy
  
  Öffnen der Dokumentation im Web-Browser:
- file:///Users/tf/helloWorldSpring/index.html
+ file:///$USER_HOME/helloWorldSpring/index.html
  
