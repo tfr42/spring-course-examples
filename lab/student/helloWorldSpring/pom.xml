@@ -10,7 +10,7 @@
 	<artifactId>helloWorldSpring</artifactId>
 	<packaging>jar</packaging>
 	<name>HelloWorld with Spring - Student</name>
-	<description>Welcome to Spring. A very basic intro into Spring and DI. This module contains the core types of this example application.</description>
+	<description>Welcome to Spring. A very basic introduction into Spring and DI. This module contains the core types of this example application.</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
