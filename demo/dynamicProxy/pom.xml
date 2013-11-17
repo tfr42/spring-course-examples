@@ -7,7 +7,6 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>dynamicProxy</artifactId>
-	<packaging>jar</packaging>
 	<name>JDK Dynamic Proxy </name>
 	<description>Warming up - JDK Dynamic Proxy</description>
 </project>
