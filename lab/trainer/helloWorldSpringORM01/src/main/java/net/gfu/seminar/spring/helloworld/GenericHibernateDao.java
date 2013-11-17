@@ -15,8 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * GenericDao implementation based on Hibernate.
- * @param <T>
- * @param <ID>
+ * @param <T> persistent type
+ * @param <ID> unique identifier type
  */
 public abstract class GenericHibernateDao <T, ID extends Serializable> extends HibernateDaoSupport implements GenericDao<T, ID> {
 	
