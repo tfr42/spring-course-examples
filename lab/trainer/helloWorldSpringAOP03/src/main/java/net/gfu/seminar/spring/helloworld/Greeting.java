@@ -1,8 +1,5 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 /**
  * Says hello to a guest.
@@ -10,7 +7,6 @@ import org.springframework.stereotype.Component;
  * @author tf
  *
  */
-//@Component("welcome")
 public class Greeting implements GreetingService {
 	
 	private Guest guest;
@@ -18,8 +14,7 @@ public class Greeting implements GreetingService {
 	public Greeting() {
 	}
 	
-	//@Autowired
-	public Greeting(/*@Qualifier("guestImpl")*/ Guest guest) {
+	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
 
