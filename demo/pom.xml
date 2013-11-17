@@ -11,7 +11,7 @@
   <modules>
     <module>dynamicProxy</module>
     <module>helloWorldSpringBatch</module>
-    <module>helloWorldSpringIntegration</module>    
+    <module>helloWorldSpringIntegration</module>
   </modules>
   <description>Demo workspace</description>
   <name>demo</name>
@@ -20,6 +20,12 @@
   		<id>SpringRoo</id>
   		<modules>
     		<module>helloWorldRoo</module>
+  		</modules>
+  	</profile>
+  	<profile>
+  		<id>SpringBoot</id>
+  		<modules>
+    		<module>helloWorldSpringBoot</module>
   		</modules>
   	</profile>
   </profiles>
