@@ -5,18 +5,18 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="methodTraceAdvice" class="net.gfu.seminar.spring.helloworld.SimpleTraceAdvice"/>
-	
 	<bean id="globalDebug" class="org.springframework.aop.interceptor.DebugInterceptor"/>
     <bean id="globalPerformance" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor"/>
     <bean id="globalTrace" class="org.springframework.aop.interceptor.SimpleTraceInterceptor"/>
 
 	<aop:config>
 		<aop:pointcut id="welcomePointcut" expression="execution(* welcome(..))" />
-		<aop:advisor advice-ref="globalDebug" pointcut-ref="welcomePointcut" />
-		<aop:advisor advice-ref="globalPerformance" pointcut-ref="welcomePointcut"/>
-		<aop:advisor advice-ref="globalTrace" pointcut-ref="welcomePointcut"/>
 		
-		<aop:aspect id="methodTraceAspect" ref="methodTraceAdvice">
+		<aop:advisor advice-ref="globalDebug" pointcut-ref="welcomePointcut" order="10"/>
+		<aop:advisor advice-ref="globalPerformance" pointcut-ref="welcomePointcut" order="20"/>
+		<aop:advisor advice-ref="globalTrace" pointcut-ref="welcomePointcut" order="100"/>
+		
+		<aop:aspect id="methodTraceAspect" ref="methodTraceAdvice" order="1000">
 			<aop:before method="enter" pointcut-ref="welcomePointcut" />
 			<aop:after-returning method="exit" returning="returnValue"
 				pointcut-ref="welcomePointcut" />
