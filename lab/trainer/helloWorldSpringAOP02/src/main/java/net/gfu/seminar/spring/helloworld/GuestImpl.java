@@ -3,7 +3,6 @@ package net.gfu.seminar.spring.helloworld;
 import java.util.Scanner;
 
 public class GuestImpl implements Guest {
-
 	private String firstName;
 	private String lastName;
 

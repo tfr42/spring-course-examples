@@ -18,7 +18,6 @@ public class SimpleTraceAdvice {
 
 	private static final Logger LOG = Logger.getLogger(SimpleTraceAdvice.class);
 
-	@SuppressWarnings("unused")
 	@Pointcut("execution(* welcome(..))")
 	private void welcomePointcut() {
 	}

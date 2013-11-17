@@ -16,7 +16,7 @@ public class Greeting implements GreetingService {
 	public Greeting() {
 		this.guestList = new ArrayList<Guest>();
 	}
-
+	
 	public Greeting(Guest guest) {
 		this();
 		System.out.println("Constructor Greeting(Guest guest) with " + guest);

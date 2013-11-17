@@ -17,12 +17,12 @@
 	</util:list>
 
 	<bean id="guest" name="guest1,annaGramm"
-		class="net.gfu.seminar.spring.helloworld.GuestImpl" autowire-candidate="false">
+		class="net.gfu.seminar.spring.helloworld.GuestImpl">
 		<property name="name" value="Anna Gramm" />
 	</bean>
 
-	<bean id="specialGuest" name="guest2,hansDampf"
+	<bean id="specialGuest" name="guest2,hansDampf,vipGuest"
 		class="net.gfu.seminar.spring.helloworld.SpecialGuest" >
-		<property name="name" value="Hans Dampf" />
+		<constructor-arg><props><prop key="firstName">Hans</prop><prop key="lastName">Dampf</prop></props></constructor-arg>
 	</bean>
 </beans>
