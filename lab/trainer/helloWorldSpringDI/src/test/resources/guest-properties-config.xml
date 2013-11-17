@@ -26,4 +26,8 @@
 	<bean id="placeholderGuest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
 		<property name="name" value="${name}"/>
 	</bean>
+	
+	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild">
+		<property name="name" value="${name}"/>
+	</bean>
 </beans>

@@ -10,9 +10,7 @@ import org.apache.log4j.Logger;
 public class GuestImpl implements Guest {
 	private static final Logger LOG = Logger.getLogger(GuestImpl.class);
 	
-	//@Value("#{systemProperties.firstname}")
 	private String firstName;
-	//@Value("#{systemProperties.lastname}")
 	private String lastName;
 	
 	private Long id;
