@@ -10,9 +10,9 @@ import java.util.List;
  * <p>
  * Jede Instanz einer persistenten Klasse vom Typ <code>T</code> muss √ºber einen
  * Object IDentifier (OID) vom Typ <code>ID</code> eindeutig identifizierbar
- * sein. Dabei gilt, dass die JVM Identit‰t zweier Instanzen von T
+ * sein. Dabei gilt, dass die JVM Identit√§t zweier Instanzen von T
  * <code>T == T</code> (numerically identical) ungleich der qualitativen
- * Identit‰t (qualitative identity bzw. Gleichheit) sein kann
+ * Identit√§t (qualitative identity bzw. Gleichheit) sein kann
  * <code>T.equals(T)</code>. Es sollte f√ºr zwei fachlich identische Instanzen
  * von T aber gelten: <code>T.getId().equals(T.getId)</code>. T hat eine
  * Getter-Methode mit der Signatur: <code>ID T.getId()</code>.
@@ -23,7 +23,7 @@ import java.util.List;
  * @param <T>
  *            Typ der persistenten Klasse
  * @param <ID>
- *            Identifizierender Schl¸ssel (OID)
+ *            Identifizierender Schl√ºssel (OID)
  * @see <a
  *      href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html">Sun
  *      J2EE Patterns - DAO</a>
