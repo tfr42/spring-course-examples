@@ -13,6 +13,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Repository implementation based on Spring JpaDaoSupport. Since Spring 3.1 this implementation is deprecated. 
+ * TODO: needs refactoring according to Spring documentation 
+ * @author tf
+ *
+ */
 @Repository
 public class GuestJpaDao extends JpaDaoSupport implements GuestDao {
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
