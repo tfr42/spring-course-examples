@@ -38,3 +38,27 @@ Im Unterverzeichnis
  Öffnen der Dokumentation im Web-Browser:
  file:///$USER_HOME/helloWorldSpring/index.html
  
+Starten der HSQLDB:
+ Im Unterverzeichnis lab/src/main/scripts befinden sich  Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
+ Windows:
+  lab/src/main/script/startDB.cmd
+
+ UNIX:
+  lab/src/main/script/startDB.sh
+ 
+ Starten der HSQLDB Database Manager Anwendung:
+ Windows:
+  lab/src/main/script/startDBManager.cmd
+
+ UNIX:
+  lab/src/main/script/startDBManager.sh
+
+Projekt-Template erzeugen und nutzen:
+ cd lab/student/helloWorldSpring/
+ mvn archetype:create-from-project
+ cd target/generated-sources/archetype
+ mvn install
+ cd lab/student/
+ mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
+ 
+ 
