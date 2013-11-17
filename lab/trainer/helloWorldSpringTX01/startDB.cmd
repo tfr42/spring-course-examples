@@ -1,1 +1,0 @@
-java -cp lib/hsqldb-1.8.0.10.jar;src/main/resources org.hsqldb.Server -database.0 file:testdb -dbname.0 testdb
