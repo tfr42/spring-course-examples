@@ -16,4 +16,5 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
+	<url>http://localhost:8080/</url>
 </project>
