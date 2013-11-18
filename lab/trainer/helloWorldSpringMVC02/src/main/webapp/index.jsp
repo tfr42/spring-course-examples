@@ -18,7 +18,7 @@
 <li><a href="greeting/welcome.do">Welcome reception</a>
 <li><a href="greeting/add.do">Add Guest</a>
 </ul>
-<p>RESTful Method:</p>
+<p>RESTful Methods:</p>
 <ul>
 <li><a href="rest/greeting/to/Hans%20Dampf">Say hello to (Plain text)</a>
 <li><a href="rest/greeting/Hans/Dampf">Say hello to (XML)</a>
