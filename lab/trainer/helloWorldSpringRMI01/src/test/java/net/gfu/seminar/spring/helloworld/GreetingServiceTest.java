@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations={"classpath:/rmi-service.xml", "classpath:/rmi-client.xml","classpath:/applicationContext.xml"})
 public class GreetingServiceTest {
 	
-	@Autowired @Qualifier("rmiGreetingServicesProxy")
+	@Autowired @Qualifier("rmiGreetingServiceProxy")
 	private GreetingService service;
 
 	@Before
