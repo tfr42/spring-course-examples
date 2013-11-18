@@ -139,6 +139,7 @@
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
+					<!-- http://tomcat.apache.org/maven-plugin-2.2/ -->
 					<executions>
 						<execution>
 							<id>tomcat-run</id>
