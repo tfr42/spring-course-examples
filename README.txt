@@ -21,15 +21,17 @@ Entwicklungsumgebung einrichten
 Übungen
 =======
 Im Unterverzeichnis 
- /demo 			- sind alle Beispiel
- /lab/student	- Aufgaben für den Teilnehmer
- /lab/trainer	- Lösungen vom Trainer
+ /demo 			- sind kleine Beispiel-Anwendungen auf Basis von Spring-basierten Projekten wie SpringBatch
+ /lab/student	- der Workspace mit den Aufgaben für den Teilnehmer
+ /lab/trainer	- der Workspace mit den Lösungen vom Trainer
  
  Prüfen des Workspace:
  mvn validate
  
  Bauen der Übungsumgebung
  mvn install
+ mit den Demo-Projekten helloWorldRoo und helloWorldSpringBoot
+  mvn -PSpringRoo,SpringBoot install
   
  Erstellen der Dokumentation:
  mvn site 
@@ -60,5 +62,3 @@ Projekt-Template erzeugen und nutzen:
  mvn install
  cd lab/student/
  mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
- 
- 
