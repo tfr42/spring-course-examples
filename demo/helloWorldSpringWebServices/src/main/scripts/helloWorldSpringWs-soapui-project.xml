@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="helloWorldSpringWs" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="HelloWorldServiceSoap11" type="wsdl" bindingName="{http://helloworld.gfu.net/}HelloWorldServiceSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/helloWorldSpringWebServices/helloworld.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/beispiel-springws/helloworld.wsdl"><con:part><con:url>http://localhost:8080/beispiel-springws/helloworld.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://helloworld.gfu.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://helloworld.gfu.net/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://helloworld.gfu.net/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://helloworld.gfu.net/types" xmlns:tns="http://helloworld.gfu.net/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.w3.org/2001/XMLSchema"/>
+      <xs:element name="helloRequest" type="tns:helloRequestType"/>
+      <xs:element name="helloResponse" type="tns:helloResponseType"/>
+      <xs:complexType name="helloRequestType">
+        <xs:sequence minOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="firstname" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="lastname" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="helloResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="helloRequest">
+    <wsdl:part element="sch:helloRequest" name="helloRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="helloResponse">
+    <wsdl:part element="sch:helloResponse" name="helloResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HelloWorldService">
+    <wsdl:operation name="hello">
+      <wsdl:input message="tns:helloRequest" name="helloRequest"></wsdl:input>
+      <wsdl:output message="tns:helloResponse" name="helloResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloWorldServiceSoap11" type="tns:HelloWorldService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hello">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="helloRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="helloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloWorldServiceService">
+    <wsdl:port binding="tns:HelloWorldServiceSoap11" name="HelloWorldServiceSoap11">
+      <soap:address location="http://localhost:8080/beispiel-springws/helloworld/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/helloWorldService/helloWorldService</con:endpoint><con:endpoint>/helloWorldService/</con:endpoint><con:endpoint>http://localhost:8080/beispiel-springws/helloworld</con:endpoint><con:endpoint>http://localhost:8080/beispiel-springws/helloworld/</con:endpoint><con:endpoint>http://localhost:8080/beispiel-springws/HelloWorldService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="hello" bindingOperationName="hello" type="Request-Response" outputName="helloResponse" inputName="helloRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/beispiel-springws/HelloWorldService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://helloworld.gfu.net/types">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <typ:helloRequest>
+         <firstname>Hans</firstname>
+         <lastname></lastname>
+      </typ:helloRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://helloworld.gfu.net/HelloWorldService/helloRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
