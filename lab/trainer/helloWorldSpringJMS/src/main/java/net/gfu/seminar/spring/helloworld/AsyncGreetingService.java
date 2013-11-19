@@ -13,9 +13,10 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
 public class AsyncGreetingService extends Greeting {
-	
-	private static final Logger LOG = Logger.getLogger(AsyncGreetingService.class);
-	
+
+	private static final Logger LOG = Logger
+			.getLogger(AsyncGreetingService.class);
+
 	private JmsTemplate jmsTemplate;
 	private Queue queue;
 	private List<Guest> guests;
@@ -23,32 +24,35 @@ public class AsyncGreetingService extends Greeting {
 	public AsyncGreetingService(List<Guest> guests) {
 		this.guests = guests;
 	}
-	
-    public void setConnectionFactory(ConnectionFactory cf) {
-        this.jmsTemplate = new JmsTemplate(cf);
-    }
 
-    public void setQueue(Queue queue) {
-        this.queue = queue;
-    }
+	public void setConnectionFactory(ConnectionFactory cf) {
+		this.jmsTemplate = new JmsTemplate(cf);
+	}
 
+	public void setQueue(Queue queue) {
+		this.queue = queue;
+	}
 
 	@Override
 	public String welcome() {
 		for (Guest guest : this.guests) {
-			final String message = String.format("Welcome %1$s to Spring!", guest.getName());
+			final String message = String.format("Welcome %1$s to Spring!",
+					guest.getName());
 			try {
-				LOG.debug("Sending message: "+ message + " to queue: "+ queue.getQueueName());
+				LOG.debug("Sending message: " + message + " to queue: "
+						+ queue.getQueueName());
+
+				this.jmsTemplate.send(this.queue, new MessageCreator() {
+					public Message createMessage(Session session)
+							throws JMSException {
+						return session.createTextMessage(message);
+					}
+				});
 			} catch (JMSException e) {
 				e.printStackTrace();
 			}
-			this.jmsTemplate.send(this.queue, new MessageCreator() {
-	            public Message createMessage(Session session) throws JMSException {
-	              return session.createTextMessage(message);
-	            }
-	        });	
 		}
-		
+
 		return "messages sent";
 	}
 

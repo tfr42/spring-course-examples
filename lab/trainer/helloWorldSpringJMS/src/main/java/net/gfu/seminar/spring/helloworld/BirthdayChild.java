@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BirthdayChild extends GuestImpl {
 	
+	private static final long serialVersionUID = -5689752001268647599L;
 	private Date dayOfBirth;
 
 	public BirthdayChild(String firstName, String lastName, Date dayOfBirth) {
