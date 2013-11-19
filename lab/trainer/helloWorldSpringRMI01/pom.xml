@@ -10,7 +10,7 @@
 	<artifactId>helloWorldSpringRMI01</artifactId>
 	<packaging>jar</packaging>
 	<name>helloWorldSpringRMI01</name>
-	<description>Spring Remoting</description>
+	<description>Spring Remoting with RmiProxyFactoryBean and RmiServiceExporter</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
