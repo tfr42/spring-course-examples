@@ -22,6 +22,7 @@ public class JmsRemotingServer {
     
     public void stop() {
     	classPathXmlApplicationContext.stop();
+    	classPathXmlApplicationContext.close();
     }
 
 }

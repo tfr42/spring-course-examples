@@ -1,10 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 /**
  * HelloWorld using Spring Framework Dependency Injection.
@@ -24,7 +21,7 @@ public class HelloWorldRunnerWithSpring {
 		
 		// this creates a new instance of the Spring Container aka BeanFactory
 	//	BeanFactory beanFactory = new XmlBeanFactory(resource);
-		BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml","scheduling.xml");
+		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml","scheduling.xml");
 
 		DoItExecutor doItExecutor = beanFactory.getBean(DoItExecutor.class);
 		doItExecutor.doIt();
@@ -33,7 +30,7 @@ public class HelloWorldRunnerWithSpring {
 		GreetingService reception = (GreetingService) beanFactory.getBean("welcome");
 		
 		System.out.println(reception.welcome());
-
+		beanFactory.close();
 	}
 
 }

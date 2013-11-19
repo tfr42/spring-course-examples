@@ -23,6 +23,7 @@ public class JmsMessagingServer {
     
     public void stop() {
     	classPathXmlApplicationContext.stop();
+    	classPathXmlApplicationContext.close();
     }
 
 }
