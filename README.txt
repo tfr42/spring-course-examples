@@ -3,19 +3,41 @@ Einleitung
 
 Konventionen
 ------------
-Bitte notieren Sie sich zu Beginn fuer die Uebungen die Pfade zu folgenden Verzeichnissen:
- *	Netzlaufwerk auf dem die Software abgelegt ist: __________________________________ [DOWNLOAD_PATH]Wenn auf dieses Verzeichnis im folgenden verwiesen wird, dann ist dies durch [DOWNLOAD_PATH] gekennzeichnet. Fragen Sie bitte den Dozenten nach dem Ordner auf dem Netzlaufwerk.
- *	Lokales Verzeichnis auf dem Schulungsrechner, wo die Software installiert ist:__________________________________ [INSTALL_PATH](Default: C:/schulung/software).
- *	Und das lokale Verzeichnis in dem sich der Eclipse Workspace befindet:__________________________________ [WORKSPACE_PATH] (Default: C:/schulung/workspace).
+
+Bitte notieren Sie sich zu Beginn fuer die Uebungen die Pfade zu folgenden Verzeichnissen:
+ *	Netzlaufwerk auf dem die Software abgelegt ist:
+ 
+__________________________________ [DOWNLOAD_PATH]
+Wenn auf dieses Verzeichnis im folgenden verwiesen wird, dann ist dies durch [DOWNLOAD_PATH] gekennzeichnet. Fragen Sie bitte den Dozenten nach dem Ordner auf dem Netzlaufwerk.
+ *	Lokales Verzeichnis auf dem Schulungsrechner, wo die Software installiert ist:
+
+__________________________________ [INSTALL_PATH]
+(Default: C:/schulung/software).
+ *	Und das lokale Verzeichnis in dem sich der Eclipse Workspace befindet:
+
+__________________________________ [WORKSPACE_PATH] 
+(Default: C:/schulung/workspace).
 
 Vorbereitung
-------------Ueberpruefen Sie, ob alle benoetigten Softwarepakete auf dem Schulungsrechner korrekt und vollstaendig im Verzeichnis [INSTALL_PATH] installiert sind.Sollte eine Softwarekomponente fehlen, müssen Sie diese nachinstallieren. Bevor Sie mit der Installation der Softwarepakte beginnen, prüfen Sie, ob Sie auf dem Schulungsrechner lokale Administrationsrechte haben.Die Installationsdateien für die einzelnen Softwarepakete finden Sie im Verzeichnis [DOWNLOAD_PATH]/Software.Für die Installation von Eclipse Plugins über den Eclipse Update Manager ist eine Internet-Verbindung notwendig. Prüfen Sie die Einstellungen unter den Eclipse Preferences > General > Network Connections.
+------------
+Ueberpruefen Sie, ob alle benoetigten Softwarepakete auf dem Schulungsrechner korrekt und vollstaendig im Verzeichnis [INSTALL_PATH] installiert sind.
+Sollte eine Softwarekomponente fehlen, müssen Sie diese nachinstallieren. Bevor Sie mit der Installation der Softwarepakte beginnen, prüfen Sie, ob Sie auf dem Schulungsrechner lokale Administrationsrechte haben.
+Die Installationsdateien für die einzelnen Softwarepakete finden Sie im Verzeichnis [DOWNLOAD_PATH]/Software.
+Für die Installation von Eclipse Plugins über den Eclipse Update Manager ist eine Internet-Verbindung notwendig. Prüfen Sie die Einstellungen unter den Eclipse Preferences > General > Network Connections.
 
 Entwicklungsumgebung einrichten
--------------------------------Benötigte Software- Java SE 6.0 (JDK 6 Update 45) oder Java SE 7u45- Maven 3.1.1- Installation von Eclipse 3.8.2 (Eclipse IDE for Java EE Developers - Juno ) incl. der Plug-ins:  -	Spring IDE 3.4.0   -	m2e Plugin 1.4.0
+-------------------------------
+Benötigte Software
+- Java SE 6.0 (JDK 6 Update 45) oder Java SE 7u45
+- Maven 3.1.1
+- Installation von Eclipse 3.8.2 (Eclipse IDE for Java EE Developers - Juno ) incl. der Plug-ins:
+  -	Spring IDE 3.4.0 
+  -	m2e Plugin 1.4.0
   oder 
   - SpringSource Tool Suite (Developer Edition) 3.4.0  
-- Spring Framework 3.2.5.RELEASE - Apache Tomcat 6.x oder 7.0.x - GlassFish v4.0  (optional)
+- Spring Framework 3.2.5.RELEASE 
+- Apache Tomcat 6.x oder 7.0.x 
+- GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
 
 Übungen
@@ -38,7 +60,7 @@ Im Unterverzeichnis
  mvn site:attach-descriptor site-deploy
  
  Öffnen der Dokumentation im Web-Browser:
- file:///$USER_HOME/helloWorldSpring/index.html
+ file:///$USER_HOME/Sites/helloWorldSpring/index.html
  
 Starten der HSQLDB:
  Im Unterverzeichnis lab/src/main/scripts befinden sich  Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
