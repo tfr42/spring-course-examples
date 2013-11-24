@@ -283,7 +283,7 @@
 		<site>
 			<id>helloWorldSpring.website</id>
 			<name>helloWorldSpring Website</name>
-			<url>file:///${user.home}/helloWorldSpring</url>
+			<url>file:///${user.home}/Sites/helloWorldSpring</url>
 		</site>
 	</distributionManagement>
 	<issueManagement>
@@ -295,6 +295,6 @@
 		<connection>scm:git:https://github.com/tfr42/spring-course-examples.git</connection>
 		<developerConnection>scm:git:git@github.com:tfr42/spring-course-examples.git</developerConnection>
 	</scm>
-	<name>helloWorldSpring Parent POM</name>
-	<description>Spring Framework Examples</description>
+	<name>spring-course-examples parent POM</name>
+	<description>Spring Framework training course examples</description>
 </project>
