@@ -1,12 +1,20 @@
+# Java Class files#
 *.class
-*.project
-*.classpath
-*.settings
-*.springBeans
+
+# Eclipse and STS files #
+.project
+.classpath
+.settings
+.springBeans
+
+# IntelliJIDEA files #
+.idea
+*.iml
 
 # Package Files #
 *.jar
 *.war
 *.ear
 
+# Directories #
 target/
