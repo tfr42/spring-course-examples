@@ -3,6 +3,8 @@ package net.gfu.seminar.spring.helloworld;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import net.sf.ehcache.Ehcache;
+
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,12 +51,14 @@ public class GuestJdbcDaoTest {
 	}
 
 	@Test
-	@Repeat(2)
+	@Repeat(3)
 	public void testQueryForGuestWithId() {
-		LOG.info("Instances in cache: " + ((EhCacheCache) this.cache.getCache("guest")).getNativeCache().getSize());
+		Ehcache ehcache = ((EhCacheCache) this.cache.getCache("guest")).getNativeCache();
+		LOG.info("Number of instances in cache: " + ehcache.getSize());
 		Long id = 1l;
 		Guest guest2 = dao.findById(id);
 		assertNotNull(guest2);
+		LOG.info("Instances in cache: " + ehcache.getAll(ehcache.getKeys()));
 	}
 
 	@BeforeTransaction
