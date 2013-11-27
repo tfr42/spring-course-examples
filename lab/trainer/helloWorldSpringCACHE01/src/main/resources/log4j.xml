@@ -23,19 +23,19 @@
   </logger>
   
   <logger name="org.springframework.test">
-  	<level value="TRACE"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.aop">
-  	<level value="TRACE"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.jdbc">
-  	<level value="TRACE"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.transaction">
-  	<level value="TRACE"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.cache">
