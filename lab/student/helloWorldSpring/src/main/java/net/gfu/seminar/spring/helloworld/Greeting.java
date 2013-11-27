@@ -1,6 +1,5 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Says hello to a guest.
@@ -15,7 +14,6 @@ public class Greeting {
 	public Greeting() {
 	}
 	
-	@Autowired
 	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
