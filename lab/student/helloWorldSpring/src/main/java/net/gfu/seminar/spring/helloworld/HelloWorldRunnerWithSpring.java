@@ -6,10 +6,10 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 /**
- * HelloWorld using Spring Framework Dependency Injection.
+ * HelloWorld using Spring Framework BeanFactory.
  * 
  * @author tf
- * @see <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
+ * @see <a href="http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
 public class HelloWorldRunnerWithSpring {
 
@@ -28,7 +28,5 @@ public class HelloWorldRunnerWithSpring {
 		Greeting reception = (Greeting) beanFactory.getBean("welcome");
 		
 		System.out.println(reception.welcome());
-
 	}
-
 }
