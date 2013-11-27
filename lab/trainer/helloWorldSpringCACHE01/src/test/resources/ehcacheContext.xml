@@ -13,5 +13,5 @@
 	
 	<bean id="ehcache"
 		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
-		p:config-location="classpath:ehcache.xml"/>
+		p:config-location="classpath:/ehcache.xml"/>
 </beans>
