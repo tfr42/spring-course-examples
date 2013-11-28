@@ -5,8 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
