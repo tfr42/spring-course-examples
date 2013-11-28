@@ -31,7 +31,7 @@ public class GuestJdbcDao implements GuestDao {
 
 	@Override
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.SERIALIZABLE)
-	@Cacheable(value="guest")
+	@Cacheable(value="guest", condition="#id>0")
 	public Guest findById(Long id) {
 		String sql = "SELECT firstname, lastname FROM guests WHERE id =?";
 		RowMapper<Guest> rowMapper = new RowMapper<Guest>() {
