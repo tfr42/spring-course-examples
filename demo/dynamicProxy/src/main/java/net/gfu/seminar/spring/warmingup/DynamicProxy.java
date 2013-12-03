@@ -15,7 +15,7 @@ public class DynamicProxy implements Task, InvocationHandler {
 	  System.out.println("1 - Task - execute");
 	 }
 	 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-	  System.out.println("2 - InvocationHandler -" + method.getName());
+	  System.out.println("2 - InvocationHandler - " + method.getName());
 	  return null;
 	 }
 	}
