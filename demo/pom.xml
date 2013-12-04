@@ -13,6 +13,7 @@
     <module>helloWorldSpringBatch</module>
     <module>helloWorldSpringIntegration</module>
     <module>helloWorldSpringWebServices</module>
+    <module>helloWorldSpringData</module>
   </modules>
   <description>Demo workspace</description>
   <name>demo</name>
