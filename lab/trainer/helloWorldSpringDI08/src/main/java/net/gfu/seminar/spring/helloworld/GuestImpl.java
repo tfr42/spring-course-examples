@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 @Component("guest")
 public class GuestImpl implements Guest {
-	@Value("#{'Hans'}")
+	@Value("Hans")
 	private String firstName;
-	@Value("#{'Dampf'}")
+	@Value("Dampf}")
 	private String lastName;
 	
 	private Long id;
