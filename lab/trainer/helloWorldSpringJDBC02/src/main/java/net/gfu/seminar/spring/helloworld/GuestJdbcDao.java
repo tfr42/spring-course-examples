@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.SUPPORTS)
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
@@ -56,7 +55,6 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	@Transactional(isolation=Isolation.SERIALIZABLE,propagation=Propagation.SUPPORTS,readOnly=true)
 	public List<Guest> findAll() {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS";
 		LOG.debug(sql);
