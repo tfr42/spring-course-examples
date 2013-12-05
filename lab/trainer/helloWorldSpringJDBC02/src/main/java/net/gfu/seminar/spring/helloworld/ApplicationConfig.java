@@ -31,10 +31,4 @@ public class ApplicationConfig {
 		return new GuestImpl(this.firstName, this.lastName);
 	}
 
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer pspc() {
-		PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
-		return p;
-	}
-
 }
