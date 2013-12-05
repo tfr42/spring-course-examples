@@ -1,1 +1,1 @@
-DROP TABLE guests if exists
+DROP TABLE guests if exists;
