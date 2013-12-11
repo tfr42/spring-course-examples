@@ -15,12 +15,37 @@
   </logger>
   
   <logger name="org.springframework.context">
-  	<level value="TRACE"/>
+  	<level value="WARN"/>
   </logger>
   
   <logger name="org.springframework.beans">
-  	<level value="TRACE"/>
+  	<level value="WARN"/>
   </logger>
+  
+  <logger name="org.springframework.transaction">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.springframework.aop">
+  	<level value="DEBUG"/>
+  </logger>
+
+  <logger name="org.springframework.test">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.hibernate">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="java.sql">
+  	<level value="WARN"/>
+  </logger>
+  
+  <logger name="com.mchange">
+  	<level value="INFO"/>
+  </logger>
+  
   
   <logger name="net.gfu.seminar.spring.helloworld">
   	<level value="DEBUG"/>

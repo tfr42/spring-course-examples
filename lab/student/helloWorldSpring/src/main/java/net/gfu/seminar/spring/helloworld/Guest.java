@@ -1,21 +1,30 @@
 package net.gfu.seminar.spring.helloworld;
 
 import java.util.Scanner;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Guest {
-	
+
 	private String firstName;
 	private String lastName;
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	public Guest() {
-		this("","");
+		this("", "");
 	}
-	
+
 	public Guest(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
 
 	public String getName() {
 		return this.firstName + " " + this.lastName;
@@ -29,8 +38,8 @@ public class Guest {
 
 	@Override
 	public String toString() {
-		return "GuestImpl [firstName=" + firstName + ", lastName=" + lastName
-				+ "]";
+		return "Guest [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + "]";
 	}
 
 	public String getFirstName() {
@@ -47,6 +56,14 @@ public class Guest {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

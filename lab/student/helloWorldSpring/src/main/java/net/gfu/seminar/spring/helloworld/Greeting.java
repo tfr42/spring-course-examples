@@ -1,42 +1,23 @@
 package net.gfu.seminar.spring.helloworld;
 
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
 
 /**
  * Says hello to a guest.
  * 
  * @author tf
- *
+ * 
  */
+@Service
 public class Greeting {
-	
+
+	@Inject
 	private Guest guest;
-	
-	public Greeting() {
-	}
-	
-	public Greeting(Guest guest) {
-		this.setGuest(guest);
-	}
 
 	public String welcome() {
-		return String.format("Welcome %1$s to Spring!", this.getGuest());
+		return String.format("Welcome %1$s to Spring!", this.guest);
 	}
-	
-	/**
-	 * Accessor method returning the internal state.
-	 * @return
-	 */
-	public Guest getGuest() {
-		return guest;
-	}
-
-	/**
-	 * Mutator method changing the internal state.
-	 * @param guest
-	 */
-	public void setGuest(Guest guest) {
-		this.guest = guest;
-	}
-	
 
 }
