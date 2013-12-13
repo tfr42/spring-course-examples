@@ -37,7 +37,7 @@ Benötigte Software
   - SpringSource Tool Suite (Developer Edition) 3.4.0  
   oder 
   JetBrains IntelliJIDEA 12.x
-- Spring Framework 3.2.5.RELEASE 
+- Spring Framework 3.2.6.RELEASE 
 - Apache Tomcat 6.x oder 7.0.x 
 - GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
