@@ -9,6 +9,7 @@ License
 
 Continuous Integration
 ======================
-![Codeship Build status](https://www.codeship.io/projects/4b569f40-3661-0131-a8a3-428a213de519/status "Codeship status")
+[![Codeship Build status](https://www.codeship.io/projects/4b569f40-3661-0131-a8a3-428a213de519/status "Codeship status")](https://www.codeship.io)
+
 [![Travis Build Status](https://travis-ci.org/tfr42/spring-course-examples.png?branch=master)](https://travis-ci.org/tfr42/spring-course-examples)
 
