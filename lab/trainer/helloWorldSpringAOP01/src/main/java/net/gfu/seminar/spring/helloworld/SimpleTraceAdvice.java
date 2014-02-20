@@ -34,7 +34,7 @@ public class SimpleTraceAdvice {
 		System.out.println("ProceedingJoinPoint: target method:" + pjp.getSignature());
 		try {
 			Object[] args = pjp.getArgs();
-			args[0] = new GuestImpl ("Foo","42");
+			args[0] = new GuestImpl("Foo","42");
 			Object returnValue = pjp.proceed(args);
 			System.out.println(returnValue);
 		} catch (Throwable e) {
