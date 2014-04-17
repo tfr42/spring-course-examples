@@ -11,7 +11,7 @@
 	<name>helloWorldSpringORM01</name>
 	<description>Spring ORM with JPA and Hibernate</description>
 	<properties>
-		<hibernate.version>3.6.9.Final</hibernate.version>
+		<hibernate.version>4.2.9.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -21,8 +21,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -65,9 +63,9 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -75,22 +73,24 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.12.1.GA</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.22</version>
-			<scope>runtime</scope>
-			<optional>true</optional>
+  			<groupId>org.hibernate</groupId>
+  			<artifactId>hibernate-c3p0</artifactId>
+  			<version>${hibernate.version}</version>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>hibernate3</id>
+			<properties>
+				<hibernate.version>3.6.9.Final</hibernate.version>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+					<version>${hibernate.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>

@@ -1,32 +1,26 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web.jsf;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 
-@ManagedBean
-@RequestScoped
+import net.gfu.seminar.spring.helloworld.GreetingService;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("welcome")
+@Scope("request")
 public class WelcomeForm implements Serializable {
 	private static final long serialVersionUID = -1110440082884123464L;
-	private String message;
-	private GreetingService service;
-	
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	@Inject
+	private GreetingService service;
 
 	public String getMessage() {
-		if (message==null) message = service.welcome();
+		System.out.println("returning welcome message from service");
+		String message = this.service.welcome();
 		return message;
 	}
 
-	public void setService(GreetingService service) {
-		this.service = service;
-	}
-
-	public GreetingService getService() {
-		return service;
-	}
 }

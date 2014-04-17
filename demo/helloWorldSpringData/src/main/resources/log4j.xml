@@ -50,6 +50,10 @@
   	<level value="DEBUG"/>
   </logger>
 
+  <logger name="net.gfu.seminar.spring.helloworld.GuestRepositoryTest">
+  	<level value="INFO"/>
+  </logger>
+
   <root>
     <priority value="INFO" />
     <appender-ref ref="Console" />

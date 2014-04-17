@@ -14,7 +14,8 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * GenericDao implementation based on Hibernate.
+ * GenericDao implementation based on Spring Hibernate 3.x API support.
+ * 
  * @param <T> persistent type
  * @param <ID> unique identifier type
  */
@@ -32,8 +33,8 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 		return persistentClass;
 	}
 	
-	@Transactional(readOnly = true)
 	@Override
+	@Transactional(readOnly = true)
 	public T findById(ID id) {
 		return this.findById(id, false);
 	}
@@ -62,8 +63,8 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 		return entity;
 	}
 
-	@Transactional(readOnly = true)
 	@Override
+	@Transactional(readOnly = true)
 	public List<T> findAll() {
 		return findByCriteria();
 	}
@@ -82,23 +83,23 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 	
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional(readOnly = true)
 	public List<T> findByExample(T exampleEntity) {
 		List<T> list = this.getHibernateTemplate().findByExample(
 				exampleEntity);
 		return list;
 	}
 
-
+	@Override
 	@Transactional
 	public T update(T entity) {
 		this.getHibernateTemplate().saveOrUpdate(entity);
 		return entity;
 	}
 
-
 	@SuppressWarnings("unchecked")
-	@Transactional
 	@Override
+	@Transactional
 	public ID create(T entity) {
 		Serializable generatedId = this.getHibernateTemplate().save(entity);
 		return (ID) generatedId;
@@ -117,6 +118,7 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 	}
 
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	protected List<T> findByCriteria(Criterion... criterion) {
 		Criteria crit = getSession().createCriteria(getPersistentClass());
 		for (Criterion c : criterion) {
@@ -124,12 +126,15 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 		}
 		return crit.list();
 	}
+	
 	@Override
+	@Transactional
 	public void delete(T entity) {
 		this.getHibernateTemplate().delete(entity);
 	}
 
 	@Override
+	@Transactional
 	public void delete(Class<T> clazz, ID id) {
 		T entity = this.getHibernateTemplate().load(clazz, id);
 		this.getHibernateTemplate().delete(entity);
@@ -137,6 +142,7 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 	}
 
 	@Override
+	@Transactional
 	public void delete(Collection<T> entities) {
 		for (T entity : entities) {
 			this.getHibernateTemplate().delete(entity);

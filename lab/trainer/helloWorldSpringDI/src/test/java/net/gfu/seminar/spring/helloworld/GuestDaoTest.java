@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class GuestDaoTest {
 
 	private static final Logger LOG = Logger.getLogger(GuestDaoTest.class);
+	
 	@Autowired
 	private GuestDao dao;
 	

@@ -14,6 +14,7 @@ public class GuestImpl implements Guest, BeanPostProcessor, Serializable {
 	
 	private String firstName;
 	private String lastName;
+	private Long id;
 	
 	public GuestImpl() {
 		this("","");
@@ -25,7 +26,13 @@ public class GuestImpl implements Guest, BeanPostProcessor, Serializable {
 		this.lastName = lastName;
 		LOG.trace("constructor called");
 	}
-
+	
+	public GuestImpl(Long id, String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.id = id;
+	}
 
 	@Override
 	public String getName() {
@@ -83,6 +90,11 @@ public class GuestImpl implements Guest, BeanPostProcessor, Serializable {
 			throws BeansException {
 		LOG.debug("postProcessBeforeInitialization called for : "+ arg0 + " with " +arg1);
 		return arg0;
+	}
+
+	@Override
+	public Long getId() {
+		return this.id;
 	}
 
 }

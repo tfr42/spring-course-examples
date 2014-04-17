@@ -82,8 +82,8 @@ public class Greeting implements GreetingService {
 
 	@Override
 	public Guest findByName(String firstname, String lastname) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO create finder for first and lastname
+		return dao.findByName(lastname).get(0);
 	}
 
 	@Override

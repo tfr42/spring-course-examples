@@ -12,4 +12,6 @@ public interface Guest {
 	void setFirstName(String firstName);
 
 	String getFirstName();
+
+	Long getId();
 }

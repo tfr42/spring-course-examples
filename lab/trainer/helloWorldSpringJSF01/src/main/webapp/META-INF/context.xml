@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context reloadable="true">
 
-<Logger className="org.apache.catalina.logger.FileLogger"
-              prefix="beispiel4_log." suffix=".txt"
-              timestamp="true"/>
+	<Logger className="org.apache.catalina.logger.FileLogger"
+		prefix="helloWorldSpringJSF01_log." suffix=".txt" timestamp="true" />
 
-<Valve className="org.apache.catalina.valves.AccessLogValve"
-         prefix="beispiel4_access_log." suffix=".txt"
-         pattern="%t %h/%a %H: %m %U - %l %u %S /Content: %r"/>
+	<Valve className="org.apache.catalina.valves.AccessLogValve"
+		prefix="helloWorldSpringJSF01_access_log." suffix=".txt"
+		pattern="%t %h/%a %H: %m %U - %l %u %S /Content: %r" />
 
-<Resource name="jdbc/DefaultDS" auth="Container"
-            type="javax.sql.DataSource" username="sa" password=""
-            driverClassName="org.hsqldb.jdbcDriver" url="jdbc:hsqldb:hsql://localhost/testdb"
-            maxActive="8" maxIdle="4"/>
+	<Resource name="jdbc/DefaultDS" auth="Container" type="javax.sql.DataSource"
+		username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+		url="jdbc:hsqldb:hsql://localhost/testdb" maxActive="8" maxIdle="4" />
 </Context>

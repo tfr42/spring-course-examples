@@ -6,15 +6,18 @@
 	<artifactId>helloWorldRoot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<name>spring-course-examples parent POM</name>
+	<description>Spring Framework training course examples</description>
 	<properties>
 		<java.version>1.6</java.version>
-		<spring.version>3.2.6.RELEASE</spring.version>
+		<spring.version>3.2.8.RELEASE</spring.version>
 		<aspectj.version>1.7.4</aspectj.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
-		<hsqldb.version>2.3.1</hsqldb.version>
+		<hsqldb.version>2.3.2</hsqldb.version>
 		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 		<mockito.version>1.9.5</mockito.version>
+		<selenium.version>2.41.0</selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<url>http://www.gfu.net</url>
@@ -62,7 +65,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.16</version>
+					<version>2.17</version>
 					<configuration>
 						<!-- 'methods' for parallel is not the fastest way to test, but it 
 							is the best, to detect non-threadsafe code. <parallel>methods</parallel> 
@@ -76,7 +79,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.16</version>
+					<version>2.17</version>
 					<configuration>
 						<includes>
 							<include>**/*PerformanceTest.java</include>
@@ -191,6 +194,12 @@
 				</exclusions>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
@@ -295,6 +304,4 @@
 		<connection>scm:git:https://github.com/tfr42/spring-course-examples.git</connection>
 		<developerConnection>scm:git:git@github.com:tfr42/spring-course-examples.git</developerConnection>
 	</scm>
-	<name>spring-course-examples parent POM</name>
-	<description>Spring Framework training course examples</description>
 </project>

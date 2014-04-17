@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 @Component("guest")
 @Entity @Table(name="guests")
 @NamedQueries({
-	@NamedQuery(name="forName", query="from GuestImpl as g where g.lastName like ?1"),
+	@NamedQuery(name="forName", query="from Guest as g where g.lastName like ?1"),
 	})
-public class GuestImpl implements Guest, Serializable  {
+public class Guest implements Serializable  {
 	
 	private static final long serialVersionUID = 6697160661899899888L;
 	@Value("#{'Hans'}")
@@ -29,35 +29,32 @@ public class GuestImpl implements Guest, Serializable  {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	public GuestImpl() {
+	public Guest() {
 		this("","");
 	}
 	
-	public GuestImpl(String firstName, String lastName) {
+	public Guest(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
 
-	public GuestImpl(Long id, String firstName, String lastName) {
+	public Guest(Long id, String firstName, String lastName) {
 		this(firstName, lastName);
 		this.id = id;
 	}
 
-	@Override
 	public String getName() {
 		return this.firstName + " " + this.lastName;
 	}
 
-	@Override
 	public void setName(String name) {
 		Scanner scanner = new Scanner(name);
 		this.firstName = scanner.next();
 		this.lastName = scanner.next();
 	}
 
-	@Override
 	public String toString() {
 		return "GuestImpl [id=" + id + ", firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
@@ -79,7 +76,6 @@ public class GuestImpl implements Guest, Serializable  {
 		this.lastName = lastName;
 	}
 	
-	@Override
 	public Long getId() {
 		return id;
 	}

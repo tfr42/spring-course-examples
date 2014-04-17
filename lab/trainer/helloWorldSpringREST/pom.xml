@@ -9,8 +9,10 @@
 	<artifactId>helloWorldSpringREST</artifactId>
 	<packaging>war</packaging>
 	<url>http://localhost:8080/helloWorldSpringREST/</url>
+	<description>Spring MVC - RESTful Web Services</description>
+	<name>helloWorldSpringREST</name>
 	<properties>
-		<jersey.version>1.8</jersey.version>
+		<jersey.version>1.18.1</jersey.version>
 		<jackson.version>1.9.13</jackson.version>
 	</properties>
 	<build>
@@ -41,6 +43,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
@@ -62,7 +69,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -94,6 +100,4 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	<description>Spring MVC - RESTful Web Services</description>
-	<name>helloWorldSpringREST</name>
 </project>

@@ -1,4 +1,4 @@
-package net.gfu.seminar.jaxrs.helloworld;
+package net.gfu.seminar.spring.helloworld;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

@@ -10,8 +10,8 @@ public class HelloWorldRunner {
 
 	public static void main(String[] args) {
 		Guest guest = new Guest("Torsten", "Friebe");
-		Greeting reception = new Greeting(guest);
-		System.out.println(reception.welcome());
+		Greeting greeting = new Greeting(guest);
+		System.out.println(greeting.welcome());
 	}
 
 }

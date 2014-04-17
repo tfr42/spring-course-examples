@@ -1,9 +1,12 @@
 package net.gfu.seminar.spring.helloworld;
 
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -18,6 +21,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -31,6 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 public class GuestRepositoryTest {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(GuestRepositoryTest.class);
 
 	@PersistenceContext
 	private EntityManager em;
@@ -40,7 +47,7 @@ public class GuestRepositoryTest {
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("Start test");
+		LOG.trace("Start test");
 		Session session = em.unwrap(Session.class);
 		session.doWork(new Work() {
 	        @Override
@@ -54,17 +61,17 @@ public class GuestRepositoryTest {
 
 	@BeforeTransaction
 	public void beforeTransaction() {
-		System.out.println("Start Tx");
+		LOG.trace("Start Tx");
 	}
 
 	@AfterTransaction
 	public void afterTransaction() {
-		System.out.println("End Tx");
+		LOG.trace("End Tx");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("End test");
+		LOG.trace("End test");
 	}
 
 	@Test
@@ -114,5 +121,11 @@ public class GuestRepositoryTest {
 		Guest guest = guestRepository.findAll().iterator().next();
 		guestRepository.delete(guest);
 		assertNull(guestRepository.findById(guest.getId()));
+	}
+	
+	@Test
+	public void testFindByFirstOrLastNameWithValidValues() {
+		List<Guest> list = guestRepository.findByFirstNameOrLastNameLike("Anna", "Dampf");
+		assertThat(list.toString(), allOf(containsString("Anna"), containsString("Dampf")));
 	}
 }

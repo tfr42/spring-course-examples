@@ -1,17 +1,24 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web.jsf;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 
-@ManagedBean
-@RequestScoped
+import net.gfu.seminar.spring.helloworld.GreetingService;
+import net.gfu.seminar.spring.helloworld.Guest;
+import net.gfu.seminar.spring.helloworld.GuestImpl;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component("guest")
+@Scope(value="request")
 public class AddGuestForm implements Serializable {
 	private static final long serialVersionUID = 1136068035817345380L;
 	private String firstname;
 	private String lastname;
 
+	@Inject
 	private GreetingService service;
 
 	public void setFirstname(String firstname) {
@@ -32,15 +39,8 @@ public class AddGuestForm implements Serializable {
 
 	public String welcome() {
 		Guest guest = new GuestImpl(this.getFirstname(), this.getLastname());
-		getService().addGuest(guest);
+		this.service.addGuest(guest);
 		return "success";
 	}
 
-	public void setService(GreetingService service) {
-		this.service = service;
-	}
-
-	public GreetingService getService() {
-		return service;
-	}
 }

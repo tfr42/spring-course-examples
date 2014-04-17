@@ -31,6 +31,10 @@
   </logger>
   
   <logger name="org.springframework.test">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.springframework.test..context.transaction">
   	<level value="TRACE"/>
   </logger>
   
@@ -39,7 +43,11 @@
   </logger>
   
   <logger name="org.hibernate">
-  	<level value="DEBUG"/>
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.hibernate.type">
+  	<level value="WARN"/>
   </logger>
   
   <logger name="net.gfu.seminar.spring.helloworld">

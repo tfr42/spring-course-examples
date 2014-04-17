@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -7,23 +10,23 @@
 </h:head>
 <h:body>
 	<f:view>
-		<h:form>
+		<h:form id="addGuestForm">
 			<h:panelGrid columns="3" footerClass="subtitle"
 				headerClass="subtitlebig" styleClass="medium"
 				columnClasses="subtitle,medium">
 				<f:facet name="header">
 					<h:outputText value="Einladung" />
 				</f:facet>
-				<h:outputText value="Vorname" />
+				<h:outputLabel value="Vorname" for="firstname" />
 				<h:inputText id="firstname" value="#{guest.firstname}">
 					<f:validateLength minimum="1" maximum="50" />
 				</h:inputText>
-				<h:message for="firstname" style="color: red" />
-				<h:outputText value="Nachname" />
+				<h:message for="firstname" style="color:red" tooltip="true" />
+				<h:outputLabel value="Nachname" for="lastname" />
 				<h:inputText id="lastname" value="#{guest.lastname}">
 					<f:validateLength minimum="1" maximum="50" />
 				</h:inputText>
-				<h:message for="lastname" style="color: red" />
+				<h:message for="lastname" style="color:red" tooltip="true" />
 				<f:facet name="footer">
 					<h:commandButton value="Reset" type="reset" />
 					<h:commandButton value="Invite" type="submit"

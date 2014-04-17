@@ -14,7 +14,6 @@ public class ExecutionTimeAdvice {
 	private static final Logger LOG = Logger
 			.getLogger(ExecutionTimeAdvice.class);
 
-	@SuppressWarnings("unused")
 	@Pointcut("execution(* welcome(..))")
 	private void watchTime() {
 	}

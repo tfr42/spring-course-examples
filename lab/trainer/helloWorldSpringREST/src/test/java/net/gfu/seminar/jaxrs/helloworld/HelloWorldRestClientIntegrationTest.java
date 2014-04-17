@@ -1,5 +1,6 @@
 package net.gfu.seminar.jaxrs.helloworld;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 import java.net.URI;
@@ -7,7 +8,6 @@ import java.net.URI;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,7 +38,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String response = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_PLAIN).get(String.class);
 		System.out.println("REST response= " + response);
-		assertThat(response, CoreMatchers.containsString("Hello, World!"));
+		assertThat(response, containsString("Hello, World!"));
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String xmlResponse = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_XML).get(String.class);
 		System.out.println("REST response= " + xmlResponse);
-		assertThat(xmlResponse, CoreMatchers.containsString("Hello, World!"));
+		assertThat(xmlResponse, containsString("Hello, World!"));
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String response = resource.path("rest").path("helloworld").path("Anna")
 				.accept(MediaType.TEXT_PLAIN).get(String.class);
 		System.out.println("REST response= " + response);
-		assertThat(response, CoreMatchers.containsString("Hello, Anna!"));
+		assertThat(response, containsString("Hello, Anna!"));
 	}
 	
 	@Test
@@ -62,7 +62,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String response = resource.path("rest").path("helloworld").path("guest").path("Klara").path("Fall")
 				.accept(MediaType.APPLICATION_JSON).get(String.class);
 		System.out.println("REST response= " + response);
-		assertThat(response, CoreMatchers.containsString("\"firstName\":\"Klara\""));
+		assertThat(response, containsString("\"firstName\":\"Klara\""));
 	}
 
 	private static URI getBaseURI() {

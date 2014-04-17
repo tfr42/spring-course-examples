@@ -1,8 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Says hello to a guest.
@@ -10,17 +8,13 @@ import org.springframework.stereotype.Component;
  * @author tf
  *
  */
-@Component("welcome")
+@Service
 public class Greeting implements GreetingService {
 	
-	private Guest guest;
+	private GuestDao dao;
 	
-	public Greeting() {
-	}
-	
-	@Autowired
-	public Greeting(@Qualifier("birthdayChild") Guest guest) {
-		this.setGuest(guest);
+	public Greeting(GuestDao dao) {
+		this.dao = dao;
 	}
 
 	/* (non-Javadoc)
@@ -28,25 +22,7 @@ public class Greeting implements GreetingService {
 	 */
 	@Override
 	public String welcome() {
-		//throw new UnsupportedOperationException("Not implemented");
-		return String.format("Welcome %1$s to Spring!", this.getGuest());
+		return String.format("Welcome %1$s to Spring!", this.dao.findAll());
 	}
-	
-	/**
-	 * Accessor method returning the internal state.
-	 * @return
-	 */
-	public Guest getGuest() {
-		return guest;
-	}
-
-	/**
-	 * Mutator method changing the internal state.
-	 * @param guest
-	 */
-	public void setGuest(Guest guest) {
-		this.guest = guest;
-	}
-	
 
 }

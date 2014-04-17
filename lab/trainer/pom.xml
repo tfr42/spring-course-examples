@@ -8,6 +8,8 @@
   </parent>
   <artifactId>trainer</artifactId>
   <packaging>pom</packaging>
+  <name>trainer</name>
+  <description>Trainer workspace</description>
   <modules>
     <module>helloWorldSpringAOP01</module>
     <module>helloWorldSpringAOP02</module>
@@ -28,13 +30,11 @@
     <module>helloWorldSpringMVC02</module>
     <module>helloWorldSpringORM01</module>
     <module>helloWorldSpringREST</module>
+    <module>helloWorldSpringRMI01</module>
     <module>helloWorldSpringSEC01</module>
     <module>helloWorldSpringTEST01</module>
     <module>helloWorldSpringTEST02</module>
     <module>helloWorldSpringTX01</module>
     <module>helloWorldSpringTX02</module>
-    <module>helloWorldSpringRMI01</module>
   </modules>
-  <description>Trainer workspace</description>
-  <name>trainer</name>
 </project>
