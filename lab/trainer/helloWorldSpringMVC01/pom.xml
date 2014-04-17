@@ -9,6 +9,8 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringMVC01</artifactId>
 	<packaging>war</packaging>
+	<name>helloWorldSpringMVC01</name>
+	<description>Spring MVC with Annotations and XML-based configuration</description>
 	<url>http://localhost:8080/helloWorldSpringMVC01/</url>
 	<build>
 		<finalName>helloWorldSpringMVC01</finalName>
@@ -42,11 +44,9 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.gfu.seminar.spring.helloworld</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>helloWorldSpringDI</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -98,6 +98,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<name>helloWorldSpringMVC01</name>
-	<description>Spring MVC with Annotations and XML-based configuration</description>
 </project>

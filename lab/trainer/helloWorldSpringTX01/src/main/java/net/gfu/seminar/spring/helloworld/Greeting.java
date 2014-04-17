@@ -2,8 +2,6 @@ package net.gfu.seminar.spring.helloworld;
 
 import java.util.List;
 
-import javax.sql.DataSource;
-
 /**
  * Says hello to a guest.
  * 
@@ -13,7 +11,6 @@ import javax.sql.DataSource;
 public class Greeting implements GreetingService {
 
 	private GuestDao dao;
-	private DataSource dataSource;
 
 	public Greeting(GuestDao dao) {
 		this.dao = dao;
@@ -26,16 +23,6 @@ public class Greeting implements GreetingService {
 	 */
 	@Override
 	public String welcome() {
-//		TransactionStatus transactionStatus = TransactionAspectSupport.currentTransactionStatus();
-//		Connection connection = DataSourceUtils.getConnection(getDataSource());
-//		try {
-//			boolean isolationLevel = connection.getMetaData().supportsTransactionIsolationLevel(Connection.TRANSACTION_NONE);
-//			System.out.println(isolationLevel);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}// FIXME not done!
-		
 		List<Guest> all = this.dao.findAll();
 		String guestNames = all.toString();
 		return String.format("Welcome %1$s to Spring!", guestNames);
@@ -81,14 +68,6 @@ public class Greeting implements GreetingService {
 	@Override
 	public Guest findById(Long id) {
 		return dao.findById(id);
-	}
-
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
-
-	public DataSource getDataSource() {
-		return dataSource;
 	}
 
 }

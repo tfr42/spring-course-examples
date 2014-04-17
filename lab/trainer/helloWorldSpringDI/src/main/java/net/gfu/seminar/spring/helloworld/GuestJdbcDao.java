@@ -11,21 +11,25 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 	private SimpleJdbcInsert insertGuest;
-
+	
+	@Autowired
 	public GuestJdbcDao(final DataSource dataSource) {
 		this.setDataSource(dataSource);
 		this.insertGuest = new SimpleJdbcInsert(dataSource).withTableName("GUESTS").
@@ -104,6 +108,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	@Override
 	public List<Guest> findAll() {
 		String sql = "SELECT id, firstname, lastname FROM guests";
+		LOG.debug(sql);
 		RowMapper<Guest> rowMapper = createRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}

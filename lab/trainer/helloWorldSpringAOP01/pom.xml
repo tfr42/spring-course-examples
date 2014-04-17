@@ -8,10 +8,8 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringAOP01</artifactId>
-	<packaging>jar</packaging>
-
 	<name>helloWorldSpringAOP01</name>
-
+	<description>Spring AOP with XML-based configuration</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -20,8 +18,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -49,5 +45,4 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
-	<description>Spring AOP with XML-based configuration</description>
 </project>

@@ -9,7 +9,7 @@ import org.springframework.core.io.Resource;
  * HelloWorld using Spring Framework BeanFactory.
  * 
  * @author tf
- * @see <a href="http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
+ * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
 public class HelloWorldRunnerWithSpring {
 
@@ -25,7 +25,7 @@ public class HelloWorldRunnerWithSpring {
 		BeanFactory beanFactory = new XmlBeanFactory(resource); 
 		
 		// here we retrieve an instance of Greeting from the Spring BeanFactory
-		Greeting greeting = (Greeting) beanFactory.getBean("greeting");
+		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
 		
 		System.out.println(greeting.welcome());
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface GuestDao {
 	
-	int create(Guest guest);
+	Long create(Guest guest);
 
 	Guest findById(Long id);
 

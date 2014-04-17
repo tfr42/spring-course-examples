@@ -9,7 +9,7 @@
 		<!-- <property name="guest" ref="guest" /> -->
 	</bean>
 
-	<bean id="guest1" name="aguest"
+	<bean id="guest1" name="guest"
 		class="net.gfu.seminar.spring.helloworld.GuestImpl">
 		<property name="name" value="Anna Gramm" />
 	</bean>

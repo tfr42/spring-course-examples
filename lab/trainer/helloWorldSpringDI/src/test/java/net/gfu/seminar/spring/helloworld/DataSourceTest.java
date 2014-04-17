@@ -38,7 +38,7 @@ public class DataSourceTest {
 	}
 	
 	@Test
-	public void testPlainJdbcQuery() throws ClassNotFoundException, SQLException {
+	public void testPlainJdbcQuery() throws SQLException {
 		Connection con = ds.getConnection();
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT firstname, lastname FROM guests");

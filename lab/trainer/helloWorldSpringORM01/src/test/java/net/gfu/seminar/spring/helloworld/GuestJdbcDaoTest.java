@@ -22,18 +22,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:/persistenceLayer.xml"})
-//@ContextConfiguration(classes={ApplicationConfig.class})
-@ActiveProfiles(profiles={"jdbc"}) // choose between jdbc, hibernate, jpa
-@Transactional(isolation=Isolation.REPEATABLE_READ)
-@TransactionConfiguration(defaultRollback=true)
+@ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
+@ActiveProfiles(profiles = { "jdbc" })
+// choose between jdbc, hibernate3, hibernate, jpa
+@Transactional
+@TransactionConfiguration(defaultRollback = true)
 public class GuestJdbcDaoTest {
 	@Autowired
 	private DataSource dataSource;
+
 	@Autowired
 	private GuestDao dao;
 	private JdbcTemplate jt;
@@ -45,12 +46,12 @@ public class GuestJdbcDaoTest {
 		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Anna','Gramm')");
 		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Hans','Dampf')");
 	}
-	
+
 	@BeforeTransaction
 	public void beforeTransaction() {
 		System.out.println("Before Tx");
 	}
-	
+
 	@AfterTransaction
 	public void afterTransaction() {
 		System.out.println("After Tx");
@@ -60,15 +61,15 @@ public class GuestJdbcDaoTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test 
-	@Transactional(isolation=Isolation.SERIALIZABLE,propagation=Propagation.REQUIRED,readOnly=false)
+	@Test
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void testCreate() {
-		Guest guest = new GuestImpl("Rainer" , "Fall");
-		assertEquals(1, dao.create(guest));
+		Guest guest = new Guest("Rainer", "Fall");
+		assertNotNull(dao.create(guest));
 	}
 
-	@Test 
-	@Transactional(isolation=Isolation.SERIALIZABLE,propagation=Propagation.REQUIRED)
+	@Test
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void testFindById() {
 		Long id = dao.findByName("Dampf").get(0).getId();
 		assertNotNull(dao.findById(id));
@@ -81,11 +82,13 @@ public class GuestJdbcDaoTest {
 		assertFalse(list.isEmpty());
 	}
 
-	@Test @Rollback(false)
+	@Test
+	@Rollback(true)
 	public void testFindAll() {
 		List<Guest> all = dao.findAll();
+		System.out.println(all);
 		assertNotNull(all);
-		assertTrue( all.size()>0);
+		assertTrue(all.size() > 0);
 		assertEquals(3, all.size());
 	}
 
@@ -94,15 +97,25 @@ public class GuestJdbcDaoTest {
 		Guest guest = dao.findAll().get(0);
 		guest.setName("Peter Lustig");
 		dao.update(guest);
-		assertEquals("Peter", jt.queryForObject("SELECT firstname from guests where id="+guest.getId(), String.class));
-		assertEquals("Lustig", jt.queryForObject("SELECT lastname from guests where id="+guest.getId(), String.class));
+		assertEquals(
+				"Peter",
+				jt.queryForObject("SELECT firstname from guests where id="
+						+ guest.getId(), String.class));
+		assertEquals(
+				"Lustig",
+				jt.queryForObject("SELECT lastname from guests where id="
+						+ guest.getId(), String.class));
 	}
 
 	@Test
+	@Transactional
 	public void testDelete() {
 		Guest guest = dao.findAll().get(0);
 		dao.delete(guest);
-		assertEquals(0, jt.queryForInt("SELECT count(id) from guests where id="+guest.getId()));
+		assertEquals(
+				0,
+				jt.queryForInt("SELECT count(id) from guests where id="
+						+ guest.getId()));
 	}
 
 }

@@ -18,7 +18,6 @@ public class SpecialGuest extends GuestImpl {
 	private String mailAddress;
 	
 	public SpecialGuest() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public SpecialGuest(String firstname, String lastname, String emailaddress) {

@@ -2,12 +2,15 @@ package net.gfu.seminar.spring.helloworld;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Says hello to a guest.
  * 
  * @author tf
  *
  */
+@Service
 public class Greeting implements GreetingService {
 	
 	private Guest guest;

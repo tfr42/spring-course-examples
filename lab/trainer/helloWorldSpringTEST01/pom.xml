@@ -9,6 +9,7 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringTEST01</artifactId>
 	<name>helloWorldSpringTEST01</name>
+	<description>Spring TestContext Framework and JUnit with XML-based configuration</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -17,7 +18,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -41,5 +41,4 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
-	<description>Spring TestContext Framework and JUnit with XML-based configuration</description>
 </project>

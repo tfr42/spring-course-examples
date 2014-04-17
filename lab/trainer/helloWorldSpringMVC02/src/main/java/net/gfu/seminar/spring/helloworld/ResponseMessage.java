@@ -7,7 +7,6 @@ public class ResponseMessage {
 	private String text;
 
 	public ResponseMessage() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ResponseMessage(String string) {

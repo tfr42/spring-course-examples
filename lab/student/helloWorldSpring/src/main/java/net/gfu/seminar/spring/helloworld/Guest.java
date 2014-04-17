@@ -1,6 +1,12 @@
 package net.gfu.seminar.spring.helloworld;
 
 import java.util.Scanner;
+/**
+ * An instance of <code>Guest</code> represents an entity of a guest.
+ *  
+ * @author tf
+ *
+ */
 public class Guest {
 	
 	private String firstName;
@@ -25,6 +31,7 @@ public class Guest {
 		Scanner scanner = new Scanner(name);
 		this.firstName = scanner.next();
 		this.lastName = scanner.next();
+		scanner.close();
 	}
 
 	@Override

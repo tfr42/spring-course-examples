@@ -13,6 +13,7 @@
 	<url>http://localhost:8080/helloWorldSpringWebServices/HelloWorldService.wsdl</url>
 	<properties>
 		<spring-ws.version>2.1.4.RELEASE</spring-ws.version>
+		<spring.version>3.2.4.RELEASE</spring.version>
 	</properties>
 	<build>
 		<plugins>

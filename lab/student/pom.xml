@@ -8,9 +8,9 @@
   </parent>
   <artifactId>student</artifactId>
   <packaging>pom</packaging>
+  <name>student</name>
+  <description>Student workspace</description>
   <modules>
     <module>helloWorldSpring</module>
   </modules>
-  <description>Student workspace</description>
-  <name>student</name>
 </project>

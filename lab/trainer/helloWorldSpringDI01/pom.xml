@@ -9,6 +9,7 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringDI01</artifactId>
 	<name>helloWorldSpringDI01</name>
+	<description>Spring DI with XML</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -30,10 +31,5 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
 	</dependencies>
-	<description>Spring DI with XML</description>
 </project>

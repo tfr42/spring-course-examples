@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * HelloWorld using Dependency Injection based on Spring Framework.
  * 
  * @author tf
- * @see <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
+ * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  * @see  org.springframework.beans.factory.BeanFactory
  */
 public class HelloWorldRunnerWithSpringJavaConfig {
@@ -18,6 +18,7 @@ public class HelloWorldRunnerWithSpringJavaConfig {
 		GreetingService greeting = context.getBean(GreetingService.class);
 		
 		System.out.println(greeting.welcome());
+		context.close();
 
 	}
 

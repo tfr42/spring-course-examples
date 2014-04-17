@@ -8,10 +8,10 @@
   </parent>
   <artifactId>lab</artifactId>
   <packaging>pom</packaging>
+  <name>lab</name>
+  <description>Labs workspace</description>
   <modules>
     <module>student</module>
     <module>trainer</module>
   </modules>
-  <description>Labs workspace</description>
-  <name>lab</name>
 </project>

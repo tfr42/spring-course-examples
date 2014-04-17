@@ -48,26 +48,45 @@ public class GuestJdbcDao implements GuestDao {
 
 	@Override
 	public List<Guest> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE lastname=?";
+		Object[] args = new Object[] { name };
+		List<Guest> list = this.jt.query(sql, createRowMapper(), args);
+		return list;
 	}
 
 	@Override
 	public List<Guest> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT id, firstname, lastname FROM GUESTS";
+		Object[] args = new Object[] {  };
+		List<Guest> list = this.jt.query(sql, createRowMapper(), args);
+		return list;
 	}
 
 	@Override
 	public Guest update(Guest guest) {
-		// TODO Auto-generated method stub
-		return null;
+		if (guest.getId() == null) {
+			this.create(guest);
+		}
+		String sql = "UPDATE guests SET  firstname = ?, lastname=? WHERE id = ?";
+		Object[] args = new Object[] { guest.getFirstName(), guest.getLastName(), guest.getId() };
+		int updatedRows = this.jt.update(sql, args);
+		return guest;
 	}
 
 	@Override
 	public void remove(Guest guest) {
-		// TODO Auto-generated method stub
-
+		String sql = "DELETE FROM GUESTS WHERE id = ?";
+		Object[] args = new Object[] { guest.getId() };
+		int updatedRows = this.jt.update(sql, args);
+	}
+	
+	private RowMapper<Guest> createRowMapper() {
+		return new RowMapper<Guest>() {
+			@Override
+			public Guest mapRow(ResultSet rs, int row) throws SQLException {
+				return new GuestImpl(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"));
+			}
+		};
 	}
 
 }
