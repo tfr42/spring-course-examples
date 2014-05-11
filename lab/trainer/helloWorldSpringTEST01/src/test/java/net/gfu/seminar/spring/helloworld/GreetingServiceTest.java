@@ -1,6 +1,5 @@
 package net.gfu.seminar.spring.helloworld;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.apache.log4j.Logger;
@@ -12,9 +11,9 @@ import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class GreetingTest {
+public class GreetingServiceTest {
 
-	private static final Logger LOG = Logger.getLogger(GreetingTest.class);
+	private static final Logger LOG = Logger.getLogger(GreetingServiceTest.class);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -26,14 +25,14 @@ public class GreetingTest {
 		LOG.info("tearDownAfterClass");
 	}
 	
-	private Greeting greeting;
+	private GreetingService greeting;
 	private ConfigurableApplicationContext beanFactory;
 
 	@Before
 	public void setUp() throws Exception {
 		LOG.info("setUp");
-		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml", "testData.xml");
-		this.greeting =  beanFactory.getBean("welcome", Greeting.class);
+		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
+		this.greeting =  beanFactory.getBean(GreetingService.class);
 	}
 
 	@After
@@ -44,14 +43,8 @@ public class GreetingTest {
 
 	@Test
 	public void testWelcome() {
-		assertNotNull(greeting.welcome());
 		LOG.debug(greeting.welcome());
-	}
-
-	@Test
-	public void testGetGuest() {
-		assertNotNull(greeting.getGuest());
-		assertEquals("Hans Dampf", greeting.getGuest().getName());
+		assertNotNull(greeting.welcome());
 	}
 
 }

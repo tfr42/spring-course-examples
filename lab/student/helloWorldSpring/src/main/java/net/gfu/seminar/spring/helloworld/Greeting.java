@@ -2,7 +2,7 @@ package net.gfu.seminar.spring.helloworld;
 
 
 /**
- * Says hello to a guest.
+ * ServiceFacade which says hello to a guest. 
  * 
  * @author tf
  *

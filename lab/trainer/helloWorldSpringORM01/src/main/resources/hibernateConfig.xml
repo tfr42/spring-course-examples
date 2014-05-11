@@ -3,14 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-	<description>Hibernate session factory configuration</description>
+	<description>Hibernate 4.x integration</description>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<array>
-				<value>net.gfu.seminar.spring.helloworld.GuestImpl</value>
+				<value>net.gfu.seminar.spring.helloworld.Guest</value>
 			</array>
 		</property>
 		<property name="hibernateProperties">
@@ -22,13 +22,12 @@
 		</property>
 	</bean>
 
-	<bean id="guestHibernateDao" class="net.gfu.seminar.spring.helloworld.GuestHibernateDao"
-		autowire-candidate="true">
-		<property name="sessionFactory" ref="sessionFactory" />
+	<bean id="guestHibernateDao" class="net.gfu.seminar.spring.helloworld.GuestHibernateDao">
+		<constructor-arg ref="sessionFactory" />
 	</bean>
 
 	<bean id="hibernateTransactionManager" name="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 

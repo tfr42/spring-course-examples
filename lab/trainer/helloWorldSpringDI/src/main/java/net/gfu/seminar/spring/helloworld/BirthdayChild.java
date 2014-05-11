@@ -12,7 +12,6 @@ public class BirthdayChild extends GuestImpl {
 	private Date dayOfBirth;
 
 	public BirthdayChild() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public BirthdayChild(String firstName, String lastName, Date dayOfBirth) {

@@ -7,16 +7,17 @@ Konventionen
 Bitte notieren Sie sich zu Beginn fuer die Übungen die Pfade zu folgenden Verzeichnissen:
  *	Netzlaufwerk auf dem die Software abgelegt ist:
  
-__________________________________ [DOWNLOAD_PATH]
-Wenn auf dieses Verzeichnis im folgenden verwiesen wird, dann ist dies durch [DOWNLOAD_PATH] gekennzeichnet. Fragen Sie bitte den Dozenten nach dem Ordner auf dem Netzlaufwerk.
- *	Lokales Verzeichnis auf dem Schulungsrechner, wo die Software installiert ist:
+ [DOWNLOAD_PATH]: __________________________________ 
+ Wenn auf dieses Verzeichnis im folgenden verwiesen wird, dann ist dies durch [DOWNLOAD_PATH] gekennzeichnet. Fragen Sie bitte den Dozenten nach dem Ordner auf dem Netzlaufwerk.
+ 
+ *	Lokales Verzeichnis auf dem Schulungsrechner, in dem die Software-Pakete installiert sind:
 
-__________________________________ [INSTALL_PATH]
-(Default: C:/schulung/software).
+ [INSTALL_PATH]: __________________________________  (Default: C:/schulung/software)
+ 
  *	Und das lokale Verzeichnis in dem sich der Eclipse Workspace befindet:
 
-__________________________________ [WORKSPACE_PATH] 
-(Default: C:/schulung/workspace).
+ [WORKSPACE_PATH]: __________________________________ (Default: C:/schulung/workspace)  
+
 
 Vorbereitung
 ------------
@@ -29,26 +30,28 @@ Entwicklungsumgebung einrichten
 -------------------------------
 Benötigte Software
 - Java SE 6.0 (JDK 6 Update 45) oder Java SE 7u45
-- Maven 3.1.1
-- Installation von Eclipse 3.8.2 (Eclipse IDE for Java EE Developers - Juno ) incl. der Plug-ins:
-  -	Spring IDE 3.4.0 
+- Maven 3.2.1
+- Installation von Eclipse 3.8.2 (Eclipse IDE for Java EE Developers - Juno ) oder höher incl. der Plug-ins:
+  -	Spring IDE 3.5.0 
   -	m2e Plugin 1.4.0
   oder 
-  - SpringSource Tool Suite (Developer Edition) 3.4.0  
+  - SpringSource Tool Suite (Developer Edition) 3.5.0  
   oder 
-  JetBrains IntelliJIDEA 12.x
-- Spring Framework 3.2.5.RELEASE 
-- Apache Tomcat 6.x oder 7.0.x 
+  JetBrains IntelliJIDEA 13.x
+- Apache Tomcat 7.x oder 8.x 
 - GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
 
 Übungen
 =======
 Im Unterverzeichnis 
- /demo 			- sind kleine Beispiel-Anwendungen auf Basis von Spring-basierten Projekten wie SpringBatch
+ /demo 			- sind kleine Beispiel-Anwendungen auf Basis von Spring-basierten Projekten wie z.B. SpringBatch
  /lab/student	- der Workspace mit den Aufgaben für den Teilnehmer
  /lab/trainer	- der Workspace mit den Lösungen vom Trainer
  
+Wichtige Maven Befehle:
+----------------------- 
+
  Prüfen des Workspace:
  mvn validate
  
@@ -70,9 +73,17 @@ Im Unterverzeichnis
  
  UNIX:
  export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m"
-  
+ 
+ Projekt-Template erzeugen und nutzen:
+ cd lab/student/helloWorldSpring/
+ mvn archetype:create-from-project
+ cd target/generated-sources/archetype
+ mvn install
+ cd lab/student/
+ mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
  
 Starten der HSQLDB:
+-------------------
  Im Unterverzeichnis lab/src/main/scripts befinden sich  Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
  Windows:
   lab/src/main/script/startDB.cmd
@@ -86,11 +97,3 @@ Starten der HSQLDB:
 
  UNIX:
   lab/src/main/script/startDBManager.sh
-
-Projekt-Template erzeugen und nutzen:
- cd lab/student/helloWorldSpring/
- mvn archetype:create-from-project
- cd target/generated-sources/archetype
- mvn install
- cd lab/student/
- mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT

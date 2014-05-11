@@ -20,7 +20,7 @@
      <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet>
-  	<description>Jersey REST Servlet (RI) JAX-RS 1.0</description>
+  	<description>Jersey REST Servlet (RI) JAX-RS 1.1</description>
   	<servlet-name>Jersey REST Service</servlet-name>
   	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
   	<init-param>

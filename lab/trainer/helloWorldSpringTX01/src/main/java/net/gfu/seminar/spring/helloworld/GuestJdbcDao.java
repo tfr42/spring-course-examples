@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class GuestJdbcDao extends SimpleJdbcDaoSupport implements GuestDao {
+public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 
@@ -18,7 +18,7 @@ public class GuestJdbcDao extends SimpleJdbcDaoSupport implements GuestDao {
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
 				guest.getLastName() };
-		int updatedRows = this.getSimpleJdbcTemplate().update(sql, args);
+		int updatedRows = this.getJdbcTemplate().update(sql, args);
 		LOG.debug(updatedRows + " rows updated");
 		return updatedRows;
 	}
@@ -28,7 +28,7 @@ public class GuestJdbcDao extends SimpleJdbcDaoSupport implements GuestDao {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE id=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { id };
-		List<Guest> list = this.getSimpleJdbcTemplate().query(sql,
+		List<Guest> list = this.getJdbcTemplate().query(sql,
 				createRowMapper(), args);
 		if (list.size() > 0)
 			return list.get(0);
@@ -40,7 +40,7 @@ public class GuestJdbcDao extends SimpleJdbcDaoSupport implements GuestDao {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE lastname=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { name };
-		List<Guest> list = this.getSimpleJdbcTemplate().query(sql,
+		List<Guest> list = this.getJdbcTemplate().query(sql,
 				createRowMapper(), args);
 		return list;
 	}
@@ -50,7 +50,7 @@ public class GuestJdbcDao extends SimpleJdbcDaoSupport implements GuestDao {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS";
 		LOG.debug(sql);
 		Object[] args = new Object[] {};
-		List<Guest> list = this.getSimpleJdbcTemplate().query(sql,
+		List<Guest> list = this.getJdbcTemplate().query(sql,
 				createRowMapper(), args);
 		return list;
 	}

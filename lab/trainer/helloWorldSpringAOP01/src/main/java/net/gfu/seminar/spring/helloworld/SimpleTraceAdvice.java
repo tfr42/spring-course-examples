@@ -38,7 +38,6 @@ public class SimpleTraceAdvice {
 			Object returnValue = pjp.proceed(args);
 			System.out.println(returnValue);
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
