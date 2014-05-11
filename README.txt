@@ -82,6 +82,14 @@ Wichtige Maven Befehle:
  cd lab/student/
  mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
  
+ Projekt aktualisieren:
+ Abhängigkeiten aktualisieren:
+ mvn versions:display-dependency-updates
+ 
+ Plugins aktualisieren:
+ mvn versions:display-plugin-updates
+ mvn versions:use-latest-versions
+ 
 Starten der HSQLDB:
 -------------------
  Im Unterverzeichnis lab/src/main/scripts befinden sich  Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
