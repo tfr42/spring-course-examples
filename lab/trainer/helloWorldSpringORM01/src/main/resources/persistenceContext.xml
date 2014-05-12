@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<context:property-placeholder location="classpath:/jdbc.properties" />
 
@@ -18,21 +18,21 @@
 	</bean>
 	
 	<!-- Profiles are activated by unit tests -->
-	<beans profile="jdbc">
-		<import resource="jdbcConfig.xml" />
-		<alias name="guestJdbcDao" alias="guestDao"/>
-	</beans>
-	<beans profile="hibernate">
-		<import resource="hibernateConfig.xml" />
-		<alias name="guestHibernateDao" alias="guestDao"/>
-	</beans>
-	<beans profile="hibernate3">
+<!-- 	<beans profile="jdbc"> -->
+<!-- 		<import resource="jdbcConfig.xml" /> -->
+<!-- 		<alias name="guestJdbcDao" alias="guestDao"/> -->
+<!-- 	</beans> -->
+<!-- 	<beans profile="hibernate"> -->
+<!-- 		<import resource="hibernateConfig.xml" /> -->
+<!-- 		<alias name="guestHibernateDao" alias="guestDao"/> -->
+<!-- 	</beans> -->
+<!-- 	<beans profile="hibernate3"> -->
 		<import resource="hibernate3Config.xml" />
 		<alias name="guestGenericHibernateDao" alias="guestDao"/>
-	</beans>
-	<beans profile="jpa">
-		<import resource="jpaConfig.xml" />
-		<alias name="guestJpaDao" alias="guestDao"/>
-	</beans>
+<!-- 	</beans> -->
+<!-- 	<beans profile="jpa"> -->
+<!-- 		<import resource="jpaConfig.xml" /> -->
+<!-- 		<alias name="guestJpaDao" alias="guestDao"/> -->
+<!-- 	</beans> -->
 
 </beans>

@@ -50,8 +50,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE id=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { id };
-		List<Guest> list = this.getJdbcTemplate().query(sql, createRowMapper(),
-				args);
+		List<Guest> list = this.getJdbcTemplate().query(sql, args, createRowMapper());
 		if (list.size() > 0)
 			return list.get(0);
 		return null;
@@ -62,8 +61,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE lastname=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { name };
-		List<Guest> list = this.getJdbcTemplate().query(sql, createRowMapper(),
-				args);
+		List<Guest> list = this.getJdbcTemplate().query(sql, args, createRowMapper());
 		return list;
 	}
 
@@ -99,8 +97,8 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	}
 
-	private RowMapper<Guest> createRowMapper() {
-		return new RowMapper<Guest>() {
+	private RowMapper createRowMapper() {
+		return new RowMapper() {
 			@Override
 			public Guest mapRow(ResultSet rs, int rowNum) throws SQLException {
 				return new Guest(rs.getLong("id"),

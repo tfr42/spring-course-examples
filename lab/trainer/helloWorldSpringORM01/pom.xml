@@ -81,6 +81,9 @@
 	<profiles>
 		<profile>
 			<id>hibernate3</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<hibernate.version>3.6.9.Final</hibernate.version>
 			</properties>

@@ -13,28 +13,28 @@
   <modules>
     <module>helloWorldSpringAOP01</module>
     <module>helloWorldSpringAOP02</module>
-    <module>helloWorldSpringAOP03</module>
-    <module>helloWorldSpringCACHE01</module>
-    <module>helloWorldSpringDI</module>
+<!--     <module>helloWorldSpringAOP03</module> -->
+<!--     <module>helloWorldSpringCACHE01</module> -->
+<!--     <module>helloWorldSpringDI</module> -->
     <module>helloWorldSpringDI01</module>
     <module>helloWorldSpringDI05</module>
     <module>helloWorldSpringDI06</module>
     <module>helloWorldSpringDI07</module>
     <module>helloWorldSpringDI08</module>
-    <module>helloWorldSpringDI09</module>
+<!--     <module>helloWorldSpringDI09</module> -->
     <module>helloWorldSpringJDBC01</module>
-    <module>helloWorldSpringJDBC02</module>
-    <module>helloWorldSpringJMS</module>
-    <module>helloWorldSpringJSF01</module>
-    <module>helloWorldSpringMVC01</module>
-    <module>helloWorldSpringMVC02</module>
+<!--     <module>helloWorldSpringJDBC02</module> -->
+<!--     <module>helloWorldSpringJMS</module> -->
+<!--     <module>helloWorldSpringJSF01</module> -->
+<!--     <module>helloWorldSpringMVC01</module> -->
+<!--     <module>helloWorldSpringMVC02</module> -->
     <module>helloWorldSpringORM01</module>
-    <module>helloWorldSpringREST</module>
+<!--     <module>helloWorldSpringREST</module> -->
     <module>helloWorldSpringRMI01</module>
-    <module>helloWorldSpringSEC01</module>
+<!--     <module>helloWorldSpringSEC01</module> -->
     <module>helloWorldSpringTEST01</module>
-    <module>helloWorldSpringTEST02</module>
+<!--     <module>helloWorldSpringTEST02</module> -->
     <module>helloWorldSpringTX01</module>
-    <module>helloWorldSpringTX02</module>
+<!--     <module>helloWorldSpringTX02</module> -->
   </modules>
 </project>

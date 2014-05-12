@@ -11,7 +11,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("guest")
@@ -22,9 +21,7 @@ import org.springframework.stereotype.Component;
 public class Guest implements Serializable  {
 	
 	private static final long serialVersionUID = 6697160661899899888L;
-	@Value("#{'Hans'}")
 	private String firstName;
-	@Value("#{'Fall'}")
 	private String lastName;
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

@@ -26,7 +26,7 @@ public class HelloWorldRunnerWithSpring {
 		BeanFactory beanFactory = new XmlBeanFactory(resource); 
 		
 		// Here we retrieve an instance of Greeting from the Spring BeanFactory
-		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
+		Greeting greeting = (Greeting) beanFactory.getBean("greeting", Greeting.class);
 		
 		System.out.println(greeting.welcome());
 	}

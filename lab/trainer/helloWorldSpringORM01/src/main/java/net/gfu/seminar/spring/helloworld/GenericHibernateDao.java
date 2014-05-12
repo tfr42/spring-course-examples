@@ -136,7 +136,7 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> extends H
 	@Override
 	@Transactional
 	public void delete(Class<T> clazz, ID id) {
-		T entity = this.getHibernateTemplate().load(clazz, id);
+		Object entity = this.getHibernateTemplate().load(clazz, id);
 		this.getHibernateTemplate().delete(entity);
 
 	}

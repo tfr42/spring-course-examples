@@ -19,8 +19,8 @@ public class HelloWorldRunnerWithSpringAndAnnotation {
 		
 		// creates all bean instances
 		ctx.refresh(); 
-		
-		System.out.println((ctx.getBean("greeting",GreetingService.class)).welcome());
+		GreetingService greeting = (GreetingService) ctx.getBean("greeting",GreetingService.class);
+		System.out.println(greeting.welcome());
 		ctx.close();
 	}
 }
