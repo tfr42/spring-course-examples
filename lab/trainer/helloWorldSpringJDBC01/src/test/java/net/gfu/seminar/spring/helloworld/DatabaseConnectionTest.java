@@ -19,13 +19,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/persistenceLayer.xml"})
-
 public class DatabaseConnectionTest {
 	
 	@Autowired
 	private DataSource dataSource;
 
-	@Test @Timed(millis=1000) 
+	@Test @Timed(millis=1000) @DirtiesContext
 	public void testConnectionWithTimeout() throws SQLException {
 		assertNotNull(dataSource);
 		Connection connection = dataSource.getConnection();
