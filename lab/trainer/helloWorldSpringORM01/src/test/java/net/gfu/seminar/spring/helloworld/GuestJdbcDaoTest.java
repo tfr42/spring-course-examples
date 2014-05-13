@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,7 +90,7 @@ public class GuestJdbcDaoTest {
 		assertEquals(3, all.size());
 	}
 
-	@Test
+	@Test @Ignore
 	public void testUpdate() {
 		Guest guest = dao.findAll().get(0);
 		guest.setName("Peter Lustig");
@@ -104,7 +105,7 @@ public class GuestJdbcDaoTest {
 						+ guest.getId(), String.class));
 	}
 
-	@Test
+	@Test @Ignore
 	@Transactional
 	public void testDelete() {
 		Guest guest = dao.findAll().get(0);

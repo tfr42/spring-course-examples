@@ -24,7 +24,7 @@ public class DatabaseConnectionTest {
 	@Autowired
 	private DataSource dataSource;
 
-	@Test @Timed(millis=1000)
+	@Test @Timed(millis=1000) @DirtiesContext
 	public void testConnectionWithTimeout() throws SQLException {
 		assertNotNull(dataSource);
 		Connection connection = dataSource.getConnection();
