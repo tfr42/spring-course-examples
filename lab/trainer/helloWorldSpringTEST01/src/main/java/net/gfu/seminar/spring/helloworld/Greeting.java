@@ -24,6 +24,7 @@ public class Greeting implements GreetingService {
 	 */
 	@Override
 	public String welcome() {
+		if (this.guest == null) throw new IllegalArgumentException("No guest available. Please invite someone!");
 		String guestNames = this.guest.getName();
 		return String.format("Welcome %1$s to Spring!", guestNames);
 	}

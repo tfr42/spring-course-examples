@@ -13,7 +13,7 @@
 	<aop:config>
 		<aop:pointcut id="welcomePointcut" expression="execution(* welcome(..))" />
 		
-		<aop:advisor advice-ref="globalPerformance" pointcut-ref="welcomePointcut" order="1"/>
+		<aop:advisor advice-ref="globalPerformance" pointcut-ref="welcomePointcut" order="1001"/>
 		<aop:advisor advice-ref="globalDebug" pointcut-ref="welcomePointcut" order="10"/>
 		<aop:advisor advice-ref="globalTrace" pointcut-ref="welcomePointcut" order="100"/>
 		

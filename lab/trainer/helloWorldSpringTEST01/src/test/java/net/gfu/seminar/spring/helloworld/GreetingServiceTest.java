@@ -32,7 +32,7 @@ public class GreetingServiceTest {
 	public void setUp() throws Exception {
 		LOG.info("setUp");
 		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.greeting =  beanFactory.getBean(GreetingService.class);
+		this.greeting =  (GreetingService) beanFactory.getBean("greeting", GreetingService.class);
 	}
 
 	@After
