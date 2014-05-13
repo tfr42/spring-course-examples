@@ -63,5 +63,4 @@ public class GuestImpl implements Guest {
 	public Long getId() {
 		return id;
 	}
-
 }
