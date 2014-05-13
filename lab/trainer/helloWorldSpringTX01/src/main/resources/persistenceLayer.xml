@@ -4,8 +4,11 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
@@ -19,15 +22,18 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-<!-- 	<jdbc:initialize-database data-source="dataSource" -->
-<!-- 		ignore-failures="ALL"> -->
-<!-- 		<jdbc:script location="classpath:drop_hsql_schema.sql" /> -->
-<!-- 		<jdbc:script location="classpath:create_hsql_schema.sql" /> -->
-<!-- 	</jdbc:initialize-database> -->
-
 	<bean id="dao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<util:list id="scripts">
+			<value>classpath:drop_hsql_schema.sql</value>
+			<value>classpath:create_hsql_schema.sql</value>
+			<value>classpath:insert_testdata_hsql.sql</value>
+	</util:list>
+
+	<bean id="databaseInitializer" class="net.gfu.seminar.spring.helloworld.DatabaseInitializer"
+		p:dataSource-ref="dataSource" p:resources-ref="scripts" init-method="init" />
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
