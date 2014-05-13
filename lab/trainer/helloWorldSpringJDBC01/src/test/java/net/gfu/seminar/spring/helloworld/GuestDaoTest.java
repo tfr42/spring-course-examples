@@ -1,6 +1,8 @@
 package net.gfu.seminar.spring.helloworld;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.allOf;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -39,14 +41,15 @@ public class GuestDaoTest {
 	@Test
 	public void testFindByName() {
 		String name = "Dampf";
-		List<Guest> list = dao.findByName(name);
-		assertFalse(list.isEmpty());
+		List<Guest> actual = dao.findByName(name);
+		assertFalse(actual.isEmpty());
+		assertThat(actual.toString(), containsString("Dampf"));
 	}
 
 	@Test
 	public void testFindAll() {
-		List<Guest> all = dao.findAll();
-		assertEquals(1, all.size());
+		List<Guest> actual = dao.findAll();
+		assertThat(actual.toString(), allOf(containsString("Hans"), containsString("Dampf")));
 	}
 
 	@Test

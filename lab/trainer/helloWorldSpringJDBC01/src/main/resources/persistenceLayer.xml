@@ -23,20 +23,13 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<util:list id="scripts" value-type="ClassPathResource">
-		<bean class="org.springframework.core.io.ClassPathResource">
-			<constructor-arg value="drop_hsql_schema.sql" />
-		</bean>
-		<bean class="org.springframework.core.io.ClassPathResource">
-			<constructor-arg value="create_hsql_schema.sql" />
-		</bean>
-		<bean class="org.springframework.core.io.ClassPathResource">
-			<constructor-arg value="insert_hsql_schema.sql" />
-		</bean>
+	<util:list id="scripts">
+			<value>classpath:drop_hsql_schema.sql</value>
+			<value>classpath:create_hsql_schema.sql</value>
+			<value>classpath:insert_testdata_hsql.sql</value>
 	</util:list>
 
 	<bean id="databaseInitializer" class="net.gfu.seminar.spring.helloworld.DatabaseInitializer"
 		p:dataSource-ref="dataSource" p:resources-ref="scripts" init-method="init" />
-
 
 </beans>

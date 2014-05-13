@@ -35,8 +35,8 @@ public class GuestImpl implements Guest {
 
 	@Override
 	public String toString() {
-		return "GuestImpl [firstName=" + firstName + ", lastName=" + lastName
-				+ "]";
+		return "GuestImpl [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + "]";
 	}
 
 	@Override
@@ -63,4 +63,5 @@ public class GuestImpl implements Guest {
 	public Long getId() {
 		return id;
 	}
+
 }
