@@ -39,19 +39,22 @@ public class GuestDaoTest {
 
 	@Test
 	public void testFindById() {
-		Long id = null;
-		dao.findById(id);
+		Long id = Long.valueOf(1);
+		assertNotNull(dao.findById(id));
 	}
 
 	@Test
 	public void testFindByName() {
-		String name = null;
-		dao.findByName(name);
+		String name = "Dampf";
+		List<Guest> actual = dao.findByName(name);
+		assertFalse(actual.isEmpty());
+		assertThat(actual.toString(), containsString("Dampf"));
 	}
 
 	@Test
 	public void testFindAll() {
-		dao.findAll();
+		List<Guest> actual = dao.findAll();
+		assertThat(actual.toString(), allOf(containsString("Hans"), containsString("Dampf")));
 	}
 
 	@Test
