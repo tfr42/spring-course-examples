@@ -30,7 +30,7 @@ public class HelloWorldEndpointTest {
 	}
 
 	@Test
-	public void customerEndpoint() throws Exception {
+	public void testGuestEndpoint() throws Exception {
 		Source requestPayload = new StringSource(
 				"<typ:helloRequest xmlns:typ='http://helloworld.gfu.net/types'>"
 						+ "<firstname>Hans</firstname>"
