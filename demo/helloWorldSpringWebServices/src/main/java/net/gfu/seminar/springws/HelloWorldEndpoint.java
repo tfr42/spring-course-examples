@@ -41,7 +41,7 @@ public class HelloWorldEndpoint {
 		return responseType;
 	}
 
-//	@PayloadRoot(localPart = "helloRequest", namespace = NAMESPACE_URI)
+//	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "helloRequest")
 //	@ResponsePayload
 	public Element hello(@RequestPayload Element requestElement) {
 		StringResult requestElementAsString = new StringResult();

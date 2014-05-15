@@ -2,6 +2,7 @@ package net.gfu.seminar.springws;
 
 import static org.springframework.ws.test.server.RequestCreators.withPayload;
 import static org.springframework.ws.test.server.ResponseMatchers.payload;
+import static org.springframework.ws.test.server.ResponseMatchers.validPayload;
 
 import javax.xml.transform.Source;
 
@@ -10,6 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ws.test.server.MockWebServiceClient;
@@ -41,7 +44,9 @@ public class HelloWorldEndpointTest {
 						+ "<return>Hello, Hans Dampf!</return>"
 						+ "</ns3:helloResponse>");
 
-		mockClient.sendRequest(withPayload(requestPayload)).andExpect(
-				payload(responsePayload));
+		Resource schemaResource = new ClassPathResource("types.xsd");
+		mockClient.sendRequest(withPayload(requestPayload)).
+			andExpect(validPayload(schemaResource)).
+			andExpect(payload(responsePayload));
 	}
 }
