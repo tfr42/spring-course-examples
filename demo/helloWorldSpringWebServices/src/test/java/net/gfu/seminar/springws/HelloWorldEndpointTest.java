@@ -1,10 +1,14 @@
 package net.gfu.seminar.springws;
 
+import static org.junit.Assert.assertEquals;
 import static org.springframework.ws.test.server.RequestCreators.withPayload;
 import static org.springframework.ws.test.server.ResponseMatchers.payload;
 import static org.springframework.ws.test.server.ResponseMatchers.validPayload;
 
 import javax.xml.transform.Source;
+
+import net.gfu.helloworld.types.HelloRequest;
+import net.gfu.helloworld.types.HelloResponse;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -45,8 +49,19 @@ public class HelloWorldEndpointTest {
 						+ "</ns3:helloResponse>");
 
 		Resource schemaResource = new ClassPathResource("types.xsd");
+		
 		mockClient.sendRequest(withPayload(requestPayload)).
 			andExpect(validPayload(schemaResource)).
 			andExpect(payload(responsePayload));
+	}
+	
+	@Test
+	public void testHelloMethod() {
+		HelloWorldEndpoint endpoint = new HelloWorldEndpoint();
+		HelloRequest request = new HelloRequest();
+		request.setFirstname("Karl");
+		request.setLastname("Kopf");
+		HelloResponse response = endpoint.hello(request);
+		assertEquals(response.getReturn(), "Hello, Karl Kopf!");
 	}
 }
