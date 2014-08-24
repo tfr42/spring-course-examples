@@ -11,9 +11,11 @@
   <modules>
     <module>dynamicProxy</module>
     <module>helloWorldSpringBatch</module>
+    <module>helloWorldSpringBatchAdmin</module>
+    <module>helloWorldSpringBatchService</module>
+    <module>helloWorldSpringData</module>
     <module>helloWorldSpringIntegration</module>
     <module>helloWorldSpringWebServices</module>
-    <module>helloWorldSpringData</module>
   </modules>
   <description>Demo workspace</description>
   <name>demo</name>

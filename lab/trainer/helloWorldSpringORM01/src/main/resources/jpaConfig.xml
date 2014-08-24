@@ -3,17 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<description>JPA 2.0 Entity Manager Factory integration</description>
+	<description>JPA 1.0 Entity Manager Factory integration</description>
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="helloWorldSpring" />
 		<property name="dataSource" ref="dataSource" />
-		<property name="jpaPropertyMap">
-           <map>
-            <entry key="hibernate.connection.release_mode" value="on_close"/>
-           </map>
-        </property>
+<!-- 		<property name="jpaPropertyMap"> -->
+<!-- 			<map> -->
+<!-- 				<entry key="hibernate.connection.release_mode" value="on_close" /> -->
+<!-- 			</map> -->
+<!-- 		</property> -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -24,11 +24,13 @@
 		</property>
 	</bean>
 
-	<bean id="guestJpaDao" class="net.gfu.seminar.spring.helloworld.GuestJpaDao"/>
+	<bean id="guestJpaDao" class="net.gfu.seminar.spring.helloworld.GuestJpaDao" />
 
-	<bean id="jpaTransactionManager" name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	<bean id="jpaTransactionManager" name="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 </beans>

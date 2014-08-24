@@ -22,17 +22,13 @@
 <!-- 		<import resource="jdbcConfig.xml" /> -->
 <!-- 		<alias name="guestJdbcDao" alias="guestDao"/> -->
 <!-- 	</beans> -->
-<!-- 	<beans profile="hibernate"> -->
-<!-- 		<import resource="hibernateConfig.xml" /> -->
-<!-- 		<alias name="guestHibernateDao" alias="guestDao"/> -->
-<!-- 	</beans> -->
 <!-- 	<beans profile="hibernate3"> -->
-		<import resource="hibernate3Config.xml" />
-		<alias name="guestGenericHibernateDao" alias="guestDao"/>
+<!-- 		<import resource="hibernate3Config.xml" /> -->
+<!-- 		<alias name="guestGenericHibernateDao" alias="guestDao"/> -->
 <!-- 	</beans> -->
 <!-- 	<beans profile="jpa"> -->
-<!-- 		<import resource="jpaConfig.xml" /> -->
-<!-- 		<alias name="guestJpaDao" alias="guestDao"/> -->
+		<import resource="jpaConfig.xml" />
+		<alias name="guestJpaDao" alias="guestDao"/>
 <!-- 	</beans> -->
 
 </beans>

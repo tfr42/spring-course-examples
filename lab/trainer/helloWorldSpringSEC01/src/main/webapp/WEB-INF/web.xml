@@ -33,4 +33,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <resource-ref>
+  	<res-ref-name>jdbc/DefaultDS</res-ref-name>
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Application</res-auth>
+  	<mapped-name>jdbc/DefaultDS</mapped-name>
+  </resource-ref>
 </web-app>

@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Repository implementation based on plain Hibernate 4.x API.
+ * Repository implementation based on plain Hibernate 3.x API.
  * 
  * @author tf
  *

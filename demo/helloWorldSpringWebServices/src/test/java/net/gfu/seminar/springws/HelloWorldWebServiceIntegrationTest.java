@@ -21,7 +21,7 @@ public class HelloWorldWebServiceIntegrationTest {
 
 	@Autowired
 	private WebServiceTemplate webServiceTemplate;
-	
+
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -31,12 +31,14 @@ public class HelloWorldWebServiceIntegrationTest {
 	}
 
 	@Test
-		public void testSimpleSendAndReceive() {
-			HelloRequest requestPayload = new HelloRequest();
-			requestPayload.setFirstname("Hans");
-			requestPayload.setLastname("Dampf");
-			HelloResponse receivePayload = (HelloResponse) webServiceTemplate.marshalSendAndReceive(requestPayload);
-			assertThat(receivePayload.getReturn(), allOf(containsString("Hans"), containsString("Dampf")));
+	public void testSimpleSendAndReceive() {
+		HelloRequest requestPayload = new HelloRequest();
+		requestPayload.setFirstname("Hans");
+		requestPayload.setLastname("Dampf");
+		HelloResponse receivePayload = (HelloResponse) webServiceTemplate
+				.marshalSendAndReceive(requestPayload);
+		assertThat(receivePayload.getReturn(),
+				allOf(containsString("Hans"), containsString("Dampf")));
 	}
 
 }

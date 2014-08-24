@@ -27,7 +27,9 @@ import org.w3c.dom.NodeList;
 
 @Endpoint
 public class HelloWorldEndpoint {
+	
 	private static final String NAMESPACE_URI = "http://helloworld.gfu.net/types";
+	
 	private static final Logger LOG = Logger
 			.getLogger(HelloWorldEndpoint.class);
 

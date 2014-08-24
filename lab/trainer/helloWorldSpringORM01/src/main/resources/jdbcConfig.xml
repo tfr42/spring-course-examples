@@ -11,12 +11,6 @@
 
 	<description>JDBC DAO support with Spring's JdbcTemplate</description>
 	
-	<jdbc:initialize-database data-source="dataSource"
-		ignore-failures="ALL" enabled="true">
-		<jdbc:script location="classpath:/drop_hsql_schema.sql" />
-		<jdbc:script location="classpath:/create_hsql_schema.sql" />
-	</jdbc:initialize-database>
-
 	<bean id="guestJdbcDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
