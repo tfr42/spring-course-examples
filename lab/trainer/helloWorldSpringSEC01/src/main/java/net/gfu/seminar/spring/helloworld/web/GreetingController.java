@@ -26,12 +26,6 @@ public class GreetingController {
 	@Autowired
 	private GreetingService service;
 
-	@RequestMapping(value="/add", method = RequestMethod.GET)
-	public String setupForm(Model model) {
-		model.addAttribute(new AddGuestForm());
-		return "/guest/add";
-	}
-	
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	public String welcome(Model model) {
@@ -39,7 +33,13 @@ public class GreetingController {
 		return "/guest/welcome";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/add", method = RequestMethod.GET)
+	public String setupForm(Model model) {
+		model.addAttribute(new AddGuestForm());
+		return "/guest/add";
+	}
+	
+	@RequestMapping(value="/add", method = RequestMethod.POST)
 	@Secured("ROLE_ADMIN")
 	public ModelAndView processForm(@ModelAttribute @Valid AddGuestForm addGuestForm,
 				BindingResult result) {
