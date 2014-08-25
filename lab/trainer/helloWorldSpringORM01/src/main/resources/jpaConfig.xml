@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-	<description>JPA Entity Manager Factory configured via Spring DI
-	</description>
+	<description>JPA 2.0 Entity Manager Factory integration</description>
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -12,8 +11,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaPropertyMap">
            <map>
-            <entry key="hibernate.connection.release_mode" value="on_close">
-            </entry>
+            <entry key="hibernate.connection.release_mode" value="on_close"/>
            </map>
         </property>
 		<property name="jpaVendorAdapter">
@@ -26,12 +24,11 @@
 		</property>
 	</bean>
 
-	<bean id="guestJpaDao" class="net.gfu.seminar.spring.helloworld.GuestJpaDao"
-		autowire-candidate="true">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
+	<bean id="guestJpaDao" class="net.gfu.seminar.spring.helloworld.GuestJpaDao"/>
 
 	<bean id="jpaTransactionManager" name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 </beans>

@@ -48,11 +48,6 @@ public class JPAConfiguration {
 	}
 
 	@Bean
-	public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
-		return entityManagerFactory.createEntityManager();
-	}
-
-	@Bean
 	public PlatformTransactionManager transactionManager() throws SQLException {
 		JpaTransactionManager txManager = new JpaTransactionManager();
 		txManager.setEntityManagerFactory(entityManagerFactory());

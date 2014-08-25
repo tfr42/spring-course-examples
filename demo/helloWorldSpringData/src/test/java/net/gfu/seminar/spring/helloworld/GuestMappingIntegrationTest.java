@@ -20,10 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class GuestMappingIntegrationTest {
 
 	@Autowired
-	EntityManager manager;
+	private EntityManager manager;
 
 	@Test
-	public void thatItemCustomMappingWorks() throws Exception {
+	public void verifyThatItemCustomMappingWorks() throws Exception {
 		assertTableExists(manager, "GUEST");
 		assertTableHasColumn(manager, "GUEST", "FIRSTNAME");
 		assertTableHasColumn(manager, "GUEST", "LASTNAME");

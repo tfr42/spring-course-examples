@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 	<url>http://localhost:8080/helloWorldSpringREST/</url>
 	<properties>
-		<jersey.version>1.8</jersey.version>
+		<jersey.version>1.9.1</jersey.version>
 		<jackson.version>1.9.13</jackson.version>
 	</properties>
 	<build>
@@ -51,8 +51,8 @@
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+  			<artifactId>javax.servlet-api</artifactId>
+  			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -62,8 +62,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>

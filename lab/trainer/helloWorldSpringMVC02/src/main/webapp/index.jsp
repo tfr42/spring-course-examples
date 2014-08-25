@@ -22,7 +22,7 @@
 <ul>
 <li><a href="rest/greeting/to/Hans%20Dampf">Say hello to (Plain text)</a>
 <li><a href="rest/greeting/Hans/Dampf">Say hello to (XML)</a>
-<li><a href="rest/greeting/find/1">Find Guest by ID (XML)</a>
+<li><a href="rest/greeting/1">Find Guest by ID (XML)</a>
 </ul>
 <br><hr>
 <h3>Spring WebApplicationContext</h3>

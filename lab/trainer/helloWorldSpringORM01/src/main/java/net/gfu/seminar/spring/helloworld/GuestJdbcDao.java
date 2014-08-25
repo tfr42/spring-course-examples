@@ -13,12 +13,21 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * Repository implementation based on Spring JdbcDaoSupport and JdbcTemplate.
+ * 
+ * @author tf
+ *
+ */
 @Repository
+@Transactional
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 
 	@Override
-	public int create(final Guest guest) {
+	public Long create(final Guest guest) {
 		final String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		final KeyHolder keyHolder = new GeneratedKeyHolder();
 		final PreparedStatementCreator psc = new PreparedStatementCreator() {
@@ -33,9 +42,9 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		};
 		int updatedRows = this.getJdbcTemplate().update(psc, keyHolder);
 		LOG.debug(updatedRows + " rows updated");
-		((GuestImpl) guest).setId(keyHolder.getKey().longValue());
+		((Guest) guest).setId(keyHolder.getKey().longValue());
 		LOG.debug("Retrieved primary key value '"+keyHolder.getKey()+"' for "+ guest);
-		return updatedRows;
+		return keyHolder.getKey().longValue();
 	}
 
 	@Override
@@ -96,7 +105,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		return new RowMapper<Guest>() {
 			@Override
 			public Guest mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new GuestImpl(rs.getLong("id"),
+				return new Guest(rs.getLong("id"),
 						rs.getString("firstname"), rs.getString("lastname"));
 			}
 		};

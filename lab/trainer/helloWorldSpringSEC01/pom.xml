@@ -12,8 +12,8 @@
 	<description>Spring MVC with Spring Security</description>
 	<url>http://localhost:8080/helloWorldSpringSEC01/</url>
 	<properties>
-		<spring.version>3.0.7.RELEASE</spring.version>
-		<spring-security.version>3.1.4.RELEASE</spring-security.version>
+		<spring.version>3.2.8.RELEASE</spring.version>
+		<spring-security.version>3.2.3.RELEASE</spring-security.version>
 	</properties>
 	<build>
 		<plugins>
@@ -44,7 +44,7 @@
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
-			<groupId>net.gfu.seminar.spring.helloworld</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>helloWorldSpringDI</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -105,7 +105,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.37.1</version>
+			<version>${selenium.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

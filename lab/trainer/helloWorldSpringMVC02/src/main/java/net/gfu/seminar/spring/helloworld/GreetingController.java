@@ -73,7 +73,7 @@ public class GreetingController {
 		return new ResponseMessage("Hello, " + firstname + " " + lastname + "!");
 	}
 
-	@RequestMapping(value = "/{guestId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{guestId}", method = RequestMethod.GET, produces="text/xml")
 	public @ResponseBody
 	ResponseMessage findKundeById(@PathVariable String guestId) {
 		LOG.debug("findbyId " + guestId);

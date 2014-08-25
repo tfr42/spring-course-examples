@@ -2,26 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-		<property name="customEditors">
-			<map>
-				<entry key="java.util.Date">
-					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
-						<constructor-arg>
-							<bean class="java.text.SimpleDateFormat">
-								<constructor-arg value="dd.MM.yyyy" />
-							</bean>
-						</constructor-arg>
-						<constructor-arg value="false" />
-					</bean>
-				</entry>
-			</map>
-		</property>
+		<property name="propertyEditorRegistrars">
+	        <list>
+	            <bean class="net.gfu.seminar.spring.helloworld.CustomDateEditorRegistrar"/>
+	        </list>
+	    </property>
 	</bean>
-
+	
 	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<property name="guest" ref="birthdayChild" />
 	</bean>
@@ -43,9 +34,9 @@
 	</bean>
 
 	<util:list id="guestList">
-		<ref local="birthdayChild"/>
-		<ref local="guest"/>
-		<ref local="guest2"/>
+		<ref bean="birthdayChild"/>
+		<ref bean="guest"/>
+		<ref bean="guest2"/>
 	</util:list>
 
 	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance" />

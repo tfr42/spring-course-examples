@@ -19,7 +19,7 @@ import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:/persistenceLayer.xml"})
+@ContextConfiguration(locations={"classpath:/persistenceContext.xml"})
 @DirtiesContext(classMode=ClassMode.AFTER_EACH_TEST_METHOD)
 public class DatabaseConnectionTest {
 	
