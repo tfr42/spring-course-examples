@@ -9,7 +9,7 @@ import org.springframework.core.io.Resource;
  * HelloWorld using Spring Framework BeanFactory.
  * 
  * @author tf
- * @see <a href="http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
+ * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
 public class HelloWorldRunnerWithSpring {
 
