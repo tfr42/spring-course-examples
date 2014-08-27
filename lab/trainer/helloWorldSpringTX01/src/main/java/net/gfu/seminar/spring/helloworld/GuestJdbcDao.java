@@ -79,7 +79,6 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	private RowMapper<Guest> createRowMapper() {
-
 		return new RowMapper<Guest>() {
 			@Override
 			public Guest mapRow(ResultSet rs, int row) throws SQLException {

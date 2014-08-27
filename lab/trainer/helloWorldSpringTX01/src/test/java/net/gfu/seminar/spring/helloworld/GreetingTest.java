@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/applicationContext.xml", "classpath:/tracingAdvice.xml", "classpath:/persistenceLayer.xml" })
@@ -50,31 +51,31 @@ public class GreetingTest {
 		assertNotNull(welcome);
 		LOG.debug(welcome);
 	}
-
-	@Test
-	public void testGetGuest() {
-		assertNotNull(greeting.findAll());
-		//assertEquals("Hans Dampf", greeting.getGuest().getName());
-	}
 	
-	@Test public void testCreateNewGuest() {
+	@Test @Transactional 
+	public void testCreateNewGuest() {
 		this.greeting.addGuest(new GuestImpl("Hans", "Dampf"));
 	}
 	
-	@Test public void findAll() { 
+	@Test 
+	public void findAll() { 
 		List<Guest> all = this.greeting.findAll();
+		assertNotNull(all);
 	}
 
-	@Test public void findByName() {
-		String firstname = null;
-		String lastname = null;
+	@Test
+	public void findByName() {
+		String firstname = "Hans";
+		String lastname = "Dampf";
 		Guest guest = this.greeting.findByName(firstname, lastname);
+		assertNotNull(guest);
 	}
 
-	@Test public void findById() {
-		Long id = null;
+	@Test
+	public void findById() {
+		Long id = 1l;
 		Guest guest = this.greeting.findById(id);
-		
+		assertNotNull(guest);
 	}
 
 }

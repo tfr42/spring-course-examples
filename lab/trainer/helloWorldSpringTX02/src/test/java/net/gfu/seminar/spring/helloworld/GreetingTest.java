@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ApplicationConfig.class,
@@ -47,11 +48,12 @@ public class GreetingTest {
 
 	@Test
 	public void testWelcome() {
-		assertNotNull(greeting.welcome());
-		LOG.debug(greeting.welcome());
+		String welcome = greeting.welcome();
+		assertNotNull(welcome);
+		LOG.debug(welcome);
 	}
 
-	@Test
+	@Test @Transactional
 	public void testCreateNewGuest() {
 		this.greeting.addGuest(new GuestImpl("Hans", "Dampf"));
 	}

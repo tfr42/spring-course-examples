@@ -14,11 +14,19 @@
   	<level value="WARN"/>
   </logger>
   
+  <logger name="org.springframework.aop">
+  	<level value="DEBUG"/>
+  </logger>
+  
   <logger name="org.springframework.context">
-  	<level value="TRACE"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.beans">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.springframework.transaction">
   	<level value="TRACE"/>
   </logger>
   
@@ -26,8 +34,8 @@
   	<level value="DEBUG"/>
   </logger>
   
-  <logger name="org.springframework.transaction">
-  	<level value="TRACE"/>
+  <logger name="org.springframework.test.context.transaction">
+  	<level value="DEBUG"/>
   </logger>
   
   <logger name="net.gfu.seminar.spring.helloworld">

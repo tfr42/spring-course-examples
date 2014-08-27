@@ -17,7 +17,8 @@
 		<property name="maxWait" value="1000" />
 	</bean>
 	
-	<!-- Profiles are activated by unit tests -->
+	<!-- Profiles are activated by @ActiveProfiles in unit tests 
+	     or via 'spring.profiles.active' system property -->
 	<beans profile="jdbc">
 		<import resource="jdbcConfig.xml" />
 		<alias name="guestJdbcDao" alias="guestDao"/>
