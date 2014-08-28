@@ -289,8 +289,16 @@
 		</plugins>
 	</reporting>
 	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
 		<site>
-			<id>helloWorldSpring.website</id>
+			<id>local.website</id>
 			<name>helloWorldSpring Website</name>
 			<url>file:///${user.home}/Sites/helloWorldSpring</url>
 		</site>
