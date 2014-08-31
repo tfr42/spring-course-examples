@@ -51,7 +51,13 @@ Im Unterverzeichnis
  
 Wichtige Maven Befehle:
 ----------------------- 
-
+ Maven mehr Speicher zuweisen mit:
+ Windows:
+ set MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m"
+ 
+ UNIX:
+ export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m"
+ 
  Prüfen des Workspace:
  mvn validate
  
@@ -67,13 +73,9 @@ Wichtige Maven Befehle:
  Öffnen der Dokumentation im Web-Browser:
  file:///$USER_HOME/Sites/helloWorldSpring/index.html
  
- Maven mehr Speicher zuweisen mit:
- Windows:
- set MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m"
- 
- UNIX:
- export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m"
- 
+ Projekt archivieren:
+ mvn assembly:assembly -DdescriptorId=project
+
  Projekt-Template erzeugen und nutzen:
  cd lab/student/helloWorldSpring/
  mvn archetype:create-from-project
