@@ -30,8 +30,8 @@
   	<level value="DEBUG"/>
   </logger>
   
-  <logger name="org.springframework.data">
-  	<level value="DEBUG"/>
+  <logger name="org.springframework.web">
+  	<level value="TRACE"/>
   </logger>
   
   <logger name="net.gfu.seminar.spring.helloworld">
