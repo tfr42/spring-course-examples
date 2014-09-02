@@ -79,7 +79,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		if (guest.getId() == null) {
 			this.create(guest);
 		} else {
-			String sql = "UPDATE guests SET  firstname = ?, lastname=? WHERE id = ?";
+			String sql = "UPDATE guests SET firstname = ?, lastname=? WHERE id = ?";
 			LOG.debug(sql);
 			Object[] args = new Object[] { guest.getFirstName(),
 					guest.getLastName(), guest.getId() };
