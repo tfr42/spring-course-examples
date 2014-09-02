@@ -14,10 +14,6 @@
   	<level value="WARN"/>
   </logger>
   
-  <logger name="org.springframework.aop">
-  	<level value="DEBUG"/>
-  </logger>
-  
   <logger name="org.springframework.context">
   	<level value="INFO"/>
   </logger>
@@ -29,24 +25,24 @@
   <logger name="org.springframework.transaction">
   	<level value="TRACE"/>
   </logger>
-  
+
   <logger name="org.springframework.jdbc">
-  	<level value="DEBUG"/>
+  	<level value="TRACE"/>
   </logger>
   
-  <logger name="org.springframework.test.context.transaction">
-  	<level value="DEBUG"/>
+  <logger name="org.springframework.test">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.apache.ibatis">
+  	<level value="INFO"/>
+  </logger>
+  
+  <logger name="org.mybatis.spring">
+  	<level value="TRACE"/>
   </logger>
   
   <logger name="net.gfu.seminar.spring.helloworld">
-  	<level value="INFO"/>
-  </logger>
-
-  <logger name="net.gfu.seminar.spring.helloworld.SimpleTraceAdvice">
-  	<level value="DEBUG"/>
-  </logger>
-  
-  <logger name="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
   	<level value="DEBUG"/>
   </logger>
 

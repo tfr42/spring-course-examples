@@ -1,13 +1,17 @@
 package net.gfu.seminar.spring.helloworld;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
@@ -19,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/applicationContext.xml","classpath:/persistenceLayer.xml", "classpath:/testData.xml"})
 @Transactional
-@TransactionConfiguration(defaultRollback=true)
+@TransactionConfiguration(defaultRollback = true)
 public class GuestDaoTest {
 
 	private static final Logger LOG = Logger.getLogger(GuestDaoTest.class);
@@ -39,29 +43,31 @@ public class GuestDaoTest {
 
 	@Test
 	public void testFindById() {
-		Long id = null;
-		dao.findById(id);
+		Long id = Long.valueOf(1);
+		assertNotNull(dao.findById(id));
 	}
 
 	@Test
 	public void testFindByName() {
-		String name = null;
-		dao.findByName(name);
+		String name = "Dampf";
+		List<Guest> list = dao.findByName(name);
+		assertFalse(list.isEmpty());
 	}
 
 	@Test
 	public void testFindAll() {
-		dao.findAll();
+		List<Guest> all = dao.findAll();
+		assertEquals(1, all.size());
 	}
 
 	@Test
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void testUpdate() {
 		dao.update(testDataGuest);
 	}
 
 	@Test
 	@Transactional(isolation=Isolation.SERIALIZABLE, propagation=Propagation.REQUIRED)
-	@Rollback(true)
 	public void testRemove() {
 		dao.remove(testDataGuest);
 	}

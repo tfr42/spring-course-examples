@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,27 +25,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 public class GuestDaoTest {
-	
+
+	private static final Logger LOG = Logger.getLogger(GuestDaoTest.class);
+
 	@Autowired
 	private GuestDao dao;
 	
 	@Autowired
 	@Qualifier("guest")
 	private Guest testDataGuest;
-	
-	@Autowired
-	private PlatformTransactionManager tx;
-	
-	@BeforeTransaction
-	public void beforeTx() {
-		System.out.println("Start TX");
-		System.out.println(tx);
-	}
-	
-	@AfterTransaction
-	public void afterTx() {
-		System.out.println("End TX");
-	}
 	
 	@Test
 	public void testCreate() {
@@ -68,7 +57,7 @@ public class GuestDaoTest {
 	@Test
 	public void testFindAll() {
 		List<Guest> all = dao.findAll();
-		assertEquals(2, all.size());
+		assertEquals(1, all.size());
 	}
 
 	@Test
@@ -78,8 +67,16 @@ public class GuestDaoTest {
 	}
 
 	@Test
+	@Transactional(isolation=Isolation.SERIALIZABLE, propagation=Propagation.REQUIRED)
 	public void testRemove() {
 		dao.remove(testDataGuest);
 	}
+
+	@BeforeTransaction public void beforeTransaction() {
+		LOG.info("Transaction begins ...");
+	}
 	
+	@AfterTransaction public void afterTransaction() {
+		LOG.info("Transaction ends ...");
+	}
 }
