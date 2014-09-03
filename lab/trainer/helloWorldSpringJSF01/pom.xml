@@ -15,7 +15,12 @@
 	<build>
 		<plugins>
 			<plugin>
-  	        	<groupId>org.eclipse.jetty</groupId>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+			</plugin>
+			<!-- 
+			<plugin>
+                <groupId>org.eclipse.jetty</groupId>
   				<artifactId>jetty-maven-plugin</artifactId>
   				<version>9.2.2.v20140723</version>
   				<configuration>
@@ -51,6 +56,7 @@
 						</execution>
 					</executions>
   			</plugin>
+  			 -->
 		</plugins>
 	</build>
 	<dependencies>
