@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>helloWorldSpring</module>
+    <module>helloWorldWeb</module>
   </modules>
   <description>Student workspace</description>
   <name>student</name>

@@ -22,6 +22,14 @@
   	<level value="TRACE"/>
   </logger>
   
+  <logger name="org.springframework.jdbc">
+  	<level value="TRACE"/>
+  </logger>
+  
+  <logger name="org.springframework.transaction">
+  	<level value="TRACE"/>
+  </logger>
+  
   <logger name="net.gfu.seminar.spring.helloworld">
   	<level value="DEBUG"/>
   </logger>
