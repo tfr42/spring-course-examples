@@ -27,6 +27,7 @@
     <module>helloWorldSpringMVC01</module>
     <module>helloWorldSpringMVC02</module>
     <module>helloWorldSpringORM01</module>
+    <module>helloWorldSpringORM02</module>
     <module>helloWorldSpringREST</module>
     <module>helloWorldSpringSEC01</module>
     <module>helloWorldSpringTEST01</module>

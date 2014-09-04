@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<description>JPA 2.0 Entity Manager Factory integration</description>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="net.gfu.seminar.spring.helloworld"/>
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+		<property name="jpaPropertyMap" ref="jpaPropertyMap"/>
+	</bean>
+
+	<bean id="guestJpaDao" class="net.gfu.seminar.spring.helloworld.GuestJpaDao"/>
+
+	<bean id="jpaTransactionManager" name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+	
+	<bean id="abstractVendorAdaptor" abstract="true" 
+		p:showSql="true" p:generateDdl="true" p:database="${jpa.database}" />
+	
+	<beans profile="hibernateEntityManager">
+		<bean id="hibernateJpaAdapter" name="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" parent="abstractVendorAdaptor">
+				<property name="databasePlatform" value="${hibernate.dialect}" />
+		</bean>
+		<util:map id="jpaPropertyMap">
+	        <entry key="hibernate.connection.release_mode" value="on_close"/>
+		</util:map>
+	</beans>
+	
+	<beans profile="eclipseLink">
+		<bean id="eclipseLinkJpaAdapter" name="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter" parent="abstractVendorAdaptor">
+				<property name="databasePlatform" value="${eclipseLink.dialect}" />
+		</bean>
+		<util:map id="jpaPropertyMap">
+		    <entry key="eclipselink.weaving" value="false"/>
+		</util:map>
+	</beans>
+
+	<beans profile="openJpa">
+		<bean id="openJpaAdapter" name="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter" parent="abstractVendorAdaptor">
+				<property name="databasePlatform" value="${openJpa.dialect}" />
+		</bean>
+		<util:map id="jpaPropertyMap">
+		    <entry key="openjpa.ConnectionFactoryProperties" value="PrettyPrint=true, PrettyPrintLineLength=72" />
+		    <entry key="openjpa.Log" value="DefaultLevel=TRACE, Runtime=TRACE, Tool=TRACE, SQL=TRACE" />
+		    <entry key="openjpa.RuntimeUnenhancedClasses" value="supported" />
+		</util:map>
+	</beans>
+</beans>

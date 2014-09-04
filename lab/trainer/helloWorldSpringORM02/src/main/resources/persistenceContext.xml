@@ -28,9 +28,9 @@
 		<alias name="guestJdbcDao" alias="guestDao"/>
 	</beans>
 	
-	<beans profile="hibernate">
-		<import resource="hibernateConfig.xml" />
-		<alias name="guestHibernateDao" alias="guestDao"/>
+	<beans profile="jpa">
+		<import resource="jpaConfig.xml" />
+		<alias name="guestJpaDao" alias="guestDao"/>
 	</beans>
 
 </beans>

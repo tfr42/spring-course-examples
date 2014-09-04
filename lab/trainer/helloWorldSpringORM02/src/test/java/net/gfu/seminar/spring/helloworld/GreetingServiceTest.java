@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles(profiles={"jdbc"})
 @Transactional
 public class GreetingServiceTest {
-	
+
 	@Autowired
 	private GreetingService service;
 	

@@ -47,7 +47,7 @@ public class GuestJpaDao implements GuestDao {
 	@Override
 	@Transactional(readOnly=true)
 	public List<Guest> findAll() {
-		final String jpquery = "from Guest as g";
+		final String jpquery = "Select g from Guest as g";
 		final TypedQuery<Guest> query = em.createQuery(jpquery,Guest.class);
 		return query.getResultList();
 	}
