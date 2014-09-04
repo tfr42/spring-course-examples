@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-   <!-- Configures the @Controller programming model -->
+  <!-- Configures the @Controller programming model -->
   <mvc:annotation-driven />  
   
   <!-- Scans the classpath of this application for @Components to deploy as beans -->

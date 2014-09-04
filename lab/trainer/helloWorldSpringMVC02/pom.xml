@@ -19,8 +19,8 @@
 		<finalName>helloWorldSpringMVC02</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

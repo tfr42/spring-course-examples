@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -34,7 +35,7 @@ public class HelloWorldRestWacTest {
 
 	@Test
 	public void testHelloWorldGetMessageShouldReturnJson() throws Exception {
-		mockMvc.perform(get("/helloworld/guest/Rainer/Zufall"))
+		mockMvc.perform(get("/helloworld/guest/Rainer/Zufall").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType("application/json"))
 				.andExpect(content().string(containsString("Rainer")));

@@ -100,20 +100,21 @@
 					</executions>
 				</plugin>
 				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>maven-jetty-plugin</artifactId>
-					<version>6.1.26</version>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>9.2.2.v20140723</version>
 					<!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
 						<stopKey>foo</stopKey>
 						<stopPort>9999</stopPort>
-						<connectors>
-							<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-								<port>8080</port>
-								<maxIdleTime>60000</maxIdleTime>
-							</connector>
-						</connectors>
+						<httpConnector>
+							<port>8080</port>
+							<idleTimeout>60000</idleTimeout>
+						</httpConnector>
+						<webApp>
+      						<contextPath>/${project.artifactId}</contextPath>
+    					</webApp>
 					</configuration>
 					<executions>
 						<execution>

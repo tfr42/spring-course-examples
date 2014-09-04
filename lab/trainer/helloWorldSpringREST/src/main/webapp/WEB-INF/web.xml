@@ -5,11 +5,7 @@
 	<param-name>contextConfigLocation</param-name>
 	<param-value>/WEB-INF/webContext.xml</param-value>
   </context-param>
-  <!-- Init Spring -->
-  <listener>
-  	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener>
-  <!-- read the XmlWebApplicationContext for spring -->
+  <!-- Creates the Spring XmlWebApplicationContext -->
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

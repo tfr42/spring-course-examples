@@ -14,7 +14,7 @@ public class HelloWorld {
 	
 	/**
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld
-	 * @return
+	 * @return a String as plain/text
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody String getMessage() {
@@ -24,6 +24,8 @@ public class HelloWorld {
 
 	/** 
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/HansMapf
+	 * @param name a name
+	 * @return a String with the given name as plain/text
 	 */
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public @ResponseBody String getTextMessage(@PathVariable String name) {
@@ -31,10 +33,10 @@ public class HelloWorld {
 	}
 
 	/**
-	 *  http://localhost:8080/helloWorldSpringREST/rest/helloworld/Rainer/Zufall
-	 * @param firstname
-	 * @param lastname
-	 * @return
+	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Rainer/Zufall
+	 * @param firstname a firstname
+	 * @param lastname a lastname
+	 * @return the message as text/xml
 	 */
 	@RequestMapping(value = "/{firstname}/{lastname}", method = RequestMethod.GET, produces={"text/xml"})
 	public @ResponseBody ResponseMessage getXmlMessage(@PathVariable String firstname,
@@ -43,14 +45,15 @@ public class HelloWorld {
 	}
 	
 	/**
-	 *  http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest/Rainer/Zufall
-	 * @param firstname
-	 * @param lastname
-	 * @return
+	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest/Rainer/Zufall
+	 * @param firstname a firstname
+	 * @param lastname a lastname
+	 * @return the guest as application/json
 	 */
 	@RequestMapping(value = "/guest/{firstname}/{lastname}", method = RequestMethod.GET, produces={"application/json"})
 	public @ResponseBody Guest getJsonMessage(@PathVariable String firstname,
 			@PathVariable String lastname) {
+		System.out.println("----");
 		return new Guest(firstname ,lastname);
 	}
 }
