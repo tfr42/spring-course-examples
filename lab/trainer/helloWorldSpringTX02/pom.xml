@@ -8,8 +8,6 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringTX02</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
 	<name>helloWorldSpringTX02</name>
 	<description>Spring Transactions with Annotations and JavaConfig</description>
 	<dependencies>

@@ -8,7 +8,6 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringAOP03</artifactId>
-	<packaging>jar</packaging>
 	<name>helloWorldSpringAOP03</name>
 	<description>Spring AOP with JavaConfig</description>
 	<dependencies>

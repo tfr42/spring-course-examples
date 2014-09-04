@@ -8,7 +8,6 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringRMI01</artifactId>
-	<packaging>jar</packaging>
 	<name>helloWorldSpringRMI01</name>
 	<description>Spring Remoting with RmiProxyFactoryBean and RmiServiceExporter</description>
 	<dependencies>
