@@ -47,7 +47,7 @@ public class ApplicationConfig {
 	@Bean
 	public Guest guest() {
 		// return new GuestImpl("Rainer", "Unsinn");
-		return new GuestImpl(firstName, lastName);
+		return new Guest(firstName, lastName);
 	}
 
 	/**

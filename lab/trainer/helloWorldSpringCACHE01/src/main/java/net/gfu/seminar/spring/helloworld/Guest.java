@@ -1,15 +1,78 @@
 package net.gfu.seminar.spring.helloworld;
 
-public interface Guest {
-	String getName();
+import java.io.Serializable;
+import java.util.Scanner;
 
-	void setName(String name);
+import org.apache.log4j.Logger;
 
-	void setLastName(String lastName);
+public class Guest implements Serializable {
 
-	String getLastName();
+	private static final long serialVersionUID = 7550209738527043417L;
+	private static final Logger LOG = Logger.getLogger(Guest.class);
 
-	void setFirstName(String firstName);
+	private Long id;
+	private String firstName;
+	private String lastName;
 
-	String getFirstName();
+	public Guest() {
+		this("", "");
+	}
+
+	public Guest(String firstName, String lastName) {
+		this(null, firstName, lastName);
+	}
+
+	public Guest(Long id, String firstName, String lastName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		LOG.trace("constructor called");
+	}
+
+	public String getName() {
+		return this.firstName + " " + this.lastName;
+	}
+
+	public void setName(String name) {
+		Scanner scanner = new Scanner(name);
+		this.firstName = scanner.next();
+		this.lastName = scanner.next();
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		LOG.trace("setFirstName called:" + firstName);
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+		LOG.trace("setLastName called:" + lastName);
+	}
+
+	@Override
+	public String toString() {
+		return "GuestImpl [firstName=" + firstName + ", lastName=" + lastName
+				+ "]";
+	}
+
+	public void init() {
+		LOG.debug("init called for : " + this.toString());
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }

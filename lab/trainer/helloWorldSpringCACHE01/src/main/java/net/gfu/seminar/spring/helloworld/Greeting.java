@@ -1,5 +1,10 @@
 package net.gfu.seminar.spring.helloworld;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Service;
+
 
 /**
  * Says hello to a guest.
@@ -7,7 +12,10 @@ package net.gfu.seminar.spring.helloworld;
  * @author tf
  *
  */
-public class Greeting implements GreetingService {
+@Service
+public class Greeting implements GreetingService, BeanPostProcessor {
+	
+	private static final Logger LOG = Logger.getLogger(Greeting.class);
 	
 	private Guest guest;
 	
@@ -40,6 +48,20 @@ public class Greeting implements GreetingService {
 	 */
 	public void setGuest(Guest guest) {
 		this.guest = guest;
+	}
+	
+	@Override
+	public Object postProcessAfterInitialization(Object arg0, String arg1)
+			throws BeansException {
+		LOG.debug("postProcessAfterInitialization called for : " + arg0 + " with " +arg1);
+		return arg0;
+	}
+
+	@Override
+	public Object postProcessBeforeInitialization(Object arg0, String arg1)
+			throws BeansException {
+		LOG.debug("postProcessBeforeInitialization called for : "+ arg0 + " with " +arg1);
+		return arg0;
 	}
 	
 

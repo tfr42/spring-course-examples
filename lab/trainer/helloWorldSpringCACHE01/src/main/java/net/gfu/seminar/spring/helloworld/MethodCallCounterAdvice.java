@@ -23,7 +23,7 @@ public class MethodCallCounterAdvice {
 
 	@Around("serviceMethods()")
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
-		LOG.info("Going to call the method: " + pjp.getSignature().getName());
+		LOG.info("Going to call the method '" + pjp.getSignature().getName()+"'");
 		Signature signature = pjp.getSignature();
 		Integer counterForMethod = counter.get(signature.toLongString());
 		if (counterForMethod == null) {
@@ -32,7 +32,7 @@ public class MethodCallCounterAdvice {
 		final Object output = pjp.proceed();
 		counterForMethod = Integer.valueOf(counterForMethod.intValue() + 1);
 		counter.put(signature.toLongString(), counterForMethod);
-		LOG.info(String.format("This is call %1$s to %2$s", counterForMethod,
+		LOG.info(String.format("This is call %1$s to '%2$s'", counterForMethod,
 				signature));
 		return output;
 	}

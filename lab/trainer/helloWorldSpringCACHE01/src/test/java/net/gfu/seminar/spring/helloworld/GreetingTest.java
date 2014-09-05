@@ -38,6 +38,7 @@ public class GreetingTest {
 		assertNotNull(greeting.welcome());
 		LOG.debug(greeting.welcome());
 	}
+	
 	@Test
 	public void testWelcomeMethodCallingTreeTimes() {
 		for (int i=0;i<3;i++) {

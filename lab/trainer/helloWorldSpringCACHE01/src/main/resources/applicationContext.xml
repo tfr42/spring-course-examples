@@ -11,7 +11,7 @@
 		<property name="guest" ref="guest" />
 	</bean>
 
-	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl" init-method="init">
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.Guest" init-method="init">
 	    <description>Spring bean representing a domain type - that's for testing purposes only</description>
 	    <!-- set the values by calling the constructor GuestImpl(String , String ) -->
 		<constructor-arg name="firstName" value="Anna"/>
