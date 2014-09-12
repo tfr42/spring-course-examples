@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @PropertySource(value="classpath:/jdbc.properties")
-@Import(ApplicationConfig.class)
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 public class PersistenceConfig {
