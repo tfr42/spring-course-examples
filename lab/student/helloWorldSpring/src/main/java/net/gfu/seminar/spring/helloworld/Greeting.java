@@ -2,7 +2,7 @@ package net.gfu.seminar.spring.helloworld;
 
 
 /**
- * Says hello to a guest.
+ * Says hello to a {@link Guest}.
  * 
  * @author tf
  *
@@ -14,17 +14,26 @@ public class Greeting {
 	public Greeting() {
 	}
 	
+	/**
+	 * Creates a {@link Greeting} for the given {@link Guest}
+	 * @param guest
+	 */
 	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
 
+	/**
+	 * Returns the welcome message.
+	 * 
+	 * @return
+	 */
 	public String welcome() {
 		return String.format("Welcome %1$s to Spring!", this.getGuest());
 	}
 	
 	/**
 	 * Accessor method returning the internal state.
-	 * @return
+	 * @return the guest
 	 */
 	public Guest getGuest() {
 		return guest;
@@ -32,11 +41,10 @@ public class Greeting {
 
 	/**
 	 * Mutator method changing the internal state.
-	 * @param guest
+	 * @param guest the guest
 	 */
 	public void setGuest(Guest guest) {
 		this.guest = guest;
 	}
-	
 
 }
