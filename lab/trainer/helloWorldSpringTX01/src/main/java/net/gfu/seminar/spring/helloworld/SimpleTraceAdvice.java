@@ -7,7 +7,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.JoinPoint.StaticPart;
 import org.springframework.core.Ordered;
 
-public class SimpleTraceAdvice implements Ordered{
+public class SimpleTraceAdvice implements Ordered {
 	
 	private static final Logger LOG = Logger.getLogger(SimpleTraceAdvice.class);
 	private int order;
