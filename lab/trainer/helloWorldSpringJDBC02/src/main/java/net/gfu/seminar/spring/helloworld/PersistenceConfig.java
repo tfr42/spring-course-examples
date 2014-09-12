@@ -37,7 +37,9 @@ public class PersistenceConfig {
 	
 	@Bean
 	public GuestDao guestDao() {
-		return new GuestJdbcDao(dataSource());
+		GuestJdbcDao guestJdbcDao = new GuestJdbcDao();
+		guestJdbcDao.setDataSource(dataSource());
+		return guestJdbcDao;
 	}
 
 	@Bean
