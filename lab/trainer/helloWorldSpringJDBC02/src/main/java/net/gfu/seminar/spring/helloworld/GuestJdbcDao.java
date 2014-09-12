@@ -4,8 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -16,10 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
-
-	public GuestJdbcDao(DataSource dataSource) {
-		this.setDataSource(dataSource);
-	}
 
 	@Override
 	public int create(Guest guest) {

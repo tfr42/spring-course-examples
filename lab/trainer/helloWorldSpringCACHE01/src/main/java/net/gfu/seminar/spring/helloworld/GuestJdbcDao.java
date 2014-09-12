@@ -16,6 +16,12 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Repository to access {@link Guest}s using Spring {@Link JdbcTemplate} 
+ * 
+ * @author tf
+ *
+ */
 @Repository
 @Transactional
 public class GuestJdbcDao implements GuestDao {

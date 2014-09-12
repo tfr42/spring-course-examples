@@ -1,6 +1,11 @@
 package net.gfu.seminar.spring.helloworld;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -39,19 +44,21 @@ public class GuestDaoTest {
 
 	@Test
 	public void testFindById() {
-		Long id = null;
-		dao.findById(id);
+		Long id = Long.valueOf(1);
+		assertNotNull(dao.findById(id));
 	}
 
 	@Test
 	public void testFindByName() {
-		String name = null;
-		dao.findByName(name);
+		String name = "Dampf";
+		List<Guest> list = dao.findByName(name);
+		assertFalse(list.isEmpty());
 	}
 
 	@Test
 	public void testFindAll() {
-		dao.findAll();
+		List<Guest> all = dao.findAll();
+		assertEquals(1, all.size());
 	}
 
 	@Test

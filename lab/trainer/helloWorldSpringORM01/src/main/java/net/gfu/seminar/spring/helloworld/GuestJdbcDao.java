@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Repository implementation based on Spring JdbcDaoSupport and JdbcTemplate.
+ * Repository to access {@link Guest}s implementation based on Spring JdbcDaoSupport and JdbcTemplate.
  * 
  * @author tf
  *

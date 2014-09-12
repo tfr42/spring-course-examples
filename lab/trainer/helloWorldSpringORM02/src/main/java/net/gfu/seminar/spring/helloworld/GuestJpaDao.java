@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Repository implementation based on plain JPA 2.0 API.
+ * Repository to access {@link Guest}s implementation based on plain JPA 2.0 API.
  * 
  * @author tf
  *

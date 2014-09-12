@@ -7,9 +7,17 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Repository implementation based on Spring JdbcDaoSupport and JdbcTemplate.
+ * 
+ * @author tf
+ *
+ */
+@Repository
 @Transactional
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 

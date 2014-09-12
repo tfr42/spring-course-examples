@@ -2,6 +2,12 @@ package net.gfu.seminar.spring.helloworld;
 
 import java.util.List;
 
+/**
+ * Repository to access {@link Guest}s.
+ * 
+ * @author tf
+ *
+ */
 public interface GuestDao {
 
 	int create(Guest guest);
