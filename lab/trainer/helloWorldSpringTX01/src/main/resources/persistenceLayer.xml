@@ -28,6 +28,7 @@
 		ignore-failures="ALL">
 		<jdbc:script location="classpath:drop_hsql_schema.sql" />
 		<jdbc:script location="classpath:create_hsql_schema.sql" />
+		<jdbc:script location="classpath:insert_testdata_hsql.sql" />
 	</jdbc:initialize-database>
 
 	<bean id="dao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
