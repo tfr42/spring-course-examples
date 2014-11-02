@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-2.1.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-3.0.xsd">
 
 	<import resource="batch-config.xml" />
 
@@ -11,7 +11,7 @@
 	</bean>
 
 	<bean id="space" class="net.gfu.seminar.spring.batch.PrintTasklet">
-		<property name="message" value=" " />
+		<property name="message" value=", " />
 	</bean>
 
 	<bean id="world" class="net.gfu.seminar.spring.batch.PrintTasklet">
@@ -26,7 +26,8 @@
 
  	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>  
 
-<!-- 
+<!-- Using the Spring Batch Namespace elements
+     
 	<batch:job id="helloWorldJob">
 		<batch:step id="step1">
 			<batch:tasklet ref="hello"/>
@@ -42,7 +43,7 @@
  	
 	<!-- This is the Job which is executed by Spring Batch -->
 	<bean id="simpleJob" class="org.springframework.batch.core.job.SimpleJob">
-		<property name="name" value="simpleJob" />
+		<property name="name" value="helloWorldJob" />
 		<property name="steps">
 			<list>
 				<bean parent="taskletStep">
