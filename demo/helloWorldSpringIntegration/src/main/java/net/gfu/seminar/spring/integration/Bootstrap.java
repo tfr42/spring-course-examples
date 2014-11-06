@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Bootstrap {
  
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext beanFactory = new ClassPathXmlApplicationContext("classpath:/si-config.xml");
+        ClassPathXmlApplicationContext beanFactory = new ClassPathXmlApplicationContext("classpath:si-config.xml");
     }
  
 }

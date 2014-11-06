@@ -9,13 +9,13 @@ import javax.annotation.Resource;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.integration.Message;
-import org.springframework.integration.MessageChannel;
-import org.springframework.integration.MessagingException;
-import org.springframework.integration.core.MessageHandler;
-import org.springframework.integration.core.PollableChannel;
-import org.springframework.integration.core.SubscribableChannel;
-import org.springframework.integration.message.GenericMessage;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHandler;
+import org.springframework.messaging.MessagingException;
+import org.springframework.messaging.PollableChannel;
+import org.springframework.messaging.SubscribableChannel;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -25,7 +25,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/si-config.xml" })
+@ContextConfiguration(locations = { "classpath:si-config.xml" })
 public class HelloWorldTest {
 
 	@Resource(name = "input")
@@ -67,8 +67,7 @@ public class HelloWorldTest {
 			@Override
 			public void handleMessage(Message<?> message)
 					throws MessagingException {
-		System.out.println("received: " + message);
-				
+					System.out.println("received: " + message);
 			}});
 		Thread.sleep(2000);
 		//String reply = gateway.receive();
