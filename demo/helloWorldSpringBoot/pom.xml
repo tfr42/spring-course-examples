@@ -18,14 +18,17 @@
 	</dependencies>
 	<build>
 		<plugins>
+			<!-- http://docs.spring.io/spring-boot/docs/current/maven-plugin/ 
+				 to start the application run the goal
+				 mvn spring-boot:run
+				-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-package-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>
 						<goals>
-							<goal>package</goal>
+							<goal>repackage</goal>
 						</goals>
 					</execution>
 				</executions>
