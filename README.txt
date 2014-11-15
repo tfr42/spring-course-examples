@@ -29,15 +29,15 @@ Entwicklungsumgebung einrichten
 -------------------------------
 Benötigte Software
 - Java SE 7u45 oder Java SE 8 (Oracle EA oder OpenJDK JDK 8 Snapshots)
-- Maven 3.1.1
+- Maven 3.2.3
 - Installation von Eclipse 4.3 (Eclipse IDE for Java EE Developers - Kepler ) incl. der Plug-ins:
-  -	Spring IDE 3.4.0 
-  -	m2e Plugin 1.4.0
+  -	Spring IDE 3.6.2 
+  -	m2e Plugin 1.5.0
   oder 
-  - SpringSource Tool Suite (Developer Edition) 3.4.0  
+  - SpringSource Tool Suite (Developer Edition) 3.6.2  
   oder 
-  JetBrains IntelliJIDEA 13.x
-- Spring Framework 4.0.0.RELEASE 
+  JetBrains IntelliJIDEA 14.x
+- Spring Framework 4.1.2.RELEASE 
 - Apache Tomcat 7.x oder 8.x 
 - GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
