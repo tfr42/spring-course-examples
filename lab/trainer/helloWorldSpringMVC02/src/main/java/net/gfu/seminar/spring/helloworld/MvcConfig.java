@@ -18,7 +18,7 @@ public class MvcConfig {
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
-		viewResolver.setPrefix("/");
+		viewResolver.setPrefix("");
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
