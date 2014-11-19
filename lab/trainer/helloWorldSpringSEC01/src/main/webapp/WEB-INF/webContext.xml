@@ -6,6 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
 	<!-- 
 	<jee:jndi-lookup id="jndiDatasource" jndi-name="java:comp/env/jdbc/DefaultDS" expected-type="javax.sql.DataSource"/>
 	 -->
@@ -46,5 +47,19 @@
 			</map>
 		</property>
 	</bean>
+	
+	<bean id="simpleMappingExceptionResolver"
+          class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="AccessDeniedException" value="/error"/>
+            </map>
+        </property>
+        <property name="defaultErrorView" value="/error"/>
+        <property name="exceptionAttribute" value="exception"/>
+
+        <!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
+        <property name="warnLogCategory" value="net.gfu.seminar.spring.helloworld.web.InvalidAuthorization"/>
+    </bean>
 
 </beans>

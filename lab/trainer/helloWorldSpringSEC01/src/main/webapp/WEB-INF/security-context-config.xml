@@ -2,16 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-  
-  <security:global-method-security secured-annotations="enabled" proxy-target-class="true"/>
-  
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
   <security:http auto-config="true">
          <!-- Restrict URLs based on role: grant access for anonymous user -->
         <security:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/error*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/*/welcome*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         
         <!-- Restrict URLs based on role: grant access only for authenticated user -->
