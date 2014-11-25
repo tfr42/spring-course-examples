@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * RESTful controller using Spring MVC.
+ * 
+ * @author tf
+ *
+ */
 @Controller
 @RequestMapping("/helloworld")
 @Scope("request")
@@ -53,7 +59,6 @@ public class HelloWorld {
 	@RequestMapping(value = "/guest/{firstname}/{lastname}", method = RequestMethod.GET, produces={"application/json"})
 	public @ResponseBody Guest getJsonMessage(@PathVariable String firstname,
 			@PathVariable String lastname) {
-		System.out.println("----");
 		return new Guest(firstname ,lastname);
 	}
 }
