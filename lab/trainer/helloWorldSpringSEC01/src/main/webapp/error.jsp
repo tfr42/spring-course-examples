@@ -9,7 +9,7 @@
 <title>Error Page</title>
 </head>
 <body>
-<h2>Oops! This is an application Error! Please contact the support team.</h2>
+<h2>Oops! This is an authorization Error!</h2>
  
 <h3>Debug Information:</h3>
 <p>Exception message: '${exception.message}'</p>

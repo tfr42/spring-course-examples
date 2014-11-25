@@ -3,12 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<context:property-placeholder location="classpath:guest.properties" />
-	
+
 	<bean id="specialGuest" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
 		<constructor-arg>
 			<props>
@@ -17,18 +19,44 @@
 			</props>
 		</constructor-arg>
 	</bean>
-	
-	<util:properties id="nameProperties" location="classpath:specialguest.properties"/>
-	
+
+	<util:properties id="nameProperties" location="classpath:specialguest.properties" />
+
 	<bean id="specialGuestExternal" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
-		<constructor-arg ref="nameProperties"/>
+		<constructor-arg ref="nameProperties" />
 	</bean>
-	
+
 	<bean id="placeholderGuest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
-		<property name="name" value="${name}"/>
+		<property name="name" value="${name}" />
 	</bean>
+
+	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild"
+		scope="prototype">
+		<property name="name" value="${name}" />
+<!-- 		<property name="dayOfBirth" value="21.11.2012" /> -->
+	</bean>
+
+	<util:list id="guestList" value-type="java.lang.String">
+		<value>Mike</value>
+		<value>Miki</value>
+		<value>Hans</value>
+		<value>Bob</value>
+		<value>Klaus</value>
+		<value>Karl</value>
+		<value>Frank</value>
+		<value>Peter</value>
+		<value>Johannes</value>
+	</util:list>
 	
-	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild">
-		<property name="name" value="${name}"/>
+	<util:list id="specialGuestList" value-type="net.gfu.seminar.spring.helloworld.GuestImpl">
+		<ref bean="specialGuest"/>
+		<ref bean="specialGuestExternal"/>
+		<ref bean="placeholderGuest"/>
+		<ref bean="birthdayChild"/>
+	</util:list>
+	
+
+	<bean id="kGuests" class="net.gfu.seminar.spring.helloworld.GuestListBean">
+		<property name="guests" value="#{specialGuestList.![firstName]}" />
 	</bean>
 </beans>

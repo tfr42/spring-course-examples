@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -32,6 +33,9 @@ public class SpecialGuestFromPropertiesTest {
 	@Autowired
 	@Qualifier("birthdayChild")
 	BirthdayChild birthdayChild;
+	
+	@Value("#{nameProperties.firstName?:'Elvis'}")
+	private String anotherName;
 	
 	@Test
 	public void testProperties() {
@@ -60,5 +64,10 @@ public class SpecialGuestFromPropertiesTest {
 		assertEquals("Hans", birthdayChild.getFirstName());
 		assertEquals("Dampf", birthdayChild.getLastName());
 		assertEquals(new SimpleDateFormat("dd.MM.yyyy").parse("11.11.2011"), birthdayChild.getDayOfBirth());
+	}
+	
+	@Test
+	public void testSystemPropertyWithSpELElvisOperator() {
+		assertEquals("Elvis", this.anotherName);
 	}
 }
