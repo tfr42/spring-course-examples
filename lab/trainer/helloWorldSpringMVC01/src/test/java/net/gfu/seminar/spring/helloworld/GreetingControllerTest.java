@@ -61,7 +61,7 @@ public class GreetingControllerTest {
 		mockMvc.perform(post("/greeting/add"))
 				.andExpect(status().isOk())
 				.andExpect(view().name("/guest/welcome"))
-				.andExpect(forwardedUrl("//guest/welcome.jsp"))
+				.andExpect(forwardedUrl("/guest/welcome.jsp"))
 				.andExpect(
 						model().attribute(
 								"welcome",
