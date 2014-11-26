@@ -18,7 +18,7 @@
   	<level value="DEBUG"/>
   </logger>
   
-  <logger name="net.gfu.seminar.spring">
+  <logger name="net.gfu.seminar.spring.batch">
   	<level value="DEBUG"/>
   </logger>
 

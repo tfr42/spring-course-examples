@@ -19,19 +19,17 @@
 		<property name="message" value="World!" />
 	</bean>
 	
- 	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>  
-
 <!-- 
      Using the Spring Batch Namespace elements
 --> 
 	<batch:job id="helloWorldJob" job-repository="jobRepository">
-		<batch:step id="step1" next="step2">
+		<batch:step id="helloStep" next="spaceStep">
 			<batch:tasklet ref="hello"/>
 		</batch:step>
-		<batch:step id="step2" next="step3">
+		<batch:step id="spaceStep" next="worldStep">
 			<batch:tasklet ref="space"/>
 		</batch:step>
-		<batch:step id="step3">
+		<batch:step id="worldStep">
 			<batch:tasklet ref="world"/>
 		</batch:step>
 	</batch:job>
@@ -63,5 +61,7 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
 
 </beans>

@@ -9,10 +9,10 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringBatch</artifactId>
 	<name>helloWorldSpringBatch</name>
-	<description>HelloWorld with Spring Batch
-mvn exec:java -Dexec.mainClass=
-org.springframework.batch.core.launch.support.CommandLineJobRunner 
--Dexec.args=&quot;helloWorldJob.xml simpleJob&quot;</description>
+	<description><![CDATA[HelloWorld with Spring Batch
+	mvn exec:java -Dexec.mainClass=org.springframework.batch.core.launch.support.CommandLineJobRunner -Dexec.args="helloWorldJob.xml simpleJob"
+	]]>
+</description>
 	<properties>
 		<spring-batch.version>3.0.2.RELEASE</spring-batch.version>
 		<spring.version>4.0.5.RELEASE</spring.version>
