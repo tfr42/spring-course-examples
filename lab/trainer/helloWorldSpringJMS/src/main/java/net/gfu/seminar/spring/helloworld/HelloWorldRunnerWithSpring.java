@@ -30,6 +30,11 @@ public class HelloWorldRunnerWithSpring {
 		GreetingService reception = (GreetingService) beanFactory.getBean("welcome");
 		
 		System.out.println(reception.welcome());
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		beanFactory.close();
 	}
 

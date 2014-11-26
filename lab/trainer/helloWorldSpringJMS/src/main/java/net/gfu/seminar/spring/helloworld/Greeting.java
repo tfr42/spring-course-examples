@@ -52,6 +52,10 @@ public class Greeting implements GreetingService {
 		return String.format("Welcome %1$s to Spring!", guestNames);
 	}
 
+
+	public void init() {
+		System.out.println("init was called");
+	}
 	/**
 	 * Accessor method returning the internal state.
 	 * 

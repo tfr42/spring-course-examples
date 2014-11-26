@@ -2,34 +2,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:task="http://www.springframework.org/schema/task"
-	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
-	<bean id="MyTask"
-		class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
-		<property name="targetObject" ref="reminder" />
-		<property name="targetMethod" value="sayHello" />
-	</bean>
-	<bean id="MyScheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
-		<property name="delay" value="1000" />
-		<property name="period" value="1000" />
-		<property name="timerTask" ref="MyTask" />
-	</bean>
-	<bean id="TimerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
-		<property name="scheduledTimerTasks">
-			<list>
-				<ref bean="MyScheduledTask" />
-			</list>
-		</property>
-	</bean>
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	 
+	<task:scheduler id="scheduler" pool-size="10"/>
+	<task:executor id="executor" pool-size="10"/>
+	
+	<task:scheduled-tasks scheduler="scheduler">
+    	<task:scheduled ref="reminder" method="sayHello" fixed-delay="50"/>
+	</task:scheduled-tasks>
+	 
 	<bean id="reminder" class="net.gfu.seminar.spring.helloworld.Reminder">
 		<property name="guest" ref="specialGuest" />
 	</bean>
 	
 	<bean id="taskExecutor"
 		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-		<property name="corePoolSize" value="5" />
-		<property name="maxPoolSize" value="10" />
-		<property name="queueCapacity" value="25" />
+		<property name="corePoolSize" value="3" />
+		<property name="maxPoolSize" value="5" />
+		<property name="queueCapacity" value="10" />
 	</bean>
 
 	<bean id="doItExecutor" class="net.gfu.seminar.spring.helloworld.DoItExecutor">
