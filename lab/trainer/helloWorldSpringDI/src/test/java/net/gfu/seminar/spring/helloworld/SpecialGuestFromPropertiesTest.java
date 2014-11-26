@@ -68,6 +68,6 @@ public class SpecialGuestFromPropertiesTest {
 	
 	@Test
 	public void testSystemPropertyWithSpELElvisOperator() {
-		assertEquals("Elvis", this.anotherName);
+		assertEquals("Rainer", this.anotherName);
 	}
 }
