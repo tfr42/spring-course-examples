@@ -56,7 +56,8 @@ public class HelloWorld {
 	 * @param lastname a lastname
 	 * @return the guest as application/json
 	 */
-	@RequestMapping(value = "/guest/{firstname}/{lastname}", method = RequestMethod.GET, produces={"application/json"})
+	@RequestMapping(value = "/guest/{firstname}/{lastname}", method = RequestMethod.GET,
+		  produces={"application/json","text/xml","application/xml" })
 	public @ResponseBody Guest getJsonMessage(@PathVariable String firstname,
 			@PathVariable String lastname) {
 		return new Guest(firstname ,lastname);

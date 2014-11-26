@@ -1,11 +1,15 @@
 package net.gfu.seminar.spring.helloworld;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Scanner;
 
+@XmlRootElement
 public class Guest {
 
 	private String firstName;
 	private String lastName;
+
+	public Guest() {}
 
 	public Guest(String firstName, String lastName) {
 		super();
