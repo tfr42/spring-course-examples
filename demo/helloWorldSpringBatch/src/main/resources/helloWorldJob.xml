@@ -22,7 +22,7 @@
 <!-- 
      Using the Spring Batch Namespace elements
 --> 
-	<batch:job id="helloWorldJob" job-repository="jobRepository">
+	<batch:job id="helloWorldJob" job-repository="jobRepository" restartable="true" >
 		<batch:step id="helloStep" next="spaceStep">
 			<batch:tasklet ref="hello"/>
 		</batch:step>
@@ -61,7 +61,5 @@
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
 
 </beans>
