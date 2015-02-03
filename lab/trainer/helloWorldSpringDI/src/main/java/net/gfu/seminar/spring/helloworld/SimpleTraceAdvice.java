@@ -16,7 +16,7 @@ import org.springframework.core.annotation.Order;
 @Order(20)
 public class SimpleTraceAdvice {
 
-	private final static Logger LOG = Logger.getLogger(SimpleTraceAdvice.class);
+	private static final Logger LOG = Logger.getLogger(SimpleTraceAdvice.class);
 
 	@SuppressWarnings("unused")
 	@Pointcut("execution(* welcome(..))")

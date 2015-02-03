@@ -4,14 +4,14 @@ import java.util.List;
 
 public interface GreetingService {
 
-	public String welcome();
+    String welcome();
 
-	public void addGuest(Guest guest);
+	void addGuest(Guest guest);
 
-	public List<Guest> findAll();
+	List<Guest> findAll();
 
-	public Guest findByName(String firstname, String lastname);
+	Guest findByName(String firstname, String lastname);
 
-	public Guest findById(Long id);
+	Guest findById(Long id);
 
 }

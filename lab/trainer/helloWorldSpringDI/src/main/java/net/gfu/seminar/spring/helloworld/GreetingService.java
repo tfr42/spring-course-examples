@@ -3,10 +3,10 @@ package net.gfu.seminar.spring.helloworld;
 
 public interface GreetingService {
 
-	public String welcome();
+	String welcome();
 
-	public void addGuest(Guest guest);
+	void addGuest(Guest guest);
 
-	public Guest findById(Long id);
+	Guest findById(Long id);
 
 }

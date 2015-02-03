@@ -81,14 +81,16 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	@Override
 	@Transactional(isolation=Isolation.SERIALIZABLE,propagation=Propagation.SUPPORTS,readOnly=true)
 	public Guest findById(final Long id) {
+		Guest guest = null;
 		final String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE id=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { id };
 		List<Guest> list = this.getJdbcTemplate().query(sql, createRowMapper(),
 				args);
-		if (list.size() > 0)
-			return list.get(0);
-		return null;
+		if (list.size() > 0) {
+			guest = list.get(0);
+		}
+		return guest;
 	}
 
 	@Override
@@ -113,7 +115,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		if (guest.getId() == null) {
 			this.create(guest);
 		} else {
-			final String sql = "UPDATE guests SET  firstname = ?, lastname=? WHERE id = ?";
+			final String sql = "UPDATE guests SET firstname = ?, lastname=? WHERE id = ?";
 			LOG.debug(sql);
 			Object[] args = new Object[] { guest.getFirstName(),
 					guest.getLastName(), guest.getId() };

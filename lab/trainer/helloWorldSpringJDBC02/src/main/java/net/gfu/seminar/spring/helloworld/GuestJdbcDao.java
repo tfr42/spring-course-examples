@@ -7,16 +7,13 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 
 	@Override
-	public int create(Guest guest) {
+	public int create(final Guest guest) {
 		String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
@@ -27,20 +24,22 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public Guest findById(Long id) {
+	public Guest findById(final Long id) {
+		Guest guest = null;
 		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE id=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { id };
 		List<Guest> list = this.getJdbcTemplate().query(sql,
 				createRowMapper(), args);
-		if (list.size() > 0)
-			return list.get(0);
-		return null;
+		if (list.size() > 0) {
+			guest = list.get(0);
+		}
+		return guest;
 	}
 
 	@Override
 	public List<Guest> findByName(String name) {
-		String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE lastname=?";
+		final String sql = "SELECT id, firstname, lastname FROM GUESTS WHERE lastname=?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { name };
 		List<Guest> list = this.getJdbcTemplate().query(sql,
@@ -59,11 +58,11 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public Guest update(Guest guest) {
+	public Guest update(final Guest guest) {
 		if (guest.getId() == null) {
 			this.create(guest);
 		}
-		String sql = "UPDATE guests SET  firstname = ?, lastname=? WHERE id = ?";
+		String sql = "UPDATE guests SET firstname = ?, lastname=? WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
 				guest.getLastName(), guest.getId() };
@@ -73,8 +72,8 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public void remove(Guest guest) {
-		String sql = "DELETE FROM GUESTS WHERE id = ?";
+	public void remove(final Guest guest) {
+		final String sql = "DELETE FROM GUESTS WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };
 		int updatedRows = this.getJdbcTemplate().update(sql, args);
