@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:batch-config.xml",
 		"classpath:helloWorldJob.xml", "classpath:batch-test-config.xml"})
-@ActiveProfiles("database")
+@ActiveProfiles("inmemory")
 public class PrintTaskletTest {
 
 	@Autowired
