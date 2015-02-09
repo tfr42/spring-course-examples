@@ -1,0 +1,36 @@
+dn: c=Germany,dc=gfu,dc=net
+objectclass: top
+objectclass: country
+c: Germany
+description: Federated Republic of Germany
+
+dn: ou=gfu,c=Germany,dc=gfu,dc=net
+objectclass: top
+objectclass: organizationalUnit
+ou: fdu
+description: GFU Cyrus AG
+
+dn: cn=Hans Dampf,ou=gfu,c=Germany,dc=gfu,dc=net
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+uid: ma007
+userPassword: password
+cn: Hans Dampf
+sn: Person
+description: Germany, GFU Cyrus AG, Hans Dampf
+telephoneNumber: +49 221-123456
+
+dn: cn=Anna Gramm,ou=gfu,c=Germany,dc=gfu,dc=net
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+uid: ma042
+userPassword: password
+cn: Anna Gramm
+sn: Person
+description: Germany, GFU Cyrus AG, Anna Gramm
+telephoneNumber: +49 221-987654321
+
