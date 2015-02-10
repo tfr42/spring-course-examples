@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
@@ -22,6 +25,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceConfig.class })
 @Transactional
+@SqlGroup({
+    @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:beforeTestRun_hsql.sql"),
+    @Sql(executionPhase = ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:afterTestRun_hsql.sql") 
+})
 public class GuestDaoTest {
 
 	private static final Logger LOG = Logger.getLogger(GuestDaoTest.class);
@@ -33,12 +40,6 @@ public class GuestDaoTest {
 	
 	@Autowired
 	private Guest testDataGuest;
-	
-	@Before public void setup() {
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Rainer','Unsinn')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Anna','Gramm')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Hans','Dampf')");
-	}
 	
 	@BeforeTransaction public void beforeTx() {
 		LOG.debug("Tx begin");

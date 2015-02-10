@@ -22,7 +22,7 @@ public class GuestLdapRepoIntegrationTest {
     public void testGetAllGuestNames() {
         List<String> result = guestRepo.getAllGuestNames();
         assertEquals(2, result.size());
-        String first = (String) result.get(0);
+        String first = (String) result.get(1);
         assertEquals("Anna Gramm", first);
     }
 }
