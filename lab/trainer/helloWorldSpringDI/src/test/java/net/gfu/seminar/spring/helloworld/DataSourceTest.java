@@ -18,13 +18,16 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceConfig.class })
-public class DataSourceTest {
+public class DataSourceTest implements ApplicationContextAware {
 	private static final Logger LOG = Logger.getLogger(DataSourceTest.class);
 	
 	@Inject
@@ -61,6 +64,13 @@ public class DataSourceTest {
 	}
 	@After public void tearDown() {
 		LOG.debug("Test " + testName.getMethodName() + " completed");
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+			throws BeansException {
+		LOG.debug("Test uses Environment: " + applicationContext.getEnvironment());
+		
 	}
 
 }

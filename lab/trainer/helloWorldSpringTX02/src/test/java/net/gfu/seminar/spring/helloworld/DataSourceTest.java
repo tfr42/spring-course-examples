@@ -39,6 +39,7 @@ public class DataSourceTest implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		System.out.println(applicationContext);
+		System.out.println(applicationContext.getEnvironment());
 	}
 
 }

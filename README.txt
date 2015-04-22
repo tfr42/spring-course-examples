@@ -28,7 +28,7 @@ Für die Installation von Eclipse Plugins über den Eclipse Update Manager ist e
 Entwicklungsumgebung einrichten
 -------------------------------
 Benötigte Software
-- Java SE 7u45 oder Java SE 8 (Oracle EA oder OpenJDK JDK 8 Snapshots)
+- Java SE 7u45 oder Java SE 8 (Oracle oder OpenJDK 8)
 - Maven 3.2.3
 - Installation von Eclipse 4.3 (Eclipse IDE for Java EE Developers - Kepler ) incl. der Plug-ins:
   -	Spring IDE 3.6.2 
