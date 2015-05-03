@@ -31,13 +31,13 @@ Benötigte Software
 - Java SE 7u45 oder Java SE 8 (Oracle oder OpenJDK 8)
 - Maven 3.2.3
 - Installation von Eclipse 4.3 (Eclipse IDE for Java EE Developers - Kepler ) incl. der Plug-ins:
-  -	Spring IDE 3.6.2 
-  -	m2e Plugin 1.5.0
+  -	Spring IDE 3.6.x 
+  -	m2e Plugin 1.5.x
   oder 
-  - SpringSource Tool Suite (Developer Edition) 3.6.2  
+  - SpringSource Tool Suite (Developer Edition) 3.6.x  
   oder 
   JetBrains IntelliJIDEA 14.x
-- Spring Framework 4.1.2.RELEASE 
+- Spring Framework 4.1.x.RELEASE 
 - Apache Tomcat 7.x oder 8.x 
 - GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
