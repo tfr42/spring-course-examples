@@ -7,8 +7,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,6 +119,23 @@ public class GuestJdbcDaoTest {
 				0,
 				jt.queryForInt("SELECT count(id) from guests where id="
 						+ guest.getId()));
+	}
+	
+	@Test @Ignore
+	public void testNativeHibernate() {
+		Guest guest = new Guest();
+		guest.setFirstName("Hans");
+		guest.setLastName("Dampf");
+		
+		Configuration configuration = new Configuration().configure();
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		session.save(guest);
+		transaction.commit();
+		session.close();
 	}
 
 }
