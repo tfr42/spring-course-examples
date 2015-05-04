@@ -4,15 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting" >
-		<!-- set the property guest via the mutator/modifier method setGuest(Guest) --> 
-<!-- 		<property name="guest" ref="guest" />  -->
 		<!-- passes the guest via the constructor  -->
 		<constructor-arg ref="guest"/>
  	</bean> 
 	
 	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
-	    <!-- set the property name via the mutator/modifier method setName(String) -->
-		<property name="name" value="Hans Dampf" />
+	    <!-- passes the two string arguments to the constructor -->
+		<constructor-arg name="firstName" value="Hans"/>
+		<constructor-arg name="lastName" value="Dampf"/>
 	</bean>
 
 </beans>

@@ -8,7 +8,6 @@
 	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<!-- set the property guest via the mutator/modifier method setGuest(String) -->
 		<property name="guest" ref="birthdayChild" />
-		<!-- <constructor-arg ref="guest"/> -->
 	</bean>
 
 	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
@@ -26,27 +25,18 @@
 	</bean>
 
 	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild">
-		<constructor-arg index="0" value="Rainer" />
-		<constructor-arg index="1" value="Unsinn" />
+		<constructor-arg name="firstName" value="Rainer" />
+		<constructor-arg name="lastName" value="Unsinn" />
 		<constructor-arg value="24.12.1981" />
 	</bean>
 
 	<context:property-placeholder location="classpath:/guest.properties" />
 
 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-		<property name="customEditors">
-			<map>
-				<entry key="java.util.Date">
-					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
-						<constructor-arg>
-							<bean class="java.text.SimpleDateFormat">
-								<constructor-arg value="dd.MM.yyyy" />
-							</bean>
-						</constructor-arg>
-						<constructor-arg value="false" /><!--allow emtpy string -->
-					</bean>
-				</entry>
-			</map>
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="net.gfu.seminar.spring.helloworld.CustomDateEditorRegistrar"/>
+			</list>
 		</property>
 	</bean>
 
