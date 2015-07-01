@@ -14,7 +14,7 @@ import org.hibernate.jdbc.Work;
 
 public class JPAAssertions {
 
-  public static void assertTableHasColumn(EntityManager manager, final String tableName, final String columnName) {
+  public static void assertTableHasColumn(final EntityManager manager, final String tableName, final String columnName) {
     SessionImpl session = (SessionImpl) manager.unwrap(Session.class);
 
     final ResultCollector rc = new ResultCollector();
@@ -35,7 +35,7 @@ public class JPAAssertions {
       fail("Column [" + columnName + "] not found on table : " + tableName);
     }
   }
-  public static void assertTableExists(EntityManager manager, final String name) {
+  public static void assertTableExists(final EntityManager manager, final String name) {
     SessionImpl session = (SessionImpl) manager.unwrap(Session.class);
 
     final ResultCollector rc = new ResultCollector();
