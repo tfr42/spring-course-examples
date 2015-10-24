@@ -112,8 +112,8 @@ public class GuestJdbcDaoTest {
 		dao.delete(guest);
 		assertEquals(
 				0,
-				jt.queryForInt("SELECT count(id) from guests where id="
-						+ guest.getId()));
+				(int) jt.queryForObject("SELECT count(id) from guests where id="
+						+ guest.getId(), Integer.class));
 	}
 
 }

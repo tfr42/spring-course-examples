@@ -87,7 +87,7 @@ public class GuestDaoTest {
 	public void testRemove() {
 		Guest guest = dao.findAll().get(0);
 		dao.remove(guest);
-		assertEquals(0, jt.queryForInt("SELECT count(id) from guests where id="+guest.getId()));
+		assertEquals(0, (int) jt.queryForObject("SELECT count(id) from guests where id="+guest.getId(), Integer.class));
 	}
 
 }
