@@ -1,1 +1,1 @@
-java -cp "%USERPROFILE%\.m2\repository\org\hsqldb\hsqldb\2.3.2\hsqldb-2.3.2.jar" org.hsqldb.util.DatabaseManagerSwing
+java -cp "%USERPROFILE%\.m2\repository\org\hsqldb\hsqldb\2.3.3\hsqldb-2.3.3.jar" org.hsqldb.util.DatabaseManagerSwing
