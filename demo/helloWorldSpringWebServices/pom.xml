@@ -12,8 +12,8 @@
 	<description>HelloWorld with Spring WebServices</description>
 	<url>http://localhost:8080/helloWorldSpringWebServices/HelloWorldService.wsdl</url>
 	<properties>
-        <spring-ws.version>2.2.1.RELEASE</spring-ws.version>
-        <spring.version>4.0.5.RELEASE</spring.version>
+        <spring-ws.version>2.2.2.RELEASE</spring-ws.version>
+        <spring.version>4.0.9.RELEASE</spring.version>
 	</properties>
 	<build>
 		<plugins>
