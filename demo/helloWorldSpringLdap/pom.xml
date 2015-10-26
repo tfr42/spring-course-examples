@@ -9,7 +9,7 @@
 	<artifactId>helloWorldSpringLdap</artifactId>
 	<properties>
 		<spring.version>3.2.13.RELEASE</spring.version>
-		<spring-ldap.version>2.0.3.RELEASE</spring-ldap.version>
+		<spring-ldap.version>2.0.4.RELEASE</spring-ldap.version>
 	</properties>
 	<dependencies>
 		<dependency>
