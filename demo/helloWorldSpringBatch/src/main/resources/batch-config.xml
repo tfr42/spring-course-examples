@@ -27,7 +27,7 @@
 						transaction-manager="transactionManager" isolation-level-for-create="DEFAULT"/>
 
 		<bean id="dataSource"
-					class="org.apache.commons.dbcp.BasicDataSource"
+					class="org.apache.commons.dbcp2.BasicDataSource"
 					destroy-method="close">
 			<property name="driverClassName" value="${batch.jdbc.driver}" />
 			<property name="url" value="${batch.jdbc.url}" />

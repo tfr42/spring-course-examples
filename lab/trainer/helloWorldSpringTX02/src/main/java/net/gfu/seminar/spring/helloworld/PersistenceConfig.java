@@ -2,7 +2,7 @@ package net.gfu.seminar.spring.helloworld;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +39,8 @@ public class PersistenceConfig {
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
 		dataSource.setInitialSize(1);
-		dataSource.setMaxActive(1);
+		dataSource.setMaxTotal(1);
+		dataSource.setMaxWaitMillis(1000);
 		return dataSource;
 	}
 
