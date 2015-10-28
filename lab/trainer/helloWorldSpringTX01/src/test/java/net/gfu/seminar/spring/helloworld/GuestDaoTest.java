@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/applicationContext.xml","classpath:/persistenceLayer.xml", "classpath:/testData.xml"})
 @Transactional
-@TransactionConfiguration(defaultRollback=true)
+@Rollback
 public class GuestDaoTest {
 
 	private static final Logger LOG = Logger.getLogger(GuestDaoTest.class);
@@ -68,7 +68,6 @@ public class GuestDaoTest {
 
 	@Test
 	@Transactional(isolation=Isolation.SERIALIZABLE, propagation=Propagation.REQUIRED)
-	@Rollback(true)
 	public void testRemove() {
 		dao.remove(testDataGuest);
 	}
