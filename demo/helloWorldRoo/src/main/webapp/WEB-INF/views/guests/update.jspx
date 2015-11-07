@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_net_gfu_seminar_spring_domain_Guest" modelAttribute="guest" path="/guests" versionField="Version" z="WQ/MAgM8+fSB7dhcaNSuU7El6Sc=">
-        <field:input field="firstname" id="c_net_gfu_seminar_spring_domain_Guest_firstname" min="2" required="true" z="g9eHL13aaQnks5taFE9kqI75DdE="/>
-        <field:input field="lastname" id="c_net_gfu_seminar_spring_domain_Guest_lastname" min="2" required="true" z="2+YMmKepZ4x5utgZQPXev9aWvJc="/>
-    </form:update>
-</div>

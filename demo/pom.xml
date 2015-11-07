@@ -20,12 +20,6 @@
   <name>demo</name>
   <profiles>
   	<profile>
-  		<id>SpringRoo</id>
-  		<modules>
-    		<module>helloWorldRoo</module>
-  		</modules>
-  	</profile>
-  	<profile>
   		<id>SpringBoot</id>
   		<modules>
     		<module>helloWorldSpringBoot</module>
