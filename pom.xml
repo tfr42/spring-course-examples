@@ -171,6 +171,11 @@
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>2.2</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.4</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -291,6 +296,13 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>2.7</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>cobertura</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -346,25 +358,20 @@
 							<additionalparam>-Xdoclint:none</additionalparam>
 						</configuration>
 					</plugin>
+				</plugins>
+			</build>
+			<reporting>
+				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-site-plugin</artifactId>
-						<version>3.4</version>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.10.3</version>
 						<configuration>
-							<reportPlugins>
-								<plugin>
-									<groupId>org.apache.maven.plugins</groupId>
-									<artifactId>maven-javadoc-plugin</artifactId>
-									<version>2.10.3</version>
-									<configuration>
-										<additionalparam>-Xdoclint:none</additionalparam>
-									</configuration>
-								</plugin>
-							</reportPlugins>
+							<additionalparam>-Xdoclint:none</additionalparam>
 						</configuration>
 					</plugin>
 				</plugins>
-			</build>
+			</reporting>
 		</profile>
 	</profiles>
 </project>
