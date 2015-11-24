@@ -4,19 +4,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Test;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DateTest {
 	
 	@Test
 	public void testDateFactoryMethod() {
-		Resource resource = new ClassPathResource("testContext.xml");
-		BeanFactory beanFactory = new XmlBeanFactory(resource);
+		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("testContext.xml");
 		Date now = beanFactory.getBean("now", Date.class);
 		System.out.println(now);
+		beanFactory.close();
 	}
 	
 	@Test

@@ -1,6 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -17,12 +17,14 @@ public class HelloWorldRunnerWithSpring {
 		// loading the Spring XML configuration file and initializing the BeanFactory
 		// this file is located in the classpath. 
 		// this creates a new instance of the Spring Container aka BeanFactory
-		BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml"); 
+		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml"); 
 		
 		// here we retrieve an instance of Greeting from the Spring BeanFactory
 		Greeting reception = (Greeting) beanFactory.getBean("welcome");
 		
 		System.out.println(reception.welcome());
+		
+		beanFactory.close();
 
 	}
 

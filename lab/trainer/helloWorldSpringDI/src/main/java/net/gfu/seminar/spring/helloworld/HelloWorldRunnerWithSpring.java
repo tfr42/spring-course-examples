@@ -1,9 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * HelloWorld using Spring Framework Dependency Injection and XML configuration metadata.
@@ -19,16 +17,17 @@ public class HelloWorldRunnerWithSpring {
 		// loading the Spring XML configuration file and initializing the BeanFactory
 		// this file is located in the classpath. 
 		// TODO Open the Eclipse Project properties and check the Java Build Path
-		Resource resource = new ClassPathResource("applicationContext.xml"); //located in src/main/resources
+		//Resource resource = new ClassPathResource("applicationContext.xml"); //located in src/main/resources
 		
 		// this creates a new instance of the Spring Container aka BeanFactory
-		BeanFactory beanFactory = new XmlBeanFactory(resource); 
+		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml"); 
 		
 		// here we retrieve an instance of Greeting from the Spring BeanFactory
 		GreetingService reception = (GreetingService) beanFactory.getBean("greeting");
 		
 		System.out.println(reception.welcome());
-
+		
+		beanFactory.close();
 	}
 
 }
