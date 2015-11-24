@@ -37,6 +37,7 @@ public class Guest implements Serializable {
 		Scanner scanner = new Scanner(name);
 		this.firstName = scanner.next();
 		this.lastName = scanner.next();
+		scanner.close();
 	}
 
 	public String getFirstName() {

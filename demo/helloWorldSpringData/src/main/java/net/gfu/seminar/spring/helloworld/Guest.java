@@ -34,6 +34,7 @@ public class Guest {
 		Scanner scanner = new Scanner(name);
 		this.firstName = scanner.next();
 		this.lastName = scanner.next();
+		scanner.close();
 	}
 
 	@Override

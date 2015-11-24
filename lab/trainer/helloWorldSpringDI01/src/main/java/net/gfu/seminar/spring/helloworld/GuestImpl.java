@@ -41,6 +41,7 @@ public class GuestImpl implements Guest {
 		Scanner scanner = new Scanner(name);
 		this.firstName = scanner.next();
 		this.lastName = scanner.next();
+		scanner.close();
 	}
 
 	public String getFirstName() {
