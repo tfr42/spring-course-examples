@@ -3,7 +3,6 @@ package net.gfu.seminar.spring.helloworld;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -75,8 +74,4 @@ public class PersistenceConfig {
 		return dsi;
 	}
 
-//	@Bean
-//	public AnnotationAwareAspectJAutoProxyCreator aaaapc(){
-//	return new AnnotationAwareAspectJAutoProxyCreator();
-//	}
 }

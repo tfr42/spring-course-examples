@@ -19,7 +19,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 // TODO: and activate corresponding maven profile too!
 @ActiveProfiles(profiles = { "jdbc" }) 
 @Transactional
-@TransactionConfiguration(defaultRollback = true)
+@Rollback
 public class GuestJdbcDaoTest {
 
 	@Autowired

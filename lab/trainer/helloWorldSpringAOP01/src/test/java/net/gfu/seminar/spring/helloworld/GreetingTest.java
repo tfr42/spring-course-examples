@@ -33,9 +33,6 @@ public class GreetingTest {
 	@Autowired
 	private GreetingService greeting;
 	
-	@Autowired
-	private Guest guest;
-
 	@Before
 	public void setUp() throws Exception {
 		LOG.info("setUp");

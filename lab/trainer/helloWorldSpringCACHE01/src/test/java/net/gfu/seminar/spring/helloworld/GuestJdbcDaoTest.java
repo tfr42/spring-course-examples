@@ -3,8 +3,6 @@ package net.gfu.seminar.spring.helloworld;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import net.sf.ehcache.Ehcache;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,17 +11,19 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.ehcache.EhCacheCache;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Repeat;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+
+import net.sf.ehcache.Ehcache;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ApplicationConfig.class, TestConfig.class })
 @Transactional
-@TransactionConfiguration(defaultRollback = true)
+@Rollback
 public class GuestJdbcDaoTest {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDaoTest.class);
