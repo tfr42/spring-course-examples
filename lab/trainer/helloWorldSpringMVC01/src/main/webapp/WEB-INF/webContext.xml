@@ -40,7 +40,7 @@
 	</jdbc:initialize-database>
 	
 	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<util:list id="beanList">
 				<ref bean="stringHttpMessageConverter" />
