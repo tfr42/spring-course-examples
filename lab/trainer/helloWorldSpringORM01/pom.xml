@@ -9,9 +9,9 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringORM01</artifactId>
 	<name>helloWorldSpringORM01</name>
-	<description>Spring ORM with Hibernate 4.x</description>
+	<description>Spring ORM with Hibernate 5.x</description>
 	<properties>
-		<hibernate.version>4.3.9.Final</hibernate.version>
+		<hibernate.version>5.0.6.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -78,6 +78,11 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
@@ -86,7 +91,14 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.35</version>
+			<version>5.1.38</version>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1206-jdbc42</version>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>

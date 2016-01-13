@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<description>Hibernate 4.x integration</description>
+	<description>Hibernate 5.x integration</description>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
-			<array>
+			<list value-type="java.lang.Class">
 				<value>net.gfu.seminar.spring.helloworld.Guest</value>
-			</array>
+			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
@@ -27,7 +27,7 @@
 	</bean>
 
 	<bean id="hibernateTransactionManager" name="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
