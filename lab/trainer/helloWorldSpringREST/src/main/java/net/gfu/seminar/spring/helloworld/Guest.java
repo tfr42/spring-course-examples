@@ -30,7 +30,7 @@ public class Guest {
 
 	@Override
 	public String toString() {
-		return "GuestImpl [firstName=" + firstName + ", lastName=" + lastName
+		return "Guest [firstName=" + firstName + ", lastName=" + lastName
 				+ "]";
 	}
 
