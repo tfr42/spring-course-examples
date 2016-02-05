@@ -16,6 +16,7 @@
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
 		<mockito.version>1.9.5</mockito.version>
 		<selenium.version>2.49.1</selenium.version>
+		<jetty-plugin.version>9.2.14.v20151106</jetty-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -106,7 +107,7 @@
 				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
-					<version>9.3.7.v20160115</version>
+					<version>${jetty-plugin.version}</version>
 					<!-- http://www.eclipse.org/jetty/documentation/ -->
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
@@ -350,6 +351,7 @@
 			</activation>
 			<properties>
 				<java.version>1.8</java.version>
+				<jetty-plugin.version>9.3.7.v20160115</jetty-plugin.version>
 			</properties>
 			<build>
 				<plugins>
