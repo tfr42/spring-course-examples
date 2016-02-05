@@ -33,10 +33,11 @@ public class GreetingTest {
 
 	@Test
 	@Repeat(23)
-	@DirtiesContext(classMode=ClassMode.AFTER_EACH_TEST_METHOD)
+	//@DirtiesContext(classMode=ClassMode.AFTER_EACH_TEST_METHOD)
 	public void testWelcome() {
-		assertNotNull(greeting.welcome());
-		LOG.debug(greeting.welcome());
+		String message = greeting.welcome();
+		assertNotNull(message);
+		LOG.debug(message);
 	}
 	
 	@Test

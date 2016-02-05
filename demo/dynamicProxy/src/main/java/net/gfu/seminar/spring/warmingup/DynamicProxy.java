@@ -12,10 +12,10 @@ public class DynamicProxy implements Task, InvocationHandler {
 	  t.execute();
 	}
 	 public void execute() {
-	  System.out.println("1 - Task - execute");
+	  System.out.println("A - Task.execute()");
 	 }
 	 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-	  System.out.println("2 - InvocationHandler - " + method.getName());
+	  System.out.println("B - InvocationHandler." + method.getName()+"()");
 	  return null;
 	 }
 	}
