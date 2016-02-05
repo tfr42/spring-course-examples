@@ -28,16 +28,16 @@ Für die Installation von Eclipse Plugins über den Eclipse Update Manager ist e
 Entwicklungsumgebung einrichten
 -------------------------------
 Benötigte Software
-- Java SE 7u45 oder Java SE 8 (Oracle oder OpenJDK 8)
-- Maven 3.0.5 oder höher
-- Installation von Eclipse 4.3 (Eclipse IDE for Java EE Developers - Kepler ) incl. der Plug-ins:
-  -	Spring IDE 3.6.x 
+- Java SE 7u45+ oder Java SE 8 (Oracle oder OpenJDK 8)
+- Maven 3.0.5+
+- Installation von Eclipse 4.3+ (Eclipse IDE for Java EE Developers - Kepler ) incl. der Plug-ins:
+  -	Spring IDE 3.7+
   -	m2e Plugin 1.5.x
   oder 
-  - SpringSource Tool Suite (Developer Edition) 3.6.x  
+  - SpringSource Tool Suite (Developer Edition) 3.7+
   oder 
   JetBrains IntelliJIDEA 14.x
-- Spring Framework 4.1.x.RELEASE 
+- Spring Framework 4.2+
 - Apache Tomcat 7.x oder 8.x 
 - GlassFish v4.0  (optional)
 - Apache ActiveMQ 5.9.0 (optional)
@@ -54,8 +54,8 @@ Im Unterverzeichnis
  
  Bauen der Übungsumgebung:
  mvn install
- mit den Demo-Projekten helloWorldRoo und helloWorldSpringBoot müssen die Profile aktiviert werden:
- mvn -PSpringRoo,SpringBoot install
+ für das Demo-Projekt helloWorldSpringBoot muß ein Profil aktiviert werden:
+ mvn -PSpringBoot install
   
  Erstellen der Dokumentation:
  mvn site 
@@ -73,7 +73,7 @@ Im Unterverzeichnis
   
  
 Starten der HSQLDB:
- Im Unterverzeichnis lab/src/main/scripts befinden sich  Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
+ Im Unterverzeichnis lab/src/main/scripts befinden sich Skripte für MS Windows und UNIX/Linux um die HSQLDB im Server-Modus zu starten:
  Windows:
   lab/src/main/script/startDB.cmd
 
