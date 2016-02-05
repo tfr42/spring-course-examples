@@ -38,7 +38,7 @@
 	
 	<beans profile="tomcat">
 		<bean id="jndiDatasource" class="org.springframework.jndi.JndiObjectFactoryBean">
-			<property name="jndiName" value="java:comp/env/jdbc/DefaultDS"></property>
+			<property name="jndiName" value="java:comp/env/jdbc/DefaultDS"/>
 		</bean>
 	</beans>
 
