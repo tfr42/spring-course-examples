@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.1.9.RELEASE</version>
+		<version>1.1.12.RELEASE</version>
 	</parent>
 	<groupId>net.gfu.seminar.spring</groupId>
 	<artifactId>helloWorldSpringBoot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<description>HelloWorld with SpringBoot</description>
+	<description>HelloWorld with Spring Boot</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -30,6 +30,34 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<!--
+						  Copy the JAR file to the Docker source directory so that it can be added to Docker container.
+						-->
+						<id>copy-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/src/main/config/docker</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${build.directory}</directory>
+									<includes>
+										<include>${project.artifactId}-*.jar</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
