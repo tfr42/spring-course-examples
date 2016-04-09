@@ -8,8 +8,8 @@
 	</parent>
 	<artifactId>helloWorldSpringData</artifactId>
 	<properties>
-        <spring-data.version>1.9.0.RELEASE</spring-data.version>
-        <spring.version>4.1.7.RELEASE</spring.version>
+        <spring-data.version>1.9.4.RELEASE</spring-data.version>
+        <spring.version>4.1.9.RELEASE</spring.version>
         <hibernate.version>4.3.9.Final</hibernate.version>
 	</properties>
 	<dependencies>
