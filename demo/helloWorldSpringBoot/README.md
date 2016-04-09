@@ -23,7 +23,7 @@ To run the Docker container execute:
     
     % docker run -p 8080:8080 --rm tfr42/hello-world-springboot:1.0.0-SNAPSHOT
      
-Then open http://localhost:8080 or in case you run Docker with docker-Machine then open http://$IP:8080, where $IP
-     is ```docker-machine ip <DOCKER_VM_NAME>```
+Then open http://localhost:8080 or in case you run Docker with docker-machine then open http://$IP:8080, where $IP
+     is taken from ```docker-machine ip <DOCKER_VM_NAME>```.
 
 See the [Docker web site](https://www.docker.com/) for more information about Docker! 
