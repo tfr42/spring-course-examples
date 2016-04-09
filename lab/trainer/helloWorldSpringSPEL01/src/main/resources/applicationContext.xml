@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	 				    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:properties id="nameProperties" location="classpath:/guest.properties"/>
+
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.Guest">
+		<property name="firstName" value="#{nameProperties['firstName']}" />
+		<property name="lastName" value="#{nameProperties['lastName']}" />
+	</bean>
+
+	<bean id="specialGuest" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
+		<property name="firstName" value="#{nameProperties.firstName?:'Elvis'}" />
+		<property name="lastName" value="#{nameProperties.lastName?:'Presley'}" />
+	</bean>
+
+	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting">
+		<property name="guest" value="#{systemProperties['isVip']?specialGuest:guest}"/>
+	</bean>
+</beans>

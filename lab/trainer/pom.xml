@@ -30,6 +30,7 @@
     <module>helloWorldSpringORM02</module>
     <module>helloWorldSpringREST</module>
     <module>helloWorldSpringSEC01</module>
+    <module>helloWorldSpringSPEL01</module>
     <module>helloWorldSpringTEST01</module>
     <module>helloWorldSpringTEST02</module>
     <module>helloWorldSpringTX01</module>
