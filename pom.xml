@@ -9,8 +9,8 @@
 	<properties>
 		<java.version>1.7</java.version>
 		<spring.version>4.2.5.RELEASE</spring.version>
-		<aspectj.version>1.8.7</aspectj.version>
-		<slf4j.version>1.7.14</slf4j.version>
+		<aspectj.version>1.8.9</aspectj.version>
+		<slf4j.version>1.7.21</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<hsqldb.version>2.3.3</hsqldb.version>
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
@@ -58,7 +58,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.5</version>
+					<version>3.5.1</version>
 					<!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
 					<configuration>
 						<source>${java.version}</source>
