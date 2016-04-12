@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	default-autowire="byName"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
 
-	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
+	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<!-- set the property guest via the mutator/modifier method setGuest(String) -->
 		<!-- <property name="guest" ref="guest" /> -->
 	</bean>
 
-	<bean id="guest1" name="aguest"
+	<bean id="guest1" name="annaGramm,guest"
 		class="net.gfu.seminar.spring.helloworld.GuestImpl">
 		<property name="name" value="Anna Gramm" />
 	</bean>
 
-	<bean id="guest2" name="guestA,guestB,guestC,otherGuest"
+	<bean id="guest2" name="hansDampf,theOtherGuest"
 		class="net.gfu.seminar.spring.helloworld.GuestImpl" init-method="init">
 		<property name="name" value="Hans Dampf" />
 	</bean>
 
-	<bean id="guest3" name="specialGuest"
+	<bean id="guest3" name="specialGuest,vip"
 		class="net.gfu.seminar.spring.helloworld.SpecialGuest">
 		<constructor-arg>
 			<props>
-				<prop key="firstName">Hans</prop>
-				<prop key="lastName">Fall</prop>
+				<prop key="firstName">Rainer</prop>
+				<prop key="lastName">Unsinn</prop>
 			</props>
 		</constructor-arg>
 	</bean>

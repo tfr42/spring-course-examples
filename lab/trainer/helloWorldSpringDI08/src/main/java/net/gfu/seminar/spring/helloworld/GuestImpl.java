@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class GuestImpl implements Guest {
 	@Value("Hans")
 	private String firstName;
-	@Value("Dampf}")
+	@Value("Dampf")
 	private String lastName;
 	
 	private Long id;

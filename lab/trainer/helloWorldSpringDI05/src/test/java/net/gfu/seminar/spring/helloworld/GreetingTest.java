@@ -33,7 +33,7 @@ public class GreetingTest {
 	public void setUp() throws Exception {
 		LOG.info("setUp");
 		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml", "testData.xml");
-		this.greeting =  beanFactory.getBean("welcome", Greeting.class);
+		this.greeting =  beanFactory.getBean("greeting", Greeting.class);
 	}
 
 	@After

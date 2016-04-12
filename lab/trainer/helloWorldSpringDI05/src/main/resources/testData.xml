@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="welcome" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting">
+	<bean id="greeting" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting">
 		 <constructor-arg ref="guestList"/>
 	</bean>
 

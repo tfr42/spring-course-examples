@@ -12,17 +12,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class HelloWorldRunnerWithSpring {
 
 	public static void main(String[] args) {
-		/// XXX Examples for creating the Spring Container
-		// 1. The Bean Factory
-		// loading the Spring XML configuration file and initializing the BeanFactory
-		// this file is located in the classpath. 
-		// this creates a new instance of the Spring Container aka BeanFactory
-		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml"); 
+		// loading the Spring XML configuration file and initializing the ApplicationContext
+		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		// here we retrieve an instance of Greeting from the Spring BeanFactory
-		Greeting reception = (Greeting) beanFactory.getBean("welcome");
-		
-		System.out.println(reception.welcome());
+		// here we retrieve an instance of Greeting from the Spring Container
+		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
+
+		System.out.println(greeting.welcome());
 		
 		beanFactory.close();
 

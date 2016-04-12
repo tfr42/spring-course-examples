@@ -1,5 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -10,16 +12,13 @@ import org.springframework.context.support.GenericApplicationContext;
  */
 public class HelloWorldRunnerWithSpringAndJavaConfig {
 	public static void main(String[] args) {
-		// creates new Application Context
-		GenericApplicationContext ctx = new GenericApplicationContext();
-		
-		// scans for Spring Beans annotated with @Component or @Configuration
-		new ClassPathBeanDefinitionScanner(ctx)
-				.scan("net.gfu.seminar.spring.helloworld");
-		
-		// creates all bean instances
-		ctx.refresh(); 
-		
-		System.out.println(((GreetingService) ctx.getBean("greeting")).welcome());
+		// creates new ApplicationContext
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+
+		Greeting greeting = context.getBean("greeting", Greeting.class);
+
+		System.out.println(greeting.welcome());
+
+		context.close();
 	}
 }

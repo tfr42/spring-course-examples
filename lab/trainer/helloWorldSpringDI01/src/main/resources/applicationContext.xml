@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting" >
+	<bean id="greeting" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<!-- passes the guest via the constructor  -->
-		<constructor-arg ref="guest"/>
+		<property name="guest" ref="guest"/>
  	</bean> 
 	
-	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+	<bean id="guest" name="annaGramm" class="net.gfu.seminar.spring.helloworld.GuestImpl">
 	    <!-- passes the two string arguments to the constructor -->
-		<constructor-arg name="firstName" value="Hans"/>
-		<constructor-arg name="lastName" value="Dampf"/>
+		<property name="firstName" value="Anna"/>
+		<property name="lastName" value="Gramm"/>
 	</bean>
 
 </beans>

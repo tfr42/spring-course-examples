@@ -10,16 +10,20 @@ import org.springframework.context.support.GenericApplicationContext;
  */
 public class HelloWorldRunnerWithSpringAndAnnotation {
 	public static void main(String[] args) {
-		// creates new Application Context
-		GenericApplicationContext ctx = new GenericApplicationContext();
+		// creates new ApplicationContext
+		GenericApplicationContext context = new GenericApplicationContext();
 		
 		// scans for Spring Beans annotated with @Component or @Configuration
-		new ClassPathBeanDefinitionScanner(ctx)
+		new ClassPathBeanDefinitionScanner(context)
 				.scan("net.gfu.seminar.spring.helloworld");
 		
 		// creates all bean instances
-		ctx.refresh(); 
-		
-		System.out.println(((GreetingService) ctx.getBean("greeting")).welcome());
+		context.refresh();
+
+		Greeting greeting = context.getBean("greeting", Greeting.class);
+
+		System.out.println(greeting.welcome());
+
+		context.close();
 	}
 }
