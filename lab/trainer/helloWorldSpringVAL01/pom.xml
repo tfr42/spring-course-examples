@@ -8,7 +8,7 @@
     </parent>
     <groupId>net.gfu.seminar.spring.helloworld</groupId>
     <artifactId>helloWorldSpringVAL01</artifactId>
-    <name>helloWorldSpringVAL</name>
+    <name>helloWorldSpringVAL01</name>
     <description>Bean validation with Spring</description>
     <dependencies>
         <dependency>
