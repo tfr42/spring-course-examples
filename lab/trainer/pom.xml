@@ -36,6 +36,7 @@
     <module>helloWorldSpringTX01</module>
     <module>helloWorldSpringTX02</module>
     <module>helloWorldSpringRMI01</module>
+    <module>helloWorldSpringVAL01</module>
   </modules>
   <description>Trainer workspace</description>
   <name>trainer</name>

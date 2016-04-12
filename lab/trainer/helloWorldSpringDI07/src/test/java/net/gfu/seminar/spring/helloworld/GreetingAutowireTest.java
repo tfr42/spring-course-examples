@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class GreetingAutowireTest {
 
 	@Test
-	public void testAutowire() {
+	public void testAutowiringByConstructor() {
 		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("autowireConstructor.xml");
 		Greeting greeting = (Greeting) beanFactory.getBean("welcome");
 		System.out.println(greeting.welcome());
@@ -15,7 +15,7 @@ public class GreetingAutowireTest {
 	}
 
 	@Test
-	public void testAutowirePerBean() {
+	public void testAutowiringOnBeanLevel() {
 		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("autowireConstructorPerBean.xml");
 		Greeting greeting = (Greeting) beanFactory.getBean("welcome");
 		System.out.println(greeting.welcome());
