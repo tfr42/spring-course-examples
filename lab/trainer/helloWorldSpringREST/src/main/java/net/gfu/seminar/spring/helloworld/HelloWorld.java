@@ -21,7 +21,7 @@ public class HelloWorld {
 	
 	/**
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld
-	 * @return a String as plain/text
+	 * @return a String as text/plain
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody String getMessage() {
@@ -32,7 +32,7 @@ public class HelloWorld {
 	/** 
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Hans%20Wurst
 	 * @param name a name
-	 * @return a String with the given name as plain/text
+	 * @return a String with the given name as text/plain
 	 */
 	@RequestMapping(value = "{name}", method = RequestMethod.GET)
 	public @ResponseBody String getTextMessage(@PathVariable String name) {
