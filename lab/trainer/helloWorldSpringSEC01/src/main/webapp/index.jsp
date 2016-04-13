@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HelloWorld</title>
+<title>SEC01</title>
 </head>
 <body>
-<h2>Hello World!</h2>
+<h2>SEC01</h2>
 <ul>
 <li><a href="greeting/welcome.do">Welcome reception</a>
 <li><a href="greeting/add.do">Add Guest</a>

@@ -43,7 +43,7 @@ public class LoginIntegrationTest {
         System.out.println("Page title is: " + driver.getTitle());
         
         // Should see page: HelloWorld page
-        assertEquals("HelloWorld" , driver.getTitle());
+        assertEquals("SEC01" , driver.getTitle());
 	}
 	
 	@Test
