@@ -2,14 +2,20 @@ package net.gfu.seminar.spring.helloworld;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Scanner;
 
 @Component("guest")
 public class Guest implements Serializable {
     private static final long serialVersionUID = -4700804809827556933L;
+    @NotNull
     private String firstName;
+
+    @Size(min=4,max=20)
     private String lastName;
+
     private Long id;
 
     public Guest() {

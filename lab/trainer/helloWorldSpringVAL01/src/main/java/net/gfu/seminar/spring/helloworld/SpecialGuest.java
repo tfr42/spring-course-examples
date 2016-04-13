@@ -13,8 +13,6 @@ public class SpecialGuest extends Guest {
 
     //	@Pattern(regexp="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\b")
     @Pattern(regexp="^.+@.+")
-    @NotNull
-    @Size(min=4,max=20)
     private String mailAddress;
 
     public SpecialGuest() {
