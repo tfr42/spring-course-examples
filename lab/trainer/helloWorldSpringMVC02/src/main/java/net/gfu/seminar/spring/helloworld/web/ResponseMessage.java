@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

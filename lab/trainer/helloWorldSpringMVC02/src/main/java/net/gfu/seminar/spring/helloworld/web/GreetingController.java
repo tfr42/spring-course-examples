@@ -1,7 +1,10 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web;
 
 import javax.validation.Valid;
 
+import net.gfu.seminar.spring.helloworld.GreetingService;
+import net.gfu.seminar.spring.helloworld.Guest;
+import net.gfu.seminar.spring.helloworld.GuestImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -75,17 +78,11 @@ public class GreetingController {
 
 	@RequestMapping(value = "/{guestId}", method = RequestMethod.GET, produces="text/xml")
 	public @ResponseBody
-	ResponseMessage findKundeById(@PathVariable String guestId) {
-		LOG.debug("findbyId " + guestId);
-
+	Guest findGuestById(@PathVariable String guestId) {
+		LOG.debug("findGuestById: " + guestId);
 		Long id = Long.parseLong(guestId);
 		Guest guest = service.findById(id);
-		LOG.debug("Found:" + guest);
-		String message;
-		if (guest != null)
-			message = guest.toString();
-		else
-			message = "Guest with ID " + guestId + " not found";
-		return new ResponseMessage(message);
+		LOG.debug("Found: " + guest);
+		return guest;
 	}
 }

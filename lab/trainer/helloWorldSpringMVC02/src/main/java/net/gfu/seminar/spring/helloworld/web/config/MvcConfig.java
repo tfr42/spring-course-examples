@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
