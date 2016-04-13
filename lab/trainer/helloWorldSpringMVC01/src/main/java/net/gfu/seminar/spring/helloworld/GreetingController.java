@@ -59,9 +59,16 @@ public class GreetingController {
 		return "Hello, " + name + "!";
 	}
 
-	@RequestMapping(value="/find/{guestId}", method = RequestMethod.GET)
-	public @ResponseBody Guest findKundeById(@PathVariable String guestId) {
-		System.out.println("findbyId " + guestId);
+	@RequestMapping(value = "/{firstname}/{lastname}", method = RequestMethod.GET)
+	public @ResponseBody
+	GuestImpl getGuestAsXml(@PathVariable String firstname,
+								  @PathVariable String lastname) {
+		return new GuestImpl(firstname,lastname);
+	}
+
+	@RequestMapping(value="/{guestId}", method = RequestMethod.GET)
+	public @ResponseBody Guest findGuestById(@PathVariable String guestId) {
+		System.out.println("findGuestById " + guestId);
 		
 		Long id = Long.parseLong(guestId);
 		Guest guest = service.findById(id);

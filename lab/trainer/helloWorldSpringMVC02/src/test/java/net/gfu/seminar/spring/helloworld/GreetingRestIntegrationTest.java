@@ -37,7 +37,7 @@ public class GreetingRestIntegrationTest {
 		assertNotNull(result);
 		String resultAsString = transformXmlToString(result);
 		System.out.println("Result: " + resultAsString);
-		assertThat(resultAsString, containsString("GuestImpl"));
+		assertThat(resultAsString, containsString("Anna Gramm"));
 	}
 
 	private String transformXmlToString(Source inputSource)
