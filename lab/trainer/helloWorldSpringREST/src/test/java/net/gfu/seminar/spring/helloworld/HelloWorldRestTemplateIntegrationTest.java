@@ -12,8 +12,9 @@ import org.springframework.web.client.RestOperations;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { TestConfig.class })
 public class HelloWorldRestTemplateIntegrationTest {
+
 	@Autowired
-	RestOperations restTemplate;
+	private RestOperations restTemplate;
 
 	@Test
 	public void testGetResourceHelloWorld() {
