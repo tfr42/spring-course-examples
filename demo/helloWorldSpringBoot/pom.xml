@@ -4,19 +4,38 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.1.12.RELEASE</version>
+		<version>1.3.3.RELEASE</version>
 	</parent>
-	<groupId>net.gfu.seminar.spring</groupId>
+	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringBoot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<description>HelloWorld with Spring Boot</description>
+	<description>HelloWorld with SpringBoot - on Docker</description>
+	<properties>
+		<docker.image.prefix>tfr42</docker.image.prefix>
+		<docker.image.name>hello-world-springboot</docker.image.name>
+	</properties>
 	<dependencies>
+		<!-- Overview of Spring Boot Starter POM's
+             http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-starter-poms
+             Endpoints
+             http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints
+		    -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<!-- http://docs.spring.io/spring-boot/docs/current/maven-plugin/ 
 				 to start the application run the goal
@@ -33,33 +52,25 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- https://github.com/spotify/docker-maven-plugin
+			     to build and run the docker container use
+			     mvn clean package docker:build
+			    -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
-				<executions>
-					<execution>
-						<!--
-						  Copy the JAR file to the Docker source directory so that it can be added to Docker container.
-						-->
-						<id>copy-jar</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/src/main/config/docker</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${build.directory}</directory>
-									<includes>
-										<include>${project.artifactId}-*.jar</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.9</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${docker.image.name}</imageName>
+					<dockerDirectory>src/main/config/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
