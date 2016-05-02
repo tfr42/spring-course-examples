@@ -9,10 +9,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
-
-import net.gfu.helloworld.types.HelloRequest;
-import net.gfu.helloworld.types.HelloResponse;
-
+import net.gfu.seminar.springws.helloworld.types.HelloRequest;
+import net.gfu.seminar.springws.helloworld.types.HelloResponse;
 import org.apache.log4j.Logger;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -27,7 +25,7 @@ import org.w3c.dom.NodeList;
 
 @Endpoint
 public class HelloWorldEndpoint {
-	private static final String NAMESPACE_URI = "http://helloworld.gfu.net/types";
+	private static final String NAMESPACE_URI = "http://seminar.gfu.net/springws/helloworld/types";
 	private static final Logger LOG = Logger
 			.getLogger(HelloWorldEndpoint.class);
 
@@ -35,13 +33,14 @@ public class HelloWorldEndpoint {
 	@ResponsePayload
 	public HelloResponse hello(@RequestPayload HelloRequest request) {
 		String name = request.getFirstname() + " " + request.getLastname();
-		LOG.info("saying hello to "+ name);
+		LOG.info("say hello to "+ name);
 		HelloResponse responseType = new HelloResponse();
 		responseType.setReturn("Hello, " + name + "!");
+		LOG.info("returning "+ responseType.getReturn());
 		return responseType;
 	}
 
-//	@PayloadRoot(localPart = "helloRequest", namespace = NAMESPACE_URI)
+//	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "helloRequest")
 //	@ResponsePayload
 	public Element hello(@RequestPayload Element requestElement) {
 		StringResult requestElementAsString = new StringResult();
@@ -50,12 +49,12 @@ public class HelloWorldEndpoint {
 		String firstname = extractName(requestElement, "firstname");
 		String lastname = extractName(requestElement, "lastname");
 		Source responseElement = new StringSource(
-				"<ns1:helloResponse xmlns:ns1='http://helloworld.gfu.net/types'>"
+				"<ns1:helloResponse xmlns:ns1='"+NAMESPACE_URI+"'>"
 						+ "<return>Hello, " + firstname + " " + lastname+ "!</return>"
 						+ "</ns1:helloResponse>");
 		DOMResult outputTarget = new DOMResult();
 		transform(responseElement, outputTarget);
-
+		LOG.debug("Response: " + outputTarget);
 		return (Element) outputTarget.getNode().getFirstChild();
 	}
 

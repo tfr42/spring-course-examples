@@ -30,14 +30,14 @@ public class HelloWorldEndpointTest {
 	}
 
 	@Test
-	public void customerEndpoint() throws Exception {
+	public void verifyThatHelloWorldEndpointReturnsValidResponse() throws Exception {
 		Source requestPayload = new StringSource(
-				"<typ:helloRequest xmlns:typ='http://helloworld.gfu.net/types'>"
+				"<typ:helloRequest xmlns:typ='http://seminar.gfu.net/springws/helloworld/types'>"
 						+ "<firstname>Hans</firstname>"
 						+ "  <lastname>Dampf</lastname>"
 						+ "</typ:helloRequest>");
 		Source responsePayload = new StringSource(
-				"<ns3:helloResponse xmlns:ns3='http://helloworld.gfu.net/types'>"
+				"<ns3:helloResponse xmlns:ns3='http://seminar.gfu.net/springws/helloworld/types'>"
 						+ "<return>Hello, Hans Dampf!</return>"
 						+ "</ns3:helloResponse>");
 

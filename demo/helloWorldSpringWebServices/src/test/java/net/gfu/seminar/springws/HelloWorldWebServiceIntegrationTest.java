@@ -1,7 +1,7 @@
 package net.gfu.seminar.springws;
 
-import net.gfu.helloworld.types.HelloRequest;
-import net.gfu.helloworld.types.HelloResponse;
+import net.gfu.seminar.springws.helloworld.types.HelloRequest;
+import net.gfu.seminar.springws.helloworld.types.HelloResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

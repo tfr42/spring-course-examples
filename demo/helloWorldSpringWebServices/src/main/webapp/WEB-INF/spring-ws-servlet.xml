@@ -12,17 +12,25 @@
 
 	<context:component-scan base-package="net.gfu.seminar.springws" />
 
-	<!-- 
-	<sws:dynamic-wsdl id="helloworld" portTypeName="HelloWorldService"
-		locationUri="/helloworld/" targetNamespace="http://helloworld.gfu.net/">
-		<sws:xsd location="classpath:/types.xsd" />
-	</sws:dynamic-wsdl>
+	<!-- All WsdlDefinition bean definitions are exposed by the MessageDispatcherServlet under their bean id
+	     (or bean name) with the suffix .wsdl
 	-->
-	<!-- All WsdlDefinition bean definitions are exposed by the MessageDispatcherServlet under their bean id (or bean name) with the suffix .wsdl -->
+	<sws:dynamic-wsdl id="HelloWorldService" locationUri="/HelloWorldService" portTypeName="HelloWorld"
+		targetNamespace="http://seminar.gfu.net/springws/helloworld">
+		<sws:xsd location="classpath:/types.xsd" />
+		<sws:xsd location="classpath:/faults.xsd" />
+	</sws:dynamic-wsdl>
+
+
+	<!--
 	<sws:static-wsdl id="HelloWorldService" location="classpath:/HelloWorld.wsdl"/>
 
+	<bean id="helloWorldSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+		<property name="xsd" value="classpath:/types.xsd"/>
+	</bean>
+	-->
 	<sws:interceptors>
-		<sws:payloadRoot namespaceUri="http://helloworld.gfu.net/types" localPart="helloRequest">
+		<sws:payloadRoot namespaceUri="http://seminar.gfu.net/springws/helloworld/types" localPart="helloRequest">
 			<bean class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
 			<bean class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
 				<property name="schema" value="classpath:/types.xsd" />

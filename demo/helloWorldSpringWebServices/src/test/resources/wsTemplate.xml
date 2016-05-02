@@ -7,7 +7,7 @@
   <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory" />
 
   <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller"
-        p:contextPath="net.gfu.helloworld.types" />
+        p:contextPath="net.gfu.seminar.springws.helloworld.types" />
 
   <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
     <constructor-arg ref="messageFactory" />
