@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
@@ -26,9 +27,16 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 	private SimpleJdbcInsert insertGuest;
 
+	public GuestJdbcDao() {
+	}
+
 	public GuestJdbcDao(final DataSource dataSource) {
 		this.setDataSource(dataSource);
-		this.insertGuest = new SimpleJdbcInsert(dataSource).withTableName("GUESTS").
+	}
+
+	@PostConstruct
+	public void init() {
+		this.insertGuest = new SimpleJdbcInsert(this.getDataSource()).withTableName("GUESTS").
 				usingGeneratedKeyColumns("ID");
 	}
 	

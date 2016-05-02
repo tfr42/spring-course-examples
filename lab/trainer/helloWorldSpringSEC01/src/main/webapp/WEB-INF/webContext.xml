@@ -28,8 +28,8 @@
 		<property name="maxWaitMillis" value="100"/>
 	</bean>
 	
- 	<bean id="dao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
-		<constructor-arg name="dataSource" ref="dataSource"/>
+ 	<bean id="dao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao" init-method="init">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">

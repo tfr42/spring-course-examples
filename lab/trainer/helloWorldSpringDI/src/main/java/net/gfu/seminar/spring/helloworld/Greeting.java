@@ -16,7 +16,7 @@ public class Greeting implements GreetingService {
 	public Greeting() {
 	}
 	
-	public Greeting( Guest guest) {
+	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
 	
