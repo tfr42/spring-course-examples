@@ -6,7 +6,7 @@
 		<artifactId>demo</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<groupId>net.gfu.seminar.spring.helloworld</groupId>
+	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringBatch</artifactId>
 	<name>helloWorldSpringBatch</name>
 	<description><![CDATA[HelloWorld with Spring Batch

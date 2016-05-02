@@ -6,6 +6,7 @@
 		<artifactId>demo</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>dynamicProxy</artifactId>
 	<name>JDK Dynamic Proxy </name>
 	<description>Warming up - JDK Dynamic Proxy</description>
