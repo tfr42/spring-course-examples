@@ -7,6 +7,7 @@ import java.net.URI;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
+import org.apache.log4j.Logger;
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
  */
 public class HelloWorldRestClientIntegrationTest {
 
+	private static final Logger LOG = Logger.getLogger(HelloWorldRestClientIntegrationTest.class);
 	private static final String uri = "http://localhost:8080/helloWorldSpringREST/";
 	private WebResource resource;
 
@@ -37,7 +39,7 @@ public class HelloWorldRestClientIntegrationTest {
 	public void testGetPlainResource() {
 		String response = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_PLAIN).get(String.class);
-		System.out.println("REST response= " + response);
+		LOG.info("REST response= " + response);
 		assertThat(response, CoreMatchers.containsString("Hello, World!"));
 	}
 
@@ -45,7 +47,7 @@ public class HelloWorldRestClientIntegrationTest {
 	public void testGetXmlResource() {
 		String xmlResponse = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_XML).get(String.class);
-		System.out.println("REST response= " + xmlResponse);
+		LOG.info("REST response= " + xmlResponse);
 		assertThat(xmlResponse, CoreMatchers.containsString("Hello, World!"));
 	}
 	
@@ -53,7 +55,7 @@ public class HelloWorldRestClientIntegrationTest {
 	public void testGetPlainResourceWithPathVariable() {
 		String response = resource.path("rest").path("helloworld").path("Anna")
 				.accept(MediaType.TEXT_PLAIN).get(String.class);
-		System.out.println("REST response= " + response);
+		LOG.info("REST response= " + response);
 		assertThat(response, CoreMatchers.containsString("Hello, Anna!"));
 	}
 	
@@ -61,7 +63,7 @@ public class HelloWorldRestClientIntegrationTest {
 	public void testGetJsonResourceWithPathVariable() {
 		String response = resource.path("rest").path("helloworld").path("guest").path("Klara").path("Fall")
 				.accept(MediaType.APPLICATION_JSON).get(String.class);
-		System.out.println("REST response= " + response);
+		LOG.info("REST response= " + response);
 		assertThat(response, CoreMatchers.containsString("\"firstName\":\"Klara\""));
 	}
 
