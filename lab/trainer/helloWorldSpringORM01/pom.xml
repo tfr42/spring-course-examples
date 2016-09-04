@@ -11,7 +11,7 @@
 	<name>helloWorldSpringORM01</name>
 	<description>Spring ORM with Hibernate 5.x</description>
 	<properties>
-		<hibernate.version>5.0.9.Final</hibernate.version>
+		<hibernate.version>5.0.10.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
