@@ -9,8 +9,8 @@
 	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringIntegration</artifactId>
 	<properties>
-      <spring.version>4.0.8.RELEASE</spring.version>
-      <spring-integration.version>4.0.7.RELEASE</spring-integration.version>
+      <spring.version>4.0.9.RELEASE</spring.version>
+      <spring-integration.version>4.0.9.RELEASE</spring-integration.version>
 	</properties>
 	<dependencies>
 		<dependency>
