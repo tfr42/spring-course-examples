@@ -37,7 +37,7 @@ public class HelloWorldRestWacTest {
 	public void testHelloWorldGetMessageShouldReturnJson() throws Exception {
 		mockMvc.perform(get("/helloworld/guest/Rainer/Zufall").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().contentType("application/json"))
+				.andExpect(content().contentTypeCompatibleWith("application/json"))
 				.andExpect(content().string(containsString("Rainer")));
 	}
 }
