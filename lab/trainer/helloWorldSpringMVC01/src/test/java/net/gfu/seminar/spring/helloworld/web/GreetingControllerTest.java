@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;

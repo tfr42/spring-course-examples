@@ -1,7 +1,10 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.web;
 
 import javax.validation.Valid;
 
+import net.gfu.seminar.spring.helloworld.GreetingService;
+import net.gfu.seminar.spring.helloworld.Guest;
+import net.gfu.seminar.spring.helloworld.GuestImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;

@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan(basePackages="net.gfu.seminar.spring.helloworld") // excludeFilters={@Filter(ApplicationConfig.class)}
+@ComponentScan(basePackages="net.gfu.seminar.spring.helloworld.web") // excludeFilters={@Filter(ApplicationConfig.class)}
 @EnableWebMvc
 public class MvcConfig {
 
