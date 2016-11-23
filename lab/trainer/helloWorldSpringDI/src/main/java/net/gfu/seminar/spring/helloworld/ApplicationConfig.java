@@ -8,11 +8,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource(value = { "classpath:/guest.properties" })
+@PropertySource({ "classpath:/guest.properties" })
 public class ApplicationConfig {
 
 	@Bean
-	@Autowired
 	public GreetingService greeting(Guest guest) {
 		return new Greeting(guest);
 	}
@@ -32,9 +31,16 @@ public class ApplicationConfig {
 		return new ExecutionTimeAdvice();
 	}
 
+	/**
+	 * This static bean is only required in case the @Value annotation is used on fields of a @Configuration
+	 * annotated class.
+	 *
+	 * @see http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html
+     */
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer pspc() {
 		PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
+		// This replaces the @PropertySource annotation
 		// Resource[] resourceLocations = new Resource[] {
 		// new ClassPathResource("guest.properties"),
 		// };

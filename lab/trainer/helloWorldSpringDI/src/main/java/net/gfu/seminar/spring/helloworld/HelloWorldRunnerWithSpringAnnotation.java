@@ -5,6 +5,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 /**
  * HelloWorld using Spring Framework Dependency Injection and Annotations as configuration metadata.
+ *
  * @author tf
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-java">Java-based container configuration</a>
  */

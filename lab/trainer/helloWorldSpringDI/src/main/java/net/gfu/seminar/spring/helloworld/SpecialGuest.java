@@ -18,8 +18,8 @@ public class SpecialGuest extends GuestImpl {
 
 	@Override
 	public String toString() {
-		return "SpecialGuest [getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + "]";
+		return "SpecialGuest [firstName=" + getFirstName()
+				+ ", lastName=" + getLastName() + "]";
 	}
 	
 }

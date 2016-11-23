@@ -14,7 +14,7 @@ public class VipGuest extends SpecialGuest {
 
 	@Override
 	public String toString() {
-		return "VipGuest [pseudonym=" + pseudonym + ", firstName()=" + getFirstName() + ", lastName()="
+		return "VipGuest [pseudonym=" + pseudonym + ", firstName=" + getFirstName() + ", lastName="
 				+ getLastName() + "]";
 	}
 
