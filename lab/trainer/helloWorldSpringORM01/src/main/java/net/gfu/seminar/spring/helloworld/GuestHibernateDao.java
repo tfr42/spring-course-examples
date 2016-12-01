@@ -2,15 +2,13 @@ package net.gfu.seminar.spring.helloworld;
 
 import java.util.List;
 
-import net.gfu.seminar.spring.helloworld.Guest;
-
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Repository to access {@link Guest}s implementation based on plain Hibernate 4.x API.
+ * Repository to access {@link Guest}s implementation based on plain Hibernate 5.x API.
  * 
  * @author tf
  *

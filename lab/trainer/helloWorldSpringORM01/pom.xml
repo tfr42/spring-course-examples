@@ -11,7 +11,7 @@
 	<name>helloWorldSpringORM01</name>
 	<description>Spring ORM with Hibernate 5.x</description>
 	<properties>
-		<hibernate.version>5.0.10.Final</hibernate.version>
+		<hibernate.version>5.2.2.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -104,4 +104,30 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>oracle</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.oracle</groupId>
+					<artifactId>ojdbc7</artifactId>
+					<version>12.1.0.2</version>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>mssql</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.microsoft</groupId>
+					<artifactId>sqljdbc4</artifactId>
+					<version>3.0</version>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>
