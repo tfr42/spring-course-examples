@@ -11,7 +11,7 @@
   </appender>
   
   <logger name="org.springframework">
-  	<level value="WARN"/>
+  	<level value="INFO"/>
   </logger>
   
   <logger name="org.springframework.context">
@@ -21,7 +21,19 @@
   <logger name="org.springframework.beans">
   	<level value="TRACE"/>
   </logger>
-  
+
+  <logger name="org.springframework.transaction">
+    <level value="TRACE"/>
+  </logger>
+
+  <logger name="org.springframework.jdbc">
+    <level value="TRACE"/>
+  </logger>
+
+  <logger name="org.springframework.aop">
+    <level value="TRACE"/>
+  </logger>
+
   <logger name="net.gfu.seminar.spring.helloworld">
   	<level value="DEBUG"/>
   </logger>
