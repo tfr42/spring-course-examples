@@ -13,14 +13,15 @@ public class HelloWorldRunnerWithSpring {
 
 	public static void main(String[] args) {
 		// loading the Spring XML configuration file and initializing the ApplicationContext
-		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		// here we retrieve an instance of Greeting from the Spring Container
-		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
+		Greeting greeting = context.getBean("greeting", Greeting.class);
 
 		System.out.println(greeting.welcome());
-		
-		beanFactory.close();
+
+		context.registerShutdownHook();
+		context.close();
 
 	}
 

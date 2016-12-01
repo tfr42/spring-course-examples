@@ -19,6 +19,7 @@ public class HelloWorldRunnerWithSpringAndJavaConfig {
 
 		System.out.println(greeting.welcome());
 
+		context.registerShutdownHook();
 		context.close();
 	}
 }

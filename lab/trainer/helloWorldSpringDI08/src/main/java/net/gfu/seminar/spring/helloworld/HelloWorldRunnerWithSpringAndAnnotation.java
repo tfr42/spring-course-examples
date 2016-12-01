@@ -24,6 +24,7 @@ public class HelloWorldRunnerWithSpringAndAnnotation {
 
 		System.out.println(greeting.welcome());
 
+		context.registerShutdownHook();
 		context.close();
 	}
 }
