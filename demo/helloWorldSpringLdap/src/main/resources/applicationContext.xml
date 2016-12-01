@@ -35,7 +35,7 @@
 
 	<ldap:ldap-template id="ldapTemplate" context-source-ref="contextSource"/>
 
-	<bean id="guestRepo" class="net.gfu.seminar.spring.demo.ldap.GuestLdapRepo">
+	<bean id="guestRepo" class="net.gfu.seminar.spring.ldap.GuestLdapRepo">
 		<property name="ldapTemplate" ref="ldapTemplate" />
 	</bean>
 </beans>

@@ -8,6 +8,7 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringLdap</artifactId>
+	<description>HelloWorld with SpringLDAP</description>
 	<properties>
 		<spring.version>3.2.13.RELEASE</spring.version>
 		<spring-ldap.version>2.0.4.RELEASE</spring-ldap.version>
