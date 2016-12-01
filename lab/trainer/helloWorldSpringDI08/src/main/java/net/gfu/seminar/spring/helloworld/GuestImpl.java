@@ -10,32 +10,16 @@ public class GuestImpl implements Guest {
 	private String firstName;
 	@Value("Dampf")
 	private String lastName;
-	
-	private Long id;
-	
+
 	public GuestImpl() {
 		this("","");
 	}
 	
 	public GuestImpl(String firstName, String lastName) {
-		this(null, firstName,lastName);
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
 	}
 	
-	public GuestImpl(Long id, String firstName, String lastName) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.id = id;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	@Override
 	public String getName() {
 		return this.firstName + " " + this.lastName;
@@ -67,7 +51,7 @@ public class GuestImpl implements Guest {
 	
 	@Override
 	public String toString() {
-		return "GuestImpl [id=" + id + ", firstName=" + firstName
+		return "GuestImpl [firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
 	}
 

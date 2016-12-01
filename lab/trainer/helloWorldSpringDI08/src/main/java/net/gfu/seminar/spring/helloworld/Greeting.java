@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+import javax.inject.Inject;
+
 /**
  * Says hello to a guest.
  * 
@@ -17,9 +20,8 @@ public class Greeting implements GreetingService {
 
 	public Greeting() {
 	}
-	
-	@Autowired
-	public Greeting(@Qualifier("guest") Guest guest) {
+
+	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
 
@@ -45,9 +47,15 @@ public class Greeting implements GreetingService {
 
 	/**
 	 * Mutator method changing the internal state.
-	 * 
+	 * Dependency injected by Spring Container.
+	 * Spring supports several annotations for injecting dependencies.
+     *
 	 * @param guest
 	 */
+	// TODO: Choose one of the following
+	@Autowired // aus dem Spring Framework
+//	@Resource  // aus javax.annotation.Resource (Java EE 5)
+//	@Inject    // aus javax.inject.Inject aus CDI (Java EE 6)
 	public void setGuest(Guest guest) {
 		this.guest = guest;
 	}
