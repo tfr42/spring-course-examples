@@ -15,9 +15,6 @@ import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by tf on 26.11.14.
- */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/wsTemplate.xml")
 public class HelloWorldWebServiceIntegrationTest {
