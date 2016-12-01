@@ -5,7 +5,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * Runs Spring with native AspectJ aspect.
+ * Runs Spring with native AspectJ aspect using compile-time weaving.
  */
 public class HelloWorldAspectJ {
     public static void main(String[] args){
