@@ -33,7 +33,7 @@ public class LoginIntegrationTest {
         usernameInputField.sendKeys("efall");
         
         WebElement passwordInputField = driver.findElement(By.name("j_password"));
-        // Enter username
+        // Enter password
         passwordInputField.sendKeys("pass");
 
         // Now submit the form. WebDriver will find the form for us from the element
@@ -54,7 +54,7 @@ public class LoginIntegrationTest {
         usernameInputField.sendKeys("foo");
         
         WebElement passwordInputField = driver.findElement(By.name("j_password"));
-        // Enter username
+        // Enter password
         passwordInputField.sendKeys("bar");
 
         // Now submit the form. WebDriver will find the form for us from the element
