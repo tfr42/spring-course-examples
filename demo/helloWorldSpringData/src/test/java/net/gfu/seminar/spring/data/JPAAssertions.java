@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.data;
 
 import static org.junit.Assert.fail;
 

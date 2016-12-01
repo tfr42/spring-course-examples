@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.demo.ldap;
+package net.gfu.seminar.spring.ldap;
 
 import java.util.List;
 

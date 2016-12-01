@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles(profiles = { "jdbc" }) 
 @Transactional
 @Rollback
-public class GuestJdbcDaoTest {
+public class GuestDaoTest {
 
 	@Autowired
 	private GuestDao dao;

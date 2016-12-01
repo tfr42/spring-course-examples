@@ -1,7 +1,6 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.data;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -12,6 +11,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import net.gfu.seminar.spring.helloworld.Guest;
+import net.gfu.seminar.spring.helloworld.GuestRepository;
+import net.gfu.seminar.spring.helloworld.JPAConfiguration;
 import org.hibernate.Session;
 import org.hibernate.jdbc.Work;
 import org.junit.After;
@@ -23,13 +25,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { JPAConfiguration.class })
 @Transactional
-@TransactionConfiguration(defaultRollback = true)
 public class GuestRepositoryTest {
 
 	@PersistenceContext
@@ -89,7 +89,7 @@ public class GuestRepositoryTest {
 	public void testFindByName() {
 		String name = "Gramm";
 		List<Guest> list = guestRepository.findByName(name);
-		assertFalse(list.isEmpty());
+		assertEquals(1, list.size());
 	}
 
 	@Test
@@ -98,6 +98,14 @@ public class GuestRepositoryTest {
 		for (Guest guest : all) {
 			assertNotNull(guest);
 		}
+	}
+
+	@Test
+	public void testFindGuestByLastNameOrFirstNameAllIgnoreCaseOrderByLastNameDesc() {
+		String firstName = "RaiNer";
+		String lastName = "DAMpf";
+		List<Guest> list = guestRepository.findByFirstNameOrLastNameAllIgnoreCaseOrderByLastNameDesc(firstName,lastName);
+		assertEquals(2, list.size());
 	}
 
 	@Test

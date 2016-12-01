@@ -31,10 +31,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
 // TODO: choose profiles: jdbc, hibernate
-@ActiveProfiles(profiles = { "jdbc" }) 
+@ActiveProfiles(profiles = { "hibernate" })
 @Transactional
 @Rollback
-public class GuestJdbcDaoTest {
+public class GuestDaoTest {
 
 	@Autowired
 	private GuestDao dao;
