@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,8 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/greeting")
 @Scope("request")
 public class GreetingController {
-	private static final Logger LOG = Logger
-			.getLogger(GreetingController.class);
+	private static final Logger LOG = Logger.getLogger(GreetingController.class);
 
 	@Autowired
 	@Qualifier("greetingService")
@@ -47,8 +48,7 @@ public class GreetingController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView processForm(
-			@ModelAttribute @Valid AddGuestForm addGuestForm,
+	public ModelAndView processForm(@ModelAttribute @Valid AddGuestForm addGuestForm,
 			BindingResult result) {
 		LOG.debug("Form processed" + addGuestForm);
 		ModelAndView mav = new ModelAndView();
@@ -64,21 +64,19 @@ public class GreetingController {
 	}
 
 	@RequestMapping(value = "/to/{name}", method = RequestMethod.GET)
-	public @ResponseBody
-	String getTextMessage(@PathVariable String name) {
+	public @ResponseBody String getTextMessage(@PathVariable String name) {
 		return "Hello, " + name + "!";
 	}
 
 	@RequestMapping(value = "/{firstname}/{lastname}", method = RequestMethod.GET)
 	public @ResponseBody
-	ResponseMessage getXmlMessage(@PathVariable String firstname,
-			@PathVariable String lastname) {
-		return new ResponseMessage("Hello, " + firstname + " " + lastname + "!");
+	ResponseEntity<Guest> getGuestAsXml(@PathVariable String firstname,
+								 @PathVariable String lastname) {
+		return new ResponseEntity<Guest>(new GuestImpl(firstname,lastname), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{guestId}", method = RequestMethod.GET, produces="text/xml")
-	public @ResponseBody
-	Guest findGuestById(@PathVariable String guestId) {
+	public @ResponseBody Guest findGuestById(@PathVariable String guestId) {
 		LOG.debug("findGuestById: " + guestId);
 		Long id = Long.parseLong(guestId);
 		Guest guest = service.findById(id);

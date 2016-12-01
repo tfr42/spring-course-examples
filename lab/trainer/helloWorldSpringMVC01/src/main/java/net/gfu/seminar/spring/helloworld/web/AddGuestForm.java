@@ -6,9 +6,10 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class AddGuestForm implements Serializable {
-	private static final long serialVersionUID = 2579066747202114544L;
 
-	@Pattern(regexp="^[A-Z][a-z]+", message="Ungültiger Name")
+	private static final long serialVersionUID = -149744409282179291L;
+
+	@Pattern(regexp="^[A-Z][a-z]+", message="Ungueltiger Name")
 	private String firstname;
 
 	@Size(min = 2, max = 20, message="Die Länge muss zwischen 2 und 20 liegen")

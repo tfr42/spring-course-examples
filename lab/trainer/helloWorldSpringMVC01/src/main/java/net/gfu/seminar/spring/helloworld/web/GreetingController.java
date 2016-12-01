@@ -5,9 +5,12 @@ import javax.validation.Valid;
 import net.gfu.seminar.spring.helloworld.GreetingService;
 import net.gfu.seminar.spring.helloworld.Guest;
 import net.gfu.seminar.spring.helloworld.GuestImpl;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,30 +25,32 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/greeting")
 @Scope("request")
 public class GreetingController {
-	
-	@Autowired @Qualifier("greetingService")
+	private static final Logger LOG = Logger.getLogger(GreetingController.class);
+
+	@Autowired
+	@Qualifier("greetingService")
 	private GreetingService service;
-	
-	@RequestMapping(value="/add", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupForm(Model model) {
-		System.out.println("Form created");
+		LOG.debug("Form created");
 		AddGuestForm guestForm = new AddGuestForm();
 		// you can add defaults here
 		model.addAttribute(guestForm);
 		return "/guest/add";
 	}
-	
-	@RequestMapping(value="/welcome", method = RequestMethod.GET)
-	public String welcome(Model model) {
-		System.out.println("Form created");
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public String welcomeForm(Model model) {
+		LOG.debug("Form created");
 		model.addAttribute("welcome", service.welcome());
 		return "/guest/welcome";
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ModelAndView processForm(@ModelAttribute @Valid AddGuestForm addGuestForm,
 			BindingResult result) {
-		System.out.println("Form processed" + addGuestForm);
+		LOG.debug("Form processed" + addGuestForm);
 		ModelAndView mav = new ModelAndView();
 		if (result.hasErrors()) {
 			mav.setViewName("/guest/add");
@@ -56,7 +61,7 @@ public class GreetingController {
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/to/{name}", method = RequestMethod.GET)
 	public @ResponseBody String getTextMessage(@PathVariable String name) {
 		return "Hello, " + name + "!";
@@ -64,19 +69,17 @@ public class GreetingController {
 
 	@RequestMapping(value = "/{firstname}/{lastname}", method = RequestMethod.GET)
 	public @ResponseBody
-	GuestImpl getGuestAsXml(@PathVariable String firstname,
-								  @PathVariable String lastname) {
-		return new GuestImpl(firstname,lastname);
+	ResponseEntity<Guest> getGuestAsXml(@PathVariable String firstname,
+								 @PathVariable String lastname) {
+		return new ResponseEntity<Guest>(new GuestImpl(firstname,lastname), HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/{guestId}", method = RequestMethod.GET)
 	public @ResponseBody Guest findGuestById(@PathVariable String guestId) {
-		System.out.println("findGuestById " + guestId);
-		
+		LOG.debug("findGuestById: " + guestId);
 		Long id = Long.parseLong(guestId);
 		Guest guest = service.findById(id);
-		System.out.println(guest);
-		
+		LOG.debug("Found: " + guest);
 		return guest;
 	}
 }

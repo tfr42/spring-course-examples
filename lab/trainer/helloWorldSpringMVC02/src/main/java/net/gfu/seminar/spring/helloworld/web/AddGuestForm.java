@@ -12,9 +12,9 @@ public class AddGuestForm implements Serializable {
 	@Pattern(regexp="^[A-Z][a-z]+", message="Ungueltiger Name")
 	private String firstname;
 
-	@Size(min = 1, max = 50)
+	@Size(min = 2, max = 20, message="Die Länge muss zwischen 2 und 20 liegen")
 	private String lastname;
-	
+
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
