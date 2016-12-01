@@ -9,7 +9,7 @@
 	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringBatch</artifactId>
 	<name>helloWorldSpringBatch</name>
-	<description><![CDATA[HelloWorld with Spring Batch
+	<description><![CDATA[HelloWorld with Spring Batch. Usage:
 	mvn exec:java -Dexec.mainClass=org.springframework.batch.core.launch.support.CommandLineJobRunner -Dexec.args="helloWorldJob.xml simpleJob"
 	]]>
 </description>
