@@ -11,8 +11,7 @@ import org.springframework.util.StopWatch;
 @Aspect
 @Order(10)
 public class ExecutionTimeAdvice {
-	private static final Logger LOG = Logger
-			.getLogger(ExecutionTimeAdvice.class);
+	private static final Logger LOG = Logger.getLogger(ExecutionTimeAdvice.class);
 
 	@Pointcut("execution(* welcome(..))")
 	private void watchTime() {
