@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.data;
 
 import java.util.Scanner;
 

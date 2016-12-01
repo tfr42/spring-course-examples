@@ -2,7 +2,6 @@ package net.gfu.seminar.spring.data;
 
 import javax.persistence.EntityManager;
 
-import net.gfu.seminar.spring.helloworld.JPAConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,9 +11,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import net.gfu.seminar.spring.helloworld.Guest;
-import net.gfu.seminar.spring.helloworld.GuestRepository;
-import net.gfu.seminar.spring.helloworld.JPAConfiguration;
 import org.hibernate.Session;
 import org.hibernate.jdbc.Work;
 import org.junit.After;

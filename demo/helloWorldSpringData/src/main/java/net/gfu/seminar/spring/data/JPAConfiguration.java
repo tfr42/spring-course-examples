@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.data;
 
 import java.sql.SQLException;
 
@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "net.gfu.seminar.spring.helloworld", includeFilters = @ComponentScan.Filter(value = { GuestRepository.class }, type = FilterType.ASSIGNABLE_TYPE))
+@EnableJpaRepositories(basePackages = "net.gfu.seminar.spring.data", includeFilters = @ComponentScan.Filter(value = { GuestRepository.class }, type = FilterType.ASSIGNABLE_TYPE))
 @EnableTransactionManagement
 public class JPAConfiguration {
 
@@ -37,7 +37,7 @@ public class JPAConfiguration {
 
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setJpaVendorAdapter(vendorAdapter);
-		factory.setPackagesToScan("net.gfu.seminar.spring.helloworld");
+		factory.setPackagesToScan("net.gfu.seminar.spring.data");
 		factory.setDataSource(dataSource());
 		factory.afterPropertiesSet();
 
