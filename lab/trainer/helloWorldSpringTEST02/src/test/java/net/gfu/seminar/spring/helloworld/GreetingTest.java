@@ -13,10 +13,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { ApplicationConfig.class })
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = ApplicationConfig.class)
 public class GreetingTest {
 
 	private static final Logger LOG = Logger.getLogger(GreetingTest.class);
@@ -33,6 +33,7 @@ public class GreetingTest {
 	
 	@Inject
 	private GreetingService greeting;
+
 	@Inject
 	private Guest guest;
 

@@ -7,6 +7,10 @@ public class BirthdayChild extends GuestImpl {
 
 	public BirthdayChild(String firstName, String lastName, Date dayOfBirth) {
 		super(firstName, lastName);
+		this.setBirthday(dayOfBirth);
+	}
+
+	protected void setBirthday(Date dayOfBirth) {
 		this.dayOfBirth = dayOfBirth;
 	}
 
