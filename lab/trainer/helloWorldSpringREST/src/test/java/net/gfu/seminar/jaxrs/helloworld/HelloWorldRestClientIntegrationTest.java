@@ -40,7 +40,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String response = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_PLAIN).get(String.class);
 		LOG.info("REST response= " + response);
-		assertThat(response, CoreMatchers.containsString("Hello, World!"));
+		assertThat(response, CoreMatchers.containsString("Hello, world!"));
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class HelloWorldRestClientIntegrationTest {
 		String xmlResponse = resource.path("jaxrs").path("helloworld")
 				.accept(MediaType.TEXT_XML).get(String.class);
 		LOG.info("REST response= " + xmlResponse);
-		assertThat(xmlResponse, CoreMatchers.containsString("Hello, World!"));
+		assertThat(xmlResponse, CoreMatchers.containsString("Hello, world!"));
 	}
 	
 	@Test
