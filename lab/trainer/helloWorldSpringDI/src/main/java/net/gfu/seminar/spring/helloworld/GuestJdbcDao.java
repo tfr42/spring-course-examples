@@ -23,6 +23,12 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Repository to access {@link Guest}s using Spring {@Link JdbcTemplate}
+ *
+ * @author tf
+ *
+ */
 @Repository
 @Transactional
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
@@ -46,21 +52,21 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED)
-	public int create(final Guest guest) {
+	public Long create(final Guest guest) {
 		final String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		LOG.debug(sql);
-		int updatedRows = 0;
+		int returnValue = 0;
 
 		// TODO choose one of the methods below to insert data, by setting either
 		if (insertStrategy == null || insertStrategy.isEmpty() || insertStrategy.equalsIgnoreCase("jdbcinsert")) {
-			updatedRows = this.createWithSimpleJdbcInsert(guest);
+			returnValue = this.createWithSimpleJdbcInsert(guest);
 		} else if (insertStrategy.equalsIgnoreCase("simple")) {
-			updatedRows = this.createWithSimpleStatement(sql, guest);
+			returnValue = this.createWithSimpleStatement(sql, guest);
 		} else if (insertStrategy.equalsIgnoreCase("psc")) {
-			updatedRows = this.createWithPrepareStatementCreator(sql,guest);
+			returnValue = this.createWithPrepareStatementCreator(sql,guest);
 		}
 		
-		return updatedRows;
+		return Long.valueOf(returnValue);
 	}
 
 	/**
@@ -163,12 +169,12 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public void remove(final Guest guest) {
+	public void delete(final Guest guest) {
 		final String sql = "DELETE FROM GUESTS WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };
 		int updatedRows = this.getJdbcTemplate().update(sql, args);
-		LOG.debug(updatedRows + " rows updated");
+		LOG.debug(updatedRows + " rows deleted");
 	}
 
 	private RowMapper<Guest> createRowMapper() {

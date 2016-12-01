@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Repository implementation based on Spring JdbcDaoSupport and JdbcTemplate.
+ * Repository to access {@link Guest}s implementation based on Spring JdbcDaoSupport and JdbcTemplate.
  * 
  * @author tf
  *
@@ -25,14 +25,14 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public int create(Guest guest) {
+	public Long create(Guest guest) {
 		String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
 				guest.getLastName() };
 		int updatedRows = this.getJdbcTemplate().update(sql, args);
 		LOG.debug(updatedRows + " rows updated");
-		return updatedRows;
+		return Long.valueOf(updatedRows);
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public void remove(Guest guest) {
+	public void delete(Guest guest) {
 		String sql = "DELETE FROM GUESTS WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };

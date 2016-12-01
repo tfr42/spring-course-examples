@@ -1,12 +1,5 @@
 package net.gfu.seminar.spring.helloworld;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,12 +9,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.jdbc.SqlGroup;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = { PersistenceConfig.class })
 @Transactional
 @SqlGroup({
@@ -41,17 +41,17 @@ public class GuestDaoTest {
 	private Guest testDataGuest;
 	
 	@BeforeTransaction public void beforeTx() {
-		LOG.debug("Tx begin");
+		LOG.debug("Unit of work - begin");
 	}
 	
 	@AfterTransaction public void afterTx() {
-		LOG.debug("Tx end");
+		LOG.debug("Unit of work - end");
 	}
 	
 	@Test
 	public void testCreate() {
 		assertNotNull(dao);
-		assertEquals(1, dao.create( testDataGuest));
+		assertTrue(dao.create(testDataGuest) > 0);
 		assertNotNull(testDataGuest.getId());
 	}
 
@@ -83,9 +83,9 @@ public class GuestDaoTest {
 	}
 
 	@Test
-	public void testRemove() {
+	public void testDelete() {
 		Guest guest = dao.findAll().get(0);
-		dao.remove(guest);
+		dao.delete(guest);
 		assertEquals(0, (int) jt.queryForObject("SELECT count(id) from guests where id="+guest.getId(), Integer.class));
 	}
 

@@ -97,7 +97,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };
 		int updatedRows = this.getJdbcTemplate().update(sql, args);
-		LOG.debug(updatedRows + " rows updated");
+		LOG.debug(updatedRows + " rows deleted");
 
 	}
 

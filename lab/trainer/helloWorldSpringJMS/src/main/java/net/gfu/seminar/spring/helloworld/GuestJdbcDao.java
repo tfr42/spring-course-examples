@@ -7,20 +7,28 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
+/**
+ * Repository to access {@link Guest}s implementation based on Spring JdbcDaoSupport and JdbcTemplate.
+ *
+ * @author tf
+ *
+ */
+@Repository
 public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 	
 	@Override
-	public int create(Guest guest) {
+	public Long create(Guest guest) {
 		String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
 				 guest.getLastName()};
 		int updatedRows = this.getJdbcTemplate().update(sql, args);
 		LOG.debug(updatedRows+" rows updated");
-		return updatedRows;
+		return Long.valueOf(updatedRows);
 	}
 
 	@Override
@@ -65,7 +73,7 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	@Override
-	public void remove(Guest guest) {
+	public void delete(Guest guest) {
 		String sql = "DELETE FROM GUESTS WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };

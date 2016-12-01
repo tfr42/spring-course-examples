@@ -37,7 +37,7 @@ public class GuestDaoTest {
 
 	@Test
 	public void testCreate() {
-		int id = dao.create(testDataGuest);
+		Long id = dao.create(testDataGuest);
 		assertTrue(id>0);
 	}
 
@@ -68,7 +68,7 @@ public class GuestDaoTest {
 	@Test
 	@Transactional(isolation=Isolation.SERIALIZABLE, propagation=Propagation.REQUIRED)
 	public void testRemove() {
-		dao.remove(testDataGuest);
+		dao.delete(testDataGuest);
 	}
 
 	@BeforeTransaction public void beforeTransaction() {
