@@ -30,13 +30,13 @@
     <module>helloWorldSpringORM01</module>
     <module>helloWorldSpringORM02</module>
     <module>helloWorldSpringREST</module>
+    <module>helloWorldSpringRMI01</module>
     <module>helloWorldSpringSEC01</module>
     <module>helloWorldSpringSPEL01</module>
     <module>helloWorldSpringTEST01</module>
     <module>helloWorldSpringTEST02</module>
     <module>helloWorldSpringTX01</module>
     <module>helloWorldSpringTX02</module>
-    <module>helloWorldSpringRMI01</module>
     <module>helloWorldSpringVAL01</module>
   </modules>
   <description>Trainer workspace</description>
