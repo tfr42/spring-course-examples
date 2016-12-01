@@ -20,16 +20,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class GreetingTest {
 	private static final Logger LOG = Logger.getLogger(GreetingTest.class);
 
-	/**
-	 * Test fixture injected by Spring Container.
-	 * Spring supports several annotations for injecting dependencies.
-	 */
-	@Autowired // aus dem Spring Framework
-//	@Resource  // aus javax.annotation.Resource (Java EE 5)
-//	@Inject    // aus javax.inject.Inject aus CDI (Java EE 6)
+	@Autowired
 	private GreetingService greeting;
 	
-	@Autowired MethodCallCounterAdvice advice;
+	@Autowired
+	private MethodCallCounterAdvice advice;
 
 	@Test
 	@Repeat(23)

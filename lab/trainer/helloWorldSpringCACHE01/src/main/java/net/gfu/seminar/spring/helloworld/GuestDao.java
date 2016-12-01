@@ -9,7 +9,8 @@ import java.util.List;
  *
  */
 public interface GuestDao {
-	int create(Guest guest);
+
+	Long create(Guest guest);
 
 	Guest findById(Long id);
 
@@ -19,5 +20,6 @@ public interface GuestDao {
 
 	Guest update(Guest guest);
 
-	void remove(Guest guest);
+	void delete(Guest guest);
+
 }

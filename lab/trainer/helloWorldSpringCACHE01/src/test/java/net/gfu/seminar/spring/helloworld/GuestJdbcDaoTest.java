@@ -19,6 +19,7 @@ import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.sf.ehcache.Ehcache;
+import org.springframework.util.StopWatch;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ApplicationConfig.class, TestConfig.class })
@@ -39,11 +40,13 @@ public class GuestJdbcDaoTest {
 
 	@Autowired 
 	private CacheManager cache;
+
+	private final StopWatch watch = new StopWatch();
 	
 	@Test
 	public void testCreateNewGuest() {
-		int i = dao.create(guest);
-		assertEquals(1, i);
+		Long i = dao.create(guest);
+		assertEquals(1l, i.longValue());
 		Integer count = jt.queryForObject(
 				"Select count(*) from guests where guests.lastname=?",
 				new Object[] { guest.getLastName() }, java.lang.Integer.class);
@@ -63,11 +66,12 @@ public class GuestJdbcDaoTest {
 
 	@BeforeTransaction
 	public void beforeTransaction() {
-		LOG.info("Before Transaction");
+		LOG.info("Start Transaction"); watch.start();
 	}
 
 	@AfterTransaction
 	public void afterTransaction() {
-		LOG.info("After Transaction");
+		watch.stop();
+		LOG.info("Transaction total duration time " + watch.getTotalTimeMillis() + " ms");
 	}
 }

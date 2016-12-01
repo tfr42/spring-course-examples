@@ -31,14 +31,14 @@ public class GuestJdbcDao implements GuestDao {
 
 	@Override
 	@Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
-	public int create(Guest guest) {
+	public Long create(Guest guest) {
 		String sql = "INSERT INTO GUESTS (firstname,lastname) VALUES (?,?)";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getFirstName(),
 				guest.getLastName() };
 		int updatedRows = jt.update(sql, args);
 		LOG.debug(updatedRows + " rows updated");
-		return updatedRows;
+		return Long.valueOf(updatedRows);
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class GuestJdbcDao implements GuestDao {
 
 	@Override
 	@CacheEvict(value="guest")
-	public void remove(Guest guest) {
+	public void delete(Guest guest) {
 		String sql = "DELETE FROM GUESTS WHERE id = ?";
 		LOG.debug(sql);
 		Object[] args = new Object[] { guest.getId() };
