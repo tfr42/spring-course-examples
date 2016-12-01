@@ -24,8 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
-// TODO: choose profiles: jdbc, jpa + [hibernateEntityManager|eclipseLink|openJpa]
-// TODO: and activate corresponding maven profile too!
+// TODO: choose profiles: jdbc, jpa + [hibernate|eclipseLink|openJpa]
+// TODO: and activate corresponding maven profile to download the dependencies!
 @ActiveProfiles(profiles = { "jdbc" }) 
 @Transactional
 @Rollback

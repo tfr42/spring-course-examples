@@ -31,7 +31,7 @@
 	<bean id="abstractVendorAdaptor" abstract="true" 
 		p:showSql="true" p:generateDdl="true" p:database="${jpa.database}" />
 	
-	<beans profile="hibernateEntityManager">
+	<beans profile="hibernate">
 		<bean id="hibernateJpaAdapter" name="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" parent="abstractVendorAdaptor">
 				<property name="databasePlatform" value="${hibernate.dialect}" />
 		</bean>

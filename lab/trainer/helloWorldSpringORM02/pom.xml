@@ -9,7 +9,7 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringORM02</artifactId>
 	<name>helloWorldSpringORM02</name>
-	<description>Spring ORM with JPA 2.0</description>
+	<description>Spring ORM with JPA 2.1</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
