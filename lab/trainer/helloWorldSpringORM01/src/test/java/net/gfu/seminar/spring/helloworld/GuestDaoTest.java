@@ -120,21 +120,6 @@ public class GuestDaoTest {
 						+ guest.getId(), Integer.class));
 	}
 	
-	@Test @Ignore
-	public void testNativeHibernate() {
-		Guest guest = new Guest();
-		guest.setFirstName("Hans");
-		guest.setLastName("Dampf");
-		
-		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		
-		session.save(guest);
-		transaction.commit();
-		session.close();
-	}
+
 
 }
