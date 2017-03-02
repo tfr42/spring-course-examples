@@ -8,9 +8,9 @@
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>1.7</java.version>
-		<spring.version>4.3.5.RELEASE</spring.version>
-		<aspectj.version>1.8.9</aspectj.version>
-		<slf4j.version>1.7.21</slf4j.version>
+		<spring.version>4.3.6.RELEASE</spring.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<slf4j.version>1.7.22</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<hsqldb.version>2.3.4</hsqldb.version>
 		<hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
@@ -232,7 +232,7 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
-				<scope>runtime</scope>
+				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
