@@ -3,9 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -33,7 +31,7 @@
 	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild"
 		scope="prototype">
 		<property name="name" value="${name}" />
-<!-- 		<property name="dayOfBirth" value="21.11.2012" /> -->
+		<property name="dayOfBirth" value="#{new java.text.SimpleDateFormat('dd.MM.yyyy').parse('11.11.2011')}" />
 	</bean>
 
 	<util:list id="guestList" value-type="java.lang.String">

@@ -25,7 +25,7 @@ public class ApplicationConfig {
 		return new Guest(firstName,lastName);
 	}
 	
-	@Bean @Autowired
+	@Bean
 	public GreetingService greeting(@Value("#{systemProperties['isVip']?specialGuest:guest}") Guest guest) {
 		return new Greeting(guest);
 	}

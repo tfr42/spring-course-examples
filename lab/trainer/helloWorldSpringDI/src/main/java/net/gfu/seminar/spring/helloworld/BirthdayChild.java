@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component("birthdayChild")
 public class BirthdayChild extends GuestImpl {
+	// Use on of the following expressions:
     //@Value("#{T(java.util.Calendar).getInstance().getTime()}")
 	@Value("#{new java.text.SimpleDateFormat('dd.MM.yyyy').parse('11.11.2011')}")
 	private Date dayOfBirth;

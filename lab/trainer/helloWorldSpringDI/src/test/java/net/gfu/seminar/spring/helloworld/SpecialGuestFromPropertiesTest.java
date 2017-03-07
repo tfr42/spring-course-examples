@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.expression.Expression;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -69,5 +72,13 @@ public class SpecialGuestFromPropertiesTest {
 	@Test
 	public void testSystemPropertyWithSpELElvisOperator() {
 		assertEquals("Rainer", this.anotherName);
+	}
+
+	@Test
+	public void testSpelParser() {
+		ExpressionParser parser = new SpelExpressionParser();
+		Expression exp = parser.parseExpression("'Hello, world'.concat('!')");
+		String message = (String) exp.getValue();
+		assertEquals("Hello, world!", message);
 	}
 }
