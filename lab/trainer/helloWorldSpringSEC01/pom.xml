@@ -12,8 +12,8 @@
 	<description>Spring MVC with Spring Security</description>
 	<url>http://localhost:8080/helloWorldSpringSEC01/</url>
 	<properties>
-		<spring.version>3.2.16.RELEASE</spring.version>
-		<spring-security.version>3.2.9.RELEASE</spring-security.version>
+		<spring.version>3.2.18.RELEASE</spring.version>
+		<spring-security.version>3.2.10.RELEASE</spring-security.version>
 	</properties>
 	<build>
 		<plugins>
