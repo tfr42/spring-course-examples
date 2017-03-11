@@ -1,5 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
+import org.springframework.util.Assert;
+
 import java.util.Scanner;
 
 public class GuestImpl implements Guest {
@@ -17,10 +19,6 @@ public class GuestImpl implements Guest {
 		this.lastName = lastName;
 	}
 	
-	public void init() {
-		System.out.println("init: " + this.getName());
-	}
-
 	@Override
 	public String getName() {
 		return this.firstName + " " + this.lastName;
@@ -54,6 +52,12 @@ public class GuestImpl implements Guest {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public void init() {
+		System.out.println("init called on " + this.toString());
+		Assert.hasText(this.getFirstName(), "Firstname is required");
+		Assert.hasText(this.getLastName(), "Lastname is required");
 	}
 
 }

@@ -40,6 +40,5 @@ public class Greeting {
 		System.out.println("public void setGuest(Guest guest)" + guest);
 		this.guest = guest;
 	}
-	
 
 }

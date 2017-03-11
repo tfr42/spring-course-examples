@@ -26,7 +26,5 @@ public class HelloWorldRunnerWithSpring {
 		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
 
 		System.out.println(greeting.welcome());
-
 	}
-
 }

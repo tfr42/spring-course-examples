@@ -1,37 +1,38 @@
 package net.gfu.seminar.spring.helloworld;
 
 /**
- * Says hello to a guest.
+ * Says hello to a {@link Guest}.
  * 
  * @author tf
- * 
+ *
  */
-public class Greeting implements GreetingService {
+public class Greeting {
 
 	private Guest guest;
 
 	public Greeting() {
 	}
 
+	/**
+	 * Creates a {@link Greeting} for the given {@link Guest}
+	 * @param guest
+	 */
 	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns the welcome message.
 	 * 
-	 * @see net.gfu.seminar.spring.helloworld.GreetingService#welcome()
+	 * @return the welcome message
 	 */
-	@Override
 	public String welcome() {
-		String guestNames = this.guest.getName();
-		return String.format("Welcome %1$s to Spring!", guestNames);
+		return String.format("Welcome %1$s to Spring!", this.getGuest());
 	}
 
 	/**
 	 * Accessor method returning the internal state.
-	 * 
-	 * @return
+	 * @return the guest
 	 */
 	public Guest getGuest() {
 		return guest;
@@ -39,8 +40,7 @@ public class Greeting implements GreetingService {
 
 	/**
 	 * Mutator method changing the internal state.
-	 * 
-	 * @param guest
+	 * @param guest the guest
 	 */
 	public void setGuest(Guest guest) {
 		this.guest = guest;

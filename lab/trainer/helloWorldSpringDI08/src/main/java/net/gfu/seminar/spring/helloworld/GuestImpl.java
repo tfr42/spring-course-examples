@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
+
+import javax.annotation.PostConstruct;
+
 @Component("guest")
 public class GuestImpl implements Guest {
 	@Value("Hans")
@@ -19,7 +23,7 @@ public class GuestImpl implements Guest {
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.firstName + " " + this.lastName;
@@ -53,6 +57,13 @@ public class GuestImpl implements Guest {
 	public String toString() {
 		return "GuestImpl [firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
+	}
+
+	@PostConstruct
+	public void init() {
+		System.out.println("init called on " + this.toString());
+		Assert.hasText(this.getFirstName(), "Firstname is required");
+		Assert.hasText(this.getLastName(), "Lastname is required");
 	}
 
 }

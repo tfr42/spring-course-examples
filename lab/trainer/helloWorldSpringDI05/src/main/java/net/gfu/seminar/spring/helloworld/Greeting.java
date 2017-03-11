@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Says hello to a guest.
+ * Says hello to a {@link Guest}.
  * 
  * @author tf
- * 
+ *
  */
-public class Greeting implements GreetingService {
+public class Greeting {
 
 	private List<Guest> guestList;
 
@@ -33,7 +33,6 @@ public class Greeting implements GreetingService {
 	 * 
 	 * @see net.gfu.seminar.spring.helloworld.GreetingService#welcome()
 	 */
-	@Override
 	public String welcome() {
 		String guestNames = this.guestList.toString();
 		return String.format("Welcome %1$s to Spring!", guestNames);

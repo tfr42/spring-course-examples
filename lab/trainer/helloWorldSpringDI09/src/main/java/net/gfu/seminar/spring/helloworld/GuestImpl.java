@@ -1,33 +1,20 @@
 package net.gfu.seminar.spring.helloworld;
 
+import org.springframework.util.Assert;
+
+import javax.annotation.PostConstruct;
 import java.util.Scanner;
 public class GuestImpl implements Guest {
 	private String firstName;
 	private String lastName;
-	
-	private Long id;
-	
+
 	public GuestImpl() {
 		this("","");
 	}
 	
 	public GuestImpl(String firstName, String lastName) {
-		this(null, firstName,lastName);
-	}
-	
-	public GuestImpl(Long id, String firstName, String lastName) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.id = id;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	@Override
@@ -61,8 +48,15 @@ public class GuestImpl implements Guest {
 	
 	@Override
 	public String toString() {
-		return "GuestImpl [id=" + id + ", firstName=" + firstName
+		return "GuestImpl [firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
+	}
+
+	@PostConstruct
+	public void init() {
+		System.out.println("init called on " + this.toString());
+		Assert.hasText(this.getFirstName(), "Firstname is required");
+		Assert.hasText(this.getLastName(), "Lastname is required");
 	}
 
 }
