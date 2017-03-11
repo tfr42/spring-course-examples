@@ -32,7 +32,7 @@ public class GreetingTest {
 	@Before
 	public void setUp() throws Exception {
 		LOG.info("setUp");
-		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml", "testData.xml");
+		beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		this.greeting =  beanFactory.getBean("greeting", Greeting.class);
 	}
 
@@ -51,7 +51,7 @@ public class GreetingTest {
 	@Test
 	public void testGetGuest() {
 		assertNotNull(greeting.getGuest());
-		assertEquals("Hans Dampf", greeting.getGuest().getName());
+		assertEquals("Rainer Fall", greeting.getGuest().getName());
 	}
 
 }

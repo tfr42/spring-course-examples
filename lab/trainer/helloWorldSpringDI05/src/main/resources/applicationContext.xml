@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:/guest.properties" />
+
+	<bean id="greeting" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting">
+		<constructor-arg ref="guestList"/>
+	</bean>
+
+	<util:list id="guestList" value-type="net.gfu.seminar.spring.helloworld.Guest">
+		<ref bean="guest"/>
+		<ref bean="specialGuest"/>
+	</util:list>
+
+	<util:properties id="nameProperties" location="classpath:/specialguest.properties"/>
+
+	<bean id="guest1" name="annaGramm" class="net.gfu.seminar.spring.helloworld.Guest" init-method="init">
+		<!-- passes the two string arguments to the setter methods -->
+		<constructor-arg name="firstName" value="Anna"/>
+		<constructor-arg name="lastName" value="Gramm"/>
+	</bean>
+
+	<bean id="guest2" name="guest,hansDampf" class="net.gfu.seminar.spring.helloworld.Guest" init-method="init">
+		<property name="name" value="${name}" />
+	</bean>
+
+	<bean id="specialGuest" name="guest3,rainerFall" class="net.gfu.seminar.spring.helloworld.SpecialGuest" init-method="init">
+		<constructor-arg ref="nameProperties" />
+	</bean>
 
 </beans>

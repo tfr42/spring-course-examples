@@ -14,9 +14,8 @@ public class HelloWorldRunnerWithSpring {
 	public static void main(String[] args) {
 		// loading the Spring XML configuration files and initializing the ApplicationContext
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
-				"applicationContext.xml", //located in src/main/resources
-				"testData.xml");          //located in src/main/resources
-		
+				"applicationContext.xml"); //located in src/main/resources
+
 		// here we retrieve an instance of Greeting from the Spring BeanFactory
 		Greeting greeting = context.getBean("greeting", Greeting.class);
 
