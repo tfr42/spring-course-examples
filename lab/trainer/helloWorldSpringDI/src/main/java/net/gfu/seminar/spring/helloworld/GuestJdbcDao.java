@@ -37,9 +37,6 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	private SimpleJdbcInsert insertGuest;
 	private String insertStrategy;
 
-	public GuestJdbcDao() {
-	}
-
 	public GuestJdbcDao(final DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
@@ -178,13 +175,8 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	}
 
 	private RowMapper<Guest> createRowMapper() {
-		return new RowMapper<Guest>() {
-			@Override
-			public Guest mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new GuestImpl(rs.getLong("id"),
-						rs.getString("firstname"), rs.getString("lastname"));
-			}
-		};
+		return (rs, rowNum) -> new GuestImpl(rs.getLong("id"),
+                rs.getString("firstname"), rs.getString("lastname"));
 	}
 
 	public String getInsertStrategy() {

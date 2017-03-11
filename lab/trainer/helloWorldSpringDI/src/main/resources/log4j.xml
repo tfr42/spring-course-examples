@@ -38,7 +38,7 @@
   	<level value="DEBUG"/>
   </logger>
 
-  <logger name="net.gfu.seminar.spring.helloworld.SimpleTraceAdvice">
+  <logger name="net.gfu.seminar.spring.helloworld.aop.SimpleTraceAdvice">
   	<level value="DEBUG"/>
   </logger>
 

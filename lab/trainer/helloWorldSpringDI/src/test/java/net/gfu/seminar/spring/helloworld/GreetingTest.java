@@ -3,14 +3,11 @@ package net.gfu.seminar.spring.helloworld;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import net.gfu.seminar.spring.helloworld.config.ApplicationConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(loader = AnnotationConfigContextLoader.class)

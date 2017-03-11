@@ -1,14 +1,17 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.config;
 
 import javax.sql.DataSource;
 
+import net.gfu.seminar.spring.helloworld.GuestDao;
+import net.gfu.seminar.spring.helloworld.GuestJdbcDao;
+import net.gfu.seminar.spring.helloworld.config.ApplicationConfig;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -71,6 +74,23 @@ public class PersistenceConfig {
 				new ClassPathResource("insert_testdata_hsql.sql")});
 		dsi.setDatabasePopulator(databasePopulator);
 		return dsi;
+	}
+
+	/**
+	 * This static bean is only required in case the @Value annotation is used on fields of a @Configuration
+	 * annotated class.
+	 *
+	 * @see http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html
+	 */
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer pspc() {
+		PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
+		// This replaces the @PropertySource annotation
+		// Resource[] resourceLocations = new Resource[] {
+		// new ClassPathResource("guest.properties"),
+		// };
+		// p.setLocations(resourceLocations);
+		return p;
 	}
 
 }

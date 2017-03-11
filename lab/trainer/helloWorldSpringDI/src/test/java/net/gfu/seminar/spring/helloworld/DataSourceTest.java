@@ -1,5 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
+import net.gfu.seminar.spring.helloworld.config.PersistenceConfig;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;

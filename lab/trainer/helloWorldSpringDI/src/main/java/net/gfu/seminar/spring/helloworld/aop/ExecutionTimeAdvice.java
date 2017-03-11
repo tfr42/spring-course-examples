@@ -1,4 +1,4 @@
-package net.gfu.seminar.spring.helloworld;
+package net.gfu.seminar.spring.helloworld.aop;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,6 +11,7 @@ import org.springframework.util.StopWatch;
 @Aspect
 @Order(10)
 public class ExecutionTimeAdvice {
+
 	private static final Logger LOG = Logger.getLogger(ExecutionTimeAdvice.class);
 
 	@Pointcut("execution(* welcome(..))")

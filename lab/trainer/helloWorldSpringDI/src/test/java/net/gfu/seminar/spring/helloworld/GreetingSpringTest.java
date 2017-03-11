@@ -1,5 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
+import net.gfu.seminar.spring.helloworld.config.ApplicationConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

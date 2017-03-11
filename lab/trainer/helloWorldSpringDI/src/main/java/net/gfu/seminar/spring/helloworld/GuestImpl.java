@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.log4j.Logger;
+import org.springframework.util.Assert;
+
 @XmlRootElement
 public class GuestImpl implements Guest {
 	private static final Logger LOG = Logger.getLogger(GuestImpl.class);
@@ -79,6 +81,8 @@ public class GuestImpl implements Guest {
 	}
 
 	public void init() {
-		System.out.println("Init: " + this.toString());
+		System.out.println("init called on " + this.toString());
+		Assert.hasText(this.getFirstName(), "Firstname is required");
+		Assert.hasText(this.getLastName(), "Lastname is required");
 	}
 }

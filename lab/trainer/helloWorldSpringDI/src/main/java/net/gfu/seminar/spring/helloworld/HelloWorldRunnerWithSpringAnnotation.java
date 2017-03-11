@@ -1,5 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
+import net.gfu.seminar.spring.helloworld.config.ApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
