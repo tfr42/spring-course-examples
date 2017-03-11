@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * A guest.
- * 
+ *
  * @author tf
  *
  */
@@ -20,7 +20,7 @@ public class Guest {
 	
 	/**
 	 * Creates a new {@link Guest} with the given first- and lastname.
-	 * 
+	 *
 	 * @param firstName
 	 * @param lastName
 	 */
@@ -41,11 +41,6 @@ public class Guest {
 		scanner.close();
 	}
 
-	@Override
-	public String toString() {
-		return "Guest [firstName=" + firstName + ", lastName=" + lastName + "]";
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -60,6 +55,11 @@ public class Guest {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	@Override
+	public String toString() {
+		return "Guest [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
 }

@@ -14,5 +14,5 @@
 	    <!-- set the property name via the mutator/modifier method Guest.setName(String) -->
 		<property name="name" value="Rainer Fall" />
 	</bean>
-	
+
 </beans>

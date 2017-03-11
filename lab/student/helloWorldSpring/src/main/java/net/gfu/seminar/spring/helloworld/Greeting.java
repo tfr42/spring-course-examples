@@ -8,9 +8,9 @@ package net.gfu.seminar.spring.helloworld;
  *
  */
 public class Greeting {
-	
+
 	private Guest guest;
-	
+
 	public Greeting() {
 	}
 	
@@ -25,12 +25,12 @@ public class Greeting {
 	/**
 	 * Returns the welcome message.
 	 * 
-	 * @return
+	 * @return the welcome message
 	 */
 	public String welcome() {
 		return String.format("Welcome %1$s to Spring!", this.getGuest());
 	}
-	
+
 	/**
 	 * Accessor method returning the internal state.
 	 * @return the guest
