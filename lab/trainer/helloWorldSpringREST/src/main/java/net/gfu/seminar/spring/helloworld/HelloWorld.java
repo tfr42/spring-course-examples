@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/helloworld")
 @Scope("request")
+@CrossOrigin
 public class HelloWorld implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
@@ -43,7 +46,7 @@ public class HelloWorld implements ApplicationContextAware {
 	 * @param name a name
 	 * @return a String with the given name as text/plain
 	 */
-	@RequestMapping(value = "{name}", method = RequestMethod.GET)
+	@GetMapping("{name}")
 	public @ResponseBody String getTextMessage(@PathVariable String name) {
 		return "Hello, " + name + "!";
 	}
