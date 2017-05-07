@@ -9,7 +9,7 @@
 
 	<context:property-placeholder location="classpath:guest.properties" />
 
-	<bean id="specialGuest" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
+	<bean id="specialGuest" class="net.gfu.seminar.spring.helloworld.SpecialGuest" init-method="init">
 		<constructor-arg>
 			<props>
 				<prop key="firstName">Anna</prop>
@@ -20,16 +20,16 @@
 
 	<util:properties id="nameProperties" location="classpath:specialguest.properties" />
 
-	<bean id="specialGuestExternal" class="net.gfu.seminar.spring.helloworld.SpecialGuest">
+	<bean id="specialGuestExternal" class="net.gfu.seminar.spring.helloworld.SpecialGuest" init-method="init">
 		<constructor-arg ref="nameProperties" />
 	</bean>
 
-	<bean id="placeholderGuest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+	<bean id="placeholderGuest" class="net.gfu.seminar.spring.helloworld.GuestImpl" init-method="init">
 		<property name="name" value="${name}" />
 	</bean>
 
 	<bean id="birthdayChild" class="net.gfu.seminar.spring.helloworld.BirthdayChild"
-		scope="prototype">
+		scope="prototype" init-method="">
 		<property name="name" value="${name}" />
 		<property name="dayOfBirth" value="#{new java.text.SimpleDateFormat('dd.MM.yyyy').parse('11.11.2011')}" />
 	</bean>

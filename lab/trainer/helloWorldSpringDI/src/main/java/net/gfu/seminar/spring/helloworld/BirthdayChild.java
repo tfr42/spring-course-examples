@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 @Component("birthdayChild")
 public class BirthdayChild extends GuestImpl {
@@ -25,6 +26,12 @@ public class BirthdayChild extends GuestImpl {
 	public String toString() {
 		return "BirthdayChild [dayOfBirth=" + dayOfBirth + ", getFirstName()="
 				+ getFirstName() + ", getLastName()=" + getLastName() + "]";
+	}
+
+	@Override
+	public void init() {
+		super.init();
+		Assert.notNull(getDayOfBirth(), "dayOfBirth is required");
 	}
 
 	public Date getDayOfBirth() {
