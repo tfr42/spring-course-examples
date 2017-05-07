@@ -1,11 +1,13 @@
 package net.gfu.seminar.spring.helloworld;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
 @Configuration
@@ -22,11 +24,12 @@ public class ApplicationConfig {
 
 	@Bean
 	public Guest specialGuest(@Value("#{environment.firstName?:'Elvis'}") String firstName, @Value("#{environment.lastName?:'Presley'}") String lastName)  {
-		return new Guest(firstName,lastName);
+		return new SpecialGuest(firstName,lastName);
 	}
 	
 	@Bean
-	public GreetingService greeting(@Value("#{systemProperties['isVip']?specialGuest:guest}") Guest guest) {
-		return new Greeting(guest);
+	public Greeting greeting(@Value("#{environment.isVip?specialGuest:guest}") Guest aGuest) {
+		return new Greeting(aGuest);
 	}
+
 }

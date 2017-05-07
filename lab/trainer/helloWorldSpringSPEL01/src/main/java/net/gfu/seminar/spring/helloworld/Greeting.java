@@ -7,7 +7,7 @@ package net.gfu.seminar.spring.helloworld;
  * @author tf
  *
  */
-public class Greeting implements GreetingService {
+public class Greeting {
 
 	private Guest guest;
 
