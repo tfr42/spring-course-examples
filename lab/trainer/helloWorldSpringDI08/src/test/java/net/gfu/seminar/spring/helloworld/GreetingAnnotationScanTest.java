@@ -10,7 +10,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 public class GreetingAnnotationScanTest {
 	
-	private GreetingService service;
+	private Greeting service;
 
 	@Before
 	public void setUp() {
@@ -25,7 +25,7 @@ public class GreetingAnnotationScanTest {
 		new ClassPathBeanDefinitionScanner(ctx)
 				.scan("net.gfu.seminar.spring.helloworld");
 		ctx.refresh(); 
-		this.service = ctx.getBean("greeting", GreetingService.class);
+		this.service = ctx.getBean("greeting", Greeting.class);
 	}
 	
 	@Test

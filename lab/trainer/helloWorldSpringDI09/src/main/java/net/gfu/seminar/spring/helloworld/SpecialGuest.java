@@ -1,7 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
 
-public class SpecialGuest extends GuestImpl {
+public class SpecialGuest extends Guest {
 
 	public SpecialGuest() {
 	}

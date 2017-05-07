@@ -10,12 +10,12 @@
 	</bean>
 
 	<bean id="guest1" name="annaGramm,guest"
-		class="net.gfu.seminar.spring.helloworld.GuestImpl">
+		class="net.gfu.seminar.spring.helloworld.Guest">
 		<property name="name" value="Anna Gramm" />
 	</bean>
 
 	<bean id="guest2" name="hansDampf,theOtherGuest"
-		class="net.gfu.seminar.spring.helloworld.GuestImpl" init-method="init">
+		class="net.gfu.seminar.spring.helloworld.Guest" init-method="init">
 		<property name="name" value="Hans Dampf" />
 	</bean>
 

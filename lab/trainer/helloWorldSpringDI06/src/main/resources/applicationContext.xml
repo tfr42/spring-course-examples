@@ -10,7 +10,7 @@
 		<property name="guest" ref="birthdayChild" />
 	</bean>
 
-	<bean id="guest" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+	<bean id="guest" class="net.gfu.seminar.spring.helloworld.Guest">
 		<property name="firstName" value="${firstName}" />
 		<property name="lastName" value="${lastName}" />
 	</bean>

@@ -5,7 +5,7 @@
 	
 	<bean id="welcome" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting" autowire="constructor"/>
 
-	<bean id="guest" name="guest1,rainerFall" class="net.gfu.seminar.spring.helloworld.GuestImpl" autowire-candidate="true">
+	<bean id="guest" name="guest1,rainerFall" class="net.gfu.seminar.spring.helloworld.Guest" autowire-candidate="true">
 		<property name="name" value="Rainer Fall" />
 	</bean>
 

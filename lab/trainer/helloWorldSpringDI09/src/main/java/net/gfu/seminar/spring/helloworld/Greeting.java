@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author tf
  * 
  */
-public class Greeting implements GreetingService {
+public class Greeting {
 
 	private Guest guest;
 
@@ -20,12 +20,6 @@ public class Greeting implements GreetingService {
 		this.setGuest(guest);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see net.gfu.seminar.spring.helloworld.GreetingService#welcome()
-	 */
-	@Override
 	public String welcome() {
 		String guestNames = this.guest.getName();
 		return String.format("Welcome %1$s to Spring!", guestNames);

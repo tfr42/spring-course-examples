@@ -6,7 +6,7 @@
 	
 	<bean id="welcome" name="reception" class="net.gfu.seminar.spring.helloworld.Greeting"/>
 
-	<bean id="guest" name="guest1,annaGramm" class="net.gfu.seminar.spring.helloworld.GuestImpl">
+	<bean id="guest" name="guest1,annaGramm" class="net.gfu.seminar.spring.helloworld.Guest">
 		<property name="name" value="Anna Gramm" />
 	</bean>
 

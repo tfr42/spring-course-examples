@@ -3,7 +3,7 @@ package net.gfu.seminar.spring.helloworld;
 import org.springframework.stereotype.Component;
 
 @Component("specialGuest")
-public class SpecialGuest extends GuestImpl {
+public class SpecialGuest extends Guest {
 
 	@Override
 	public String toString() {

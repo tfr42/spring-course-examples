@@ -8,12 +8,11 @@ package net.gfu.seminar.spring.helloworld;
  *
  */
 public class Greeting {
-	
 	private Guest guest;
 	
 	public Greeting() {
 	}
-	
+
 	public Greeting(Guest guest) {
 		this.setGuest(guest);
 	}

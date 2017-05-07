@@ -16,13 +16,13 @@ public class ApplicationConfig {
 	private String lastName;
 
 	@Bean
-	public GreetingService greeting() {
+	public Greeting greeting() {
 		return new Greeting(guest());
 	}
 
 	@Bean
 	public Guest guest() {
-		return new GuestImpl(this.firstName, this.lastName);
+		return new Guest(this.firstName, this.lastName);
 	}
 	
 	@Bean
