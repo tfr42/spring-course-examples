@@ -14,11 +14,11 @@ public class DynamicProxy implements Task, InvocationHandler {
     }
 
     public void execute() {
-        System.out.println("A - Task.execute()");
+        System.out.println("Task->execute");
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("B - InvocationHandler." + method.getName() + "()");
+        System.out.println("InvocationHandler->" + method.getName());
         return null;
     }
 }

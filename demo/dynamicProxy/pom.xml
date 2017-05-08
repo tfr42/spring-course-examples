@@ -8,6 +8,6 @@
 	</parent>
 	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>dynamicProxy</artifactId>
-	<name>JDK Dynamic Proxy </name>
+	<name>JDK Dynamic Proxy</name>
 	<description>Warming up - JDK Dynamic Proxy</description>
 </project>
