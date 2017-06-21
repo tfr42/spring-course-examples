@@ -20,7 +20,7 @@ public class ApplicationConfig {
 		return new Greeting(guest());
 	}
 
-	@Bean
+	@Bean(initMethod = "init")
 	public Guest guest() {
 		return new Guest(this.firstName, this.lastName);
 	}

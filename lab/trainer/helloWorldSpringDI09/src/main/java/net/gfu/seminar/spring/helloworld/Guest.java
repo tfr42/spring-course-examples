@@ -49,7 +49,6 @@ public class Guest {
 		return "Guest [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
-	@PostConstruct
 	public void init() {
 		System.out.println("init called on " + this.toString());
 		Assert.hasText(this.getFirstName(), "Firstname is required");
