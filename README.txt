@@ -46,7 +46,7 @@ Benötigte Software
 =======
 Im Unterverzeichnis 
  /demo 			- sind kleine Beispiel-Anwendungen auf Basis von Spring-basierten Projekten wie SpringBatch
- /lab/student	- der Workspace mit den Aufgaben für den Teilnehmer
+ /lab/student	- der Workspace mit den Beispielanwendung für die Bearbeitung durch den Teilnehmer
  /lab/trainer	- der Workspace mit den Lösungen vom Trainer
  
  Prüfen des Workspace:
@@ -93,4 +93,10 @@ Projekt-Template erzeugen und nutzen:
  cd target/generated-sources/archetype
  mvn install
  cd lab/student/
- mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
+ mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringWeb -Dversion=0.0.1-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld.web -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.0mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
+
+Zu den Übungen MVC01 und MVC02 erstellen eines neuen Maven-Moduls
+ cd lab/student
+ mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringWeb -Dversion=0.0.1-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld.web -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.0
+ cd helloWorldSpringWeb
+ mvn install
