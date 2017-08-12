@@ -63,7 +63,7 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.10</version>
+				<version>0.4.14</version>
 				<configuration>
 					<imageName>${docker.image.prefix}/${docker.image.name}</imageName>
 					<dockerDirectory>src/main/config/docker</dockerDirectory>
