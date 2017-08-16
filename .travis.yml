@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 env: MAVEN_OPTS="-Xmx2g"
 sudo: false
+dist: trusty
 cache:
   directories:
   - .autoconf
