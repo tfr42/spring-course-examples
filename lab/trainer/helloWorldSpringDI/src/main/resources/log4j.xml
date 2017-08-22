@@ -33,6 +33,10 @@
   <logger name="org.springframework.web">
   	<level value="DEBUG"/>
   </logger>
+
+  <logger name="org.springframework.security">
+    <level value="DEBUG"/>
+  </logger>
   
   <logger name="net.gfu.seminar.spring.helloworld">
   	<level value="DEBUG"/>
