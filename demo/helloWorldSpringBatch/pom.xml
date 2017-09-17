@@ -20,7 +20,7 @@
 	-->
 	<properties>
 		<spring-batch.version>2.2.7.RELEASE</spring-batch.version>
-		<spring.version>3.2.9.RELEASE</spring.version>
+		<spring.version>3.2.10.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 		<dependency>
