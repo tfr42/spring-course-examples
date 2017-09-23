@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource(value = { "classpath:/guest.properties" })
+@PropertySource("classpath:/guest.properties")
 public class ApplicationConfig {
 
 	@Value("${firstName}")

@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 @Component("guest")
 @Entity @Table(name="guests")
 @NamedQueries({
-	@NamedQuery(name="forName", query="Select g from Guest as g where g.lastName like ?1"),
-	})
+	@NamedQuery(name="forName", query="Select g from Guest as g where g.lastName like ?1")
+})
 public class Guest implements Serializable  {
 	
 	private static final long serialVersionUID = 6697160661899899888L;
@@ -38,7 +38,6 @@ public class Guest implements Serializable  {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
 
 	public Guest(Long id, String firstName, String lastName) {
 		this(firstName, lastName);

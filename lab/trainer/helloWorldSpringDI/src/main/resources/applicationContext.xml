@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting" >
+	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<!-- set the property guest via the mutator/modifier method setGuest(Guest) -->
 		<property name="guest" ref="guest" />
 	</bean>

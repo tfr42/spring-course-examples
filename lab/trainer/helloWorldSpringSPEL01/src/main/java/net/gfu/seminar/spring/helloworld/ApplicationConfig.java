@@ -10,8 +10,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
+import java.util.Properties;
+
 @Configuration
-@PropertySource("classpath:/guest.properties")
+@PropertySource(value = "classpath:/guest.properties", ignoreResourceNotFound = false)
 public class ApplicationConfig {
 
 	@Autowired

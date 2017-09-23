@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource({ "classpath:/guest.properties" })
+@PropertySource("classpath:/guest.properties")
 public class ApplicationConfig {
 
 	@Bean

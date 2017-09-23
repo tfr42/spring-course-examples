@@ -18,7 +18,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@PropertySource(value="classpath:/jdbc.properties")
+@PropertySource("classpath:/jdbc.properties")
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 public class PersistenceConfig {
