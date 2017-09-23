@@ -16,17 +16,21 @@ Eclipse Jetty with:
     
 ## JAX-RS example
 
-http://localhost:8080/helloWorldSpringREST/jaxrs/helloworld 
+http://localhost:8080/helloWorldSpringREST/jaxrs/helloworld
+
+Class: `net.gfu.seminar.jaxrs.helloworld.HelloWorld` 
  
 ## Spring Web MVC example
  
 http://localhost:8080/helloWorldSpringREST/rest/helloworld
 
-### Swagger2 with Spring REST API
+Class: `net.gfu.seminar.spring.helloworld.HelloWorld`
+
+### Swagger with Spring REST API
 About Swagger: https://swagger.io/
 
 #### Additional dependencies 
-Swagger2 with Spring MVC requires additional Maven dependencies:
+Swagger with Spring MVC requires additional Maven dependencies:
 
     <dependency>
         <groupId>io.springfox</groupId>
@@ -41,8 +45,8 @@ Swagger2 with Spring MVC requires additional Maven dependencies:
 
 see more at https://springfox.github.io/springfox/docs/current/
 
-####Configuration of Spring MVC Controller
-Additional configuration of the `controller-servlet.xml`:
+#### Configuration of Spring MVC Controller
+Additional configuration in `controller-servlet.xml`:
 
     <mvc:resources mapping="swagger-ui.html"
 				 location="classpath:/META-INF/resources/" />
