@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <var name="guestBean" class="net.gfu.seminar.spring.webflow.model.AddGuestForm" />
+
+    <view-state id="welcome" view="/addGuest" model="guestBean">
+        <transition on="continue" to="confirm"/>
+    </view-state>
+
+    <view-state id="confirm" view="/confirm" model="guestBean">
+        <transition on="confirmed" to="confirmed">
+            <evaluate expression="guestController.addGuest(guestBean)"/>
+            <evaluate expression="guestController.showGuests()" result="flowScope.guests"/>
+        </transition>
+        <transition on="revise" to="welcome"/>
+        <transition on="cancelled" to="cancelled"/>
+    </view-state>
+
+    <end-state id="cancelled" view="/cancel"/>
+
+    <end-state id="confirmed" view="/showGuest"/>
+
+</flow>

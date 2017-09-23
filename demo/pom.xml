@@ -14,6 +14,7 @@
     <module>helloWorldSpringData</module>
     <module>helloWorldSpringIntegration</module>
     <module>helloWorldSpringLdap</module>
+    <module>helloWorldSpringWebFlow</module>
     <module>helloWorldSpringWebServices</module>
   </modules>
   <description>Demo workspace</description>
