@@ -27,18 +27,17 @@ Für die Installation von Eclipse Plugins über den Eclipse Update Manager ist e
 
 Entwicklungsumgebung einrichten
 -------------------------------
-Benötigte Software
+Benötigte Software:
 - Java SE 8 (Oracle oder OpenJDK 8)
-- Maven 3.0.5+
+- Apache Maven 3.0.5+
 - Installation von Eclipse 4.6+ (Eclipse IDE for Java EE Developers - Neon ) incl. der Plug-ins:
   -	Spring IDE 3.8+
   -	m2e Plugin 1.7+
   oder 
   - SpringSource Tool Suite (Developer Edition) 3.8+
   oder 
-  - JetBrains IntelliJIDEA 14.1
-- Spring Framework 4.2+
-- Apache Tomcat 7.0+ oder 8.0+ 
+  - JetBrains IntelliJ IDEA 14+ 
+- Apache Tomcat 7.0+ oder 8.0+
 - GlassFish 4.0+ (optional)
 - Apache ActiveMQ 5.9.0+ (optional)
 
@@ -57,7 +56,7 @@ Im Unterverzeichnis
  
     mvn install
  
- für das Demo-Projekt helloWorldSpringBoot muß ein Profil aktiviert werden:
+ für das Demo-Projekt helloWorldSpringBoot muß das Profil 'SpringBoot' aktiviert werden:
     
     mvn -PSpringBoot install
   
@@ -107,7 +106,7 @@ Projekt-Template erzeugen und nutzen:
     cd lab/student/
     mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringWeb -Dversion=0.0.1-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld.web -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.0mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringDI01 -Dversion=1.0.0-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld -DarchetypeGroupId=net.gfu.seminar.spring.helloworld -DarchetypeArtifactId=helloWorldSpring-archetype -DarchetypeVersion=1.0.0-SNAPSHOT
 
-Zu den Übungen MVC01 und MVC02 erstellen eines neuen Maven-Moduls:
+Zu den Übungen MVC01 und MVC02 erstellen eines neuen Maven Web-Moduls und starten mit Jetty:
  
     cd lab/student
     mvn archetype:generate -DgroupId=net.gfu.seminar.spring.helloworld.student -DartifactId=helloWorldSpringWeb -Dversion=0.0.1-SNAPSHOT -DpackageName=net.gfu.seminar.spring.helloworld.web -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.0
@@ -115,6 +114,6 @@ Zu den Übungen MVC01 und MVC02 erstellen eines neuen Maven-Moduls:
     mvn install
     mvn jetty:run
 
-oder mit Apache Tomcat statt `jetty:run`:
+oder statt Jetty mit Apache Tomcat 7:
     
-    mvn tomcat:run
+    mvn tomcat7:run
