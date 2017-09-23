@@ -1,5 +1,7 @@
 package net.gfu.seminar.spring.helloworld;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Scanner;
 
@@ -17,6 +19,7 @@ public class Guest {
 		this.lastName = lastName;
 	}
 
+	@JsonIgnore
 	public String getName() {
 		return this.firstName + " " + this.lastName;
 	}

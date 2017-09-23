@@ -5,13 +5,13 @@
 <html>
   <head>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    	<title>GlassFish JSP Page</title>
+    	<title>RESTful web services with Spring Web MVC</title>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Hello, RESTful world!</h1>
     <ul>
       <li><a href="jaxrs/helloworld">Hello, world! (using JAX-RS)</a></li>
-      <li><a href="rest/helloworld">Hello, world! (using Spring MVC)</a></li>
+      <li><a href="rest/helloworld">Hello, world! (using Spring MVC)</a> - <a href="rest/swagger-ui.html">Swagger UI</a></li>
     </ul>
   </body>
 </html> 

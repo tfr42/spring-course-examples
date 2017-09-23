@@ -33,6 +33,7 @@ public class HelloWorld implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 
 	/**
+	 * HTTP GET
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld
 	 * @return a String as text/plain
 	 */
@@ -41,7 +42,8 @@ public class HelloWorld implements ApplicationContextAware {
 		return "Hello, world!";
 	}
 
-	/** 
+	/**
+	 * HTTP GET
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Hans%20Wurst
 	 * @param name a name
 	 * @return a String with the given name as text/plain
@@ -52,10 +54,11 @@ public class HelloWorld implements ApplicationContextAware {
 	}
 
 	/**
+	 * HTTP GET
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Rainer/Zufall
 	 * @param firstname a firstname
 	 * @param lastname a lastname
-	 * @return the message as text/xml
+	 * @return the message as text/xml or application/xml
 	 */
 	@RequestMapping(value = "{firstname}/{lastname}", method = RequestMethod.GET,
 			produces={MediaType.TEXT_XML_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -65,6 +68,7 @@ public class HelloWorld implements ApplicationContextAware {
 	}
 	
 	/**
+	 * HTTP GET
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest/Rainer/Zufall
 	 * @param firstname a firstname
 	 * @param lastname a lastname
@@ -80,8 +84,8 @@ public class HelloWorld implements ApplicationContextAware {
 	/**
 	 * HTTP PUT
 	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest
-	 * @param guest a new guest as application/json
-	 * @return the guest as application/json
+	 * @param guest a new guest as application/json or application/xml
+	 * @return the guest as application/json or application/xml
 	 */
 	@RequestMapping(value = "guest", method = RequestMethod.PUT,
 			consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
