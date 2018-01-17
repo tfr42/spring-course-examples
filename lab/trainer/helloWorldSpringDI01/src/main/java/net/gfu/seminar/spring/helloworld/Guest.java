@@ -15,19 +15,7 @@ public class Guest {
 	private String lastName;
 
 	public Guest() {
-		this("", "");
-	}
-
-	/**
-	 * Creates a new {@link Guest} with the given first- and lastname.
-	 *
-	 * @param firstName
-	 * @param lastName
-	 */
-	public Guest(String firstName, String lastName) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		// using defaults for all properties
 	}
 
 	public String getName() {
