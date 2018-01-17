@@ -9,7 +9,7 @@ import org.springframework.context.support.GenericApplicationContext;
  * @author tf
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-java">Java-based container configuration</a>
  */
-public class HelloWorldRunnerWithSpringAnnotation {
+public class ApplicationWithJavaConfig {
 
     public static void main(String[] args) {
         // set the system property which is evaluated by Spring EL

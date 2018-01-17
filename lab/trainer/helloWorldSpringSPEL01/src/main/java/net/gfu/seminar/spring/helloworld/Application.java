@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author tf
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
-public class HelloWorldRunnerWithSpring {
+public class Application {
 
     public static void main(String[] args) {
         // set the system property which is evaluated by Spring EL
