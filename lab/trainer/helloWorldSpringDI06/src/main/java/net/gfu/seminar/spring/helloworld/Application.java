@@ -4,18 +4,18 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * HelloWorld using Spring Framework Dependency Injection.
+ * Starts the HelloWorld application using Spring Framework BeanFactory.
  * 
  * @author tf
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
-public class HelloWorldRunnerWithSpring {
+public class Application {
 
 	public static void main(String[] args) {
-		// loading the Spring XML configuration file and initializing the ApplicationContext
+		// Loads the Spring XML configuration files and initializing the ApplicationContext
 		ConfigurableApplicationContext beanFactory = new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
 		
-		// here we retrieve an instance of Greeting from the Spring Container
+		// Retrieves an instance of Greeting from the Spring Container
 		Greeting greeting = beanFactory.getBean("greeting", Greeting.class);
 
 		System.out.println(greeting.welcome());
@@ -25,7 +25,8 @@ public class HelloWorldRunnerWithSpring {
 		for (int i = 0; i < beanDefinitionNames.length; i++) {
 			System.out.println(beanDefinitionNames[i] + " = " + beanFactory.getBean(beanDefinitionNames[i]));
 		}
+
+		beanFactory.registerShutdownHook();
 		beanFactory.close();
 	}
-
 }
