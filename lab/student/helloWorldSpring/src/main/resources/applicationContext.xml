@@ -7,7 +7,7 @@
 	
 	<bean id="greeting" class="net.gfu.seminar.spring.helloworld.Greeting">
 		<!-- set the property guest via the mutator/modifier method Greeting.setGuest(Guest) -->
-		<property name="guest" ref="guest" />
+		<property name="guest" ref="null" />
 	</bean>
 
 	<bean id="guest" class="net.gfu.seminar.spring.helloworld.Guest" >

@@ -1,6 +1,5 @@
 package net.gfu.seminar.spring.helloworld;
 
-
 /**
  * Says hello to a {@link Guest}.
  * 
@@ -13,7 +12,7 @@ public class Greeting {
 
 	public Greeting() {
 	}
-	
+
 	/**
 	 * Creates a {@link Greeting} for the given {@link Guest}
 	 * @param guest
