@@ -2,27 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <security:http auto-config="true">
-         <!-- Restrict URLs based on role: grant access for anonymous user -->
+  <security:http auto-config="true" use-expressions="false">
+        <!-- Restrict URLs based on role: grant access for anonymous user -->
         <security:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <security:intercept-url pattern="/error*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/*/welcome*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        
+
         <!-- Restrict URLs based on role: grant access only for authenticated user -->
         <security:intercept-url pattern="/**" access="ROLE_USER" />
 
         <!-- Override default login and logout pages -->
         <security:form-login login-page="/login.jsp" 
-                             login-processing-url="/loginProcess" 
-                             default-target-url="/index.jsp" 
-                             authentication-failure-url="/login.jsp?login_error=1" />
-        <security:logout logout-url="/logout" logout-success-url="/logoutSuccess.jsp" />
- </security:http>
+                             default-target-url="/index.jsp"
+                             authentication-failure-url="/login.jsp?error=true"/>
+        <security:logout invalidate-session="true"
+                         delete-cookies="JSESSIONID"
+                         logout-url="/logout"
+                         logout-success-url="/logoutSuccess.jsp"/>
+        <!-- <security:csrf disabled="true"/> -->
+  </security:http>
     
     
 <!-- Creates a JdbcDaoImpl based user detail service with the following users:

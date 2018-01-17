@@ -2,6 +2,7 @@ package net.gfu.seminar.spring.helloworld.web;
 
 import javax.validation.Valid;
 
+import net.gfu.seminar.spring.helloworld.GreetingMessageService;
 import net.gfu.seminar.spring.helloworld.GreetingService;
 import net.gfu.seminar.spring.helloworld.GuestImpl;
 
@@ -24,7 +25,7 @@ public class GreetingController {
 	private static final Logger LOG = Logger.getLogger(GreetingController.class);
 	
 	@Autowired
-	private GreetingService service;
+	private GreetingMessageService service;
 
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
@@ -54,7 +55,6 @@ public class GreetingController {
 		}
 		return mav;
 	}
-
 
 }
 
