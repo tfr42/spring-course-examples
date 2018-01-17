@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import net.gfu.seminar.spring.helloworld.GreetingMessageService;
 import net.gfu.seminar.spring.helloworld.GreetingService;
 import net.gfu.seminar.spring.helloworld.Guest;
 import net.gfu.seminar.spring.helloworld.GuestImpl;
@@ -19,7 +20,7 @@ public class AddGuestForm implements Serializable {
 	private String lastname;
 
 	@Inject
-	private GreetingService service;
+	private GreetingMessageService service;
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;

@@ -15,7 +15,7 @@
 		<constructor-arg name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="greetingService" class="net.gfu.seminar.spring.helloworld.Greeting">
+	<bean id="greetingService" class="net.gfu.seminar.spring.helloworld.GreetingMessageService">
 		<constructor-arg ref="guestDao" />
 	</bean>
 
