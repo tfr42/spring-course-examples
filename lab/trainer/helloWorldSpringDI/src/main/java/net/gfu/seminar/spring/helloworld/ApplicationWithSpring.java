@@ -4,12 +4,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * HelloWorld using Spring Framework Dependency Injection and XML configuration metadata.
+ *  Starts the HelloWorld application using Spring Framework BeanFactory and XML configuration metadata.
  * 
  * @author tf
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-introduction">Spring DI</a>
  */
-public class HelloWorldRunnerWithSpring {
+public class ApplicationWithSpring {
 
 	public static void main(String[] args) {
 		/// XXX Examples for creating the Spring Container

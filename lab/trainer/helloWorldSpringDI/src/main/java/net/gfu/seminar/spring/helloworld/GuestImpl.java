@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javax.annotation.PostConstruct;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.apache.log4j.Logger;
 import org.springframework.util.Assert;
@@ -40,7 +41,7 @@ public class GuestImpl implements Guest {
 		this.id = id;
 	}
 
-	@Override
+	@Override @XmlTransient
 	public String getName() {
 		return this.firstName + " " + this.lastName;
 	}

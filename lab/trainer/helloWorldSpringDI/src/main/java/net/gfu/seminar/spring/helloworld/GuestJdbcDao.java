@@ -86,16 +86,13 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
      */
 	private int createWithPrepareStatementCreator(final String sql, final Guest guest) {	
 		final KeyHolder keyHolder = new GeneratedKeyHolder();
-		final PreparedStatementCreator psc = new PreparedStatementCreator() {
-			public PreparedStatement createPreparedStatement(
-					Connection connection) throws SQLException {
-				PreparedStatement ps = connection.prepareStatement(sql,
-						new String[] { "ID" });
-				ps.setString(1, guest.getFirstName());
-				ps.setString(2, guest.getLastName());
-				return ps;
-			}
-		};
+		final PreparedStatementCreator psc = connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql,
+                    new String[] { "ID" });
+            ps.setString(1, guest.getFirstName());
+            ps.setString(2, guest.getLastName());
+            return ps;
+        };
 		int updatedRows = this.getJdbcTemplate().update(psc, keyHolder);
 		LOG.debug(updatedRows + " rows updated");
 		((GuestImpl) guest).setId(keyHolder.getKey().longValue());

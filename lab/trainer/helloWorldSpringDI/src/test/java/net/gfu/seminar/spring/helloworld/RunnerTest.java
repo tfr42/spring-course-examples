@@ -5,15 +5,15 @@ import org.junit.Test;
 public class RunnerTest {
 	
 	@Test
-	public void testHelloWorldRunner() {
-		HelloWorldRunner.main(null);
+	public void testApplicationWithPlainJava() {
+		ApplicationWithPlainJava.main(null);
 	}
 	@Test
-	public void testHelloWorldRunnerWithSpring() {
-		HelloWorldRunnerWithSpring.main(null);
+	public void testApplicationWithSpring() {
+		ApplicationWithSpring.main(null);
 	}
 	@Test
-	public void testHelloWorldRunnerWithSpringAnnotation() {
-		HelloWorldRunnerWithSpringAnnotation.main(null);
+	public void testApplicationWithSpringJavaConfig() {
+		ApplicationWithSpringJavaConfig.main(null);
 	}
 }

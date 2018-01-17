@@ -1,5 +1,6 @@
 package net.gfu.seminar.spring.helloworld;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,17 +12,12 @@ import java.util.List;
 public class Greeting implements GreetingService {
 	
 	private Guest guest;
-	private GuestDao dao;
-	
+
 	public Greeting() {
 	}
-	
+
 	public Greeting(Guest guest) {
 		this.setGuest(guest);
-	}
-	
-	public Greeting(GuestDao dao) {
-		this.dao = dao;
 	}
 
 	/* (non-Javadoc)
@@ -29,17 +25,26 @@ public class Greeting implements GreetingService {
 	 */
 	@Override
 	public String welcome() {
-		String guestNames;
-		if (dao != null) {
-			List<Guest> all = this.dao.findAll();
-			guestNames = all.toString();
-		} else {
-			guestNames = this.guest.getName();
-		}
-
-		return String.format("Welcome %1$s to Spring!", guestNames);
+		return String.format("Welcome %1$s to Spring!", guest.getName());
 	}
-	
+
+	@Override
+	public void addGuest(Guest guest) {
+		this.setGuest(guest);
+	}
+
+	@Override
+	public List<Guest> findAll() {
+		ArrayList<Guest> guests = new ArrayList<>();
+		guests.add(this.getGuest());
+		return guests;
+	}
+
+	@Override
+	public Guest findById(Long id) {
+		return this.getGuest();
+	}
+
 	/**
 	 * Accessor method returning the internal state.
 	 * @return
@@ -54,16 +59,6 @@ public class Greeting implements GreetingService {
 	 */
 	public void setGuest(Guest guest) {
 		this.guest = guest;
-	}
-	
-	@Override
-	public void addGuest(Guest guest) {
-		this.dao.create(guest);
-	}
-
-	@Override
-	public Guest findById(Long id) {
-		return dao.findById(id);
 	}
 
 }

@@ -1,11 +1,11 @@
 package net.gfu.seminar.spring.helloworld;
 /**
- * HelloWorld runner using plain Java.
+ *  Starts the HelloWorld application using plain Java.
  * 
  * @author tf
  *
  */
-public class HelloWorldRunner {
+public class ApplicationWithPlainJava {
 
 	public static void main(String[] args) {
 		// XXX at runtime two objects are instantiated with new

@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -70,7 +71,14 @@ public class DataSourceTest implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		LOG.debug("Test uses Environment: " + applicationContext.getEnvironment());
-		
+	}
+
+	@Test
+	public void test() {
+		JdbcTemplate template = new JdbcTemplate(ds);
+		String sql = "select count(*) from guests";
+		//Object[] args = new Object[]{ "Meier" };
+		Integer anzahl =  template.queryForObject(sql, Integer.class);
 	}
 
 }
