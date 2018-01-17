@@ -9,11 +9,11 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="guestDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
+	<bean id="guestDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao" init-method="init">
 		<constructor-arg ref="dataSource" />
 	</bean>
 
-	<bean id="greetingService" class="net.gfu.seminar.spring.helloworld.Greeting">
+	<bean id="greetingService" class="net.gfu.seminar.spring.helloworld.GreetingMessageService">
 		<constructor-arg ref="guestDao" />
 	</bean>
 	

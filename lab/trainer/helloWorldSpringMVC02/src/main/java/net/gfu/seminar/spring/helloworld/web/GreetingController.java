@@ -1,7 +1,5 @@
 package net.gfu.seminar.spring.helloworld.web;
 
-import javax.validation.Valid;
-
 import net.gfu.seminar.spring.helloworld.GreetingService;
 import net.gfu.seminar.spring.helloworld.Guest;
 import net.gfu.seminar.spring.helloworld.GuestImpl;
@@ -10,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +17,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 @Controller
-@RequestMapping("/greeting")
 @Scope("request")
 public class GreetingController {
 	private static final Logger LOG = Logger.getLogger(GreetingController.class);
@@ -33,7 +31,7 @@ public class GreetingController {
 	@Qualifier("greetingService")
 	private GreetingService service;
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@GetMapping("/add")
 	public String setupForm(Model model) {
 		LOG.debug("Form created");
 		AddGuestForm guestForm = new AddGuestForm();
@@ -65,24 +63,28 @@ public class GreetingController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/to/{name}", method = RequestMethod.GET)
-	public @ResponseBody String getTextMessage(@PathVariable String name) {
+	@GetMapping("/to/{name}")
+	public @ResponseBody String toTextMessage(@PathVariable String name) {
 		return "Hello, " + name + "!";
 	}
 
-	@RequestMapping(value = "/{firstname}/{lastname}", method = RequestMethod.GET)
+	@GetMapping("/{firstname}/{lastname}")
 	public @ResponseBody
-	ResponseEntity<Guest> getGuestAsXml(@PathVariable String firstname,
+	ResponseEntity<Guest> toGuestAsXml(@PathVariable String firstname,
 								 @PathVariable String lastname) {
 		return new ResponseEntity<Guest>(new GuestImpl(firstname,lastname), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{guestId}", method = RequestMethod.GET, produces="text/xml")
+	@GetMapping(value="/{guestId}", produces = MediaType.APPLICATION_XML_VALUE)
 	public @ResponseBody Guest findGuestById(@PathVariable String guestId) {
 		LOG.debug("findGuestById: " + guestId);
 		Long id = Long.parseLong(guestId);
 		Guest guest = service.findById(id);
 		LOG.debug("Found: " + guest);
-		return guest;
+		if (guest != null) {
+			return guest;
+		} else {
+			throw new GuestNotFoundException(guestId);
+		}
 	}
 }

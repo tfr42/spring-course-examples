@@ -19,6 +19,7 @@ public class WebApplicationInitializerConfig implements
             throws ServletException {
         // Create the 'root' Spring application context
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        rootContext.getEnvironment().setActiveProfiles("web");
         rootContext.register(WebConfig.class);
 
         // Manage the lifecycle of the root application context
@@ -32,7 +33,7 @@ public class WebApplicationInitializerConfig implements
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
                 "dispatcher", new DispatcherServlet(dispatcherContext));
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/");
+        dispatcher.addMapping("/greeting/*");
     }
 
 }

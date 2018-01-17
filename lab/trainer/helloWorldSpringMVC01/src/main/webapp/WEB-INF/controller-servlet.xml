@@ -8,15 +8,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
    <!-- Configures the @Controller programming model -->
-  <mvc:annotation-driven />  
+  <mvc:annotation-driven/>
   
   <!-- Scans the classpath of this application for @Components to deploy as beans -->
   <context:component-scan base-package="net.gfu.seminar.spring.helloworld.web" />
 
-  <bean id="jspViewResolver"
-    class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="viewClass"
-      value="org.springframework.web.servlet.view.JstlView" />
+  <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
     <property name="prefix" value="" />
     <property name="suffix" value=".jsp" />
   </bean>

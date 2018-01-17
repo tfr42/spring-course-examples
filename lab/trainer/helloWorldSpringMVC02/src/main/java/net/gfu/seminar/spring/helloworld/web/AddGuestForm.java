@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * Model bean.
+ */
 public class AddGuestForm implements Serializable {
 
 	private static final long serialVersionUID = -149744409282179291L;

@@ -11,10 +11,7 @@
 	<packaging>war</packaging>
 	<name>helloWorldSpringMVC02</name>
 	<url>http://localhost:8080/helloWorldSpringMVC02</url>
-	<description>Spring MVC mit JavaConfig
-	start web app with: mvn jetty:run -->
-	access web app: http://localhost:8080/helloWorldSpringMVC02 
-	</description>
+	<description>Spring MVC with JavaConfig</description>
 	<build>
 		<finalName>helloWorldSpringMVC02</finalName>
 		<plugins>
@@ -33,6 +30,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -68,6 +70,12 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

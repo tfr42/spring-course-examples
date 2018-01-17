@@ -9,6 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import net.gfu.seminar.spring.helloworld.web.config.MvcConfig;
+import net.gfu.seminar.spring.helloworld.web.config.WebConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "file:src/main/webapp/WEB-INF/webContext.xml",
-		"file:src/main/webapp/WEB-INF/controller-servlet.xml" })
+@ContextConfiguration(classes = { MvcConfig.class, WebConfig.class })
 @WebAppConfiguration
 public class GreetingControllerTest {
 
