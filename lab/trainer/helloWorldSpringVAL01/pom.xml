@@ -9,7 +9,7 @@
     <groupId>net.gfu.seminar.spring.helloworld</groupId>
     <artifactId>helloWorldSpringVAL01</artifactId>
     <name>helloWorldSpringVAL01</name>
-    <description>Bean validation with Spring</description>
+    <description>Bean validation 1.1 with Spring</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -41,9 +41,23 @@
             <artifactId>junit</artifactId>
         </dependency>
         <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
+        </dependency>
+        <!--
+        Java EE container such as JBoss AS, an EL implementation is already provided by the container!
+        -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.1-b08</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
