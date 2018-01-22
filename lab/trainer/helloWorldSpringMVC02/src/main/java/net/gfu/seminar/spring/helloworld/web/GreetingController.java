@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @Scope("request")
@@ -86,5 +87,10 @@ public class GreetingController {
 		} else {
 			throw new GuestNotFoundException(guestId);
 		}
+	}
+
+	@GetMapping(value = "/guests", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<List<Guest>> findAllGuests() {
+		return new ResponseEntity<List<Guest>>(service.findAll(), HttpStatus.OK);
 	}
 }
