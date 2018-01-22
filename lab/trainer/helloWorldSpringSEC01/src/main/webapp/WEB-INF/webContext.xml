@@ -32,7 +32,7 @@
 		<constructor-arg ref="dataSource"/>
 	</bean>
 	
-	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.Greeting">
+	<bean id="welcome" class="net.gfu.seminar.spring.helloworld.GreetingMessageService">
 		<constructor-arg name="dao" ref="dao"/>
 	</bean>
 
