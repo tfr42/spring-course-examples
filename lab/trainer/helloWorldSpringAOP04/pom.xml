@@ -10,7 +10,7 @@
     <groupId>net.gfu.seminar.spring.helloworld</groupId>
     <artifactId>helloWorldSpringAOP04</artifactId>
     <name>helloWorldSpringAOP04</name>
-    <description>Spring with native AspectJ</description>
+    <description>Spring AOP with native AspectJ</description>
     <build>
         <plugins>
             <plugin>
@@ -24,7 +24,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.8</version>
+                <version>1.11</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>

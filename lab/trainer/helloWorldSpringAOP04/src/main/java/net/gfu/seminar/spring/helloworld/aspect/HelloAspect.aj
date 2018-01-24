@@ -17,4 +17,8 @@ public aspect HelloAspect {
     before() : accessWelcome() {
         System.out.printf("Before advise is running: ‘%s’%n", thisJoinPoint);
     }
+
+    after() : accessWelcome() {
+            System.out.printf("After advise is running: ‘%s’%n", thisJoinPoint);
+    }
 }
