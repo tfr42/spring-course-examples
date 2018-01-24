@@ -10,9 +10,9 @@
 	<artifactId>helloWorldSpringData</artifactId>
 	<description>HelloWorld with Spring Data</description>
 	<properties>
-        <spring-data.version>1.9.6.RELEASE</spring-data.version>
-        <spring.version>4.1.9.RELEASE</spring.version>
-        <hibernate.version>4.3.11.Final</hibernate.version>
+        <spring-data.version>1.11.10.RELEASE</spring-data.version>
+        <spring.version>4.3.14.RELEASE</spring.version>
+        <hibernate.version>5.2.12.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
