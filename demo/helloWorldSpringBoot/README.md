@@ -44,6 +44,9 @@ See the [Docker web site](https://www.docker.com/) for more information about Do
 
 * http://$CONTAINER_IP:8080/info
 * http://$CONTAINER_IP:8080/health
+
+### Authentication required for:
+
 * http://$CONTAINER_IP:8080/beans
 * http://$CONTAINER_IP:8080/mappings
 * http://$CONTAINER_IP:8080/metrics

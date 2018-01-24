@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.0.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 	<groupId>net.gfu.seminar.spring.demo</groupId>
 	<artifactId>helloWorldSpringBoot</artifactId>
@@ -63,7 +63,7 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.14</version>
+				<version>1.0.0</version>
 				<configuration>
 					<imageName>${docker.image.prefix}/${docker.image.name}</imageName>
 					<dockerDirectory>src/main/config/docker</dockerDirectory>
