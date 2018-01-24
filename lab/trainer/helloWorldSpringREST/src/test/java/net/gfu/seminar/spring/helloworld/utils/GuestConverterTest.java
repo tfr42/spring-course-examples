@@ -9,6 +9,7 @@ import java.util.List;
 import static org.junit.Assert.assertFalse;
 
 public class GuestConverterTest {
+
     @Test
     public void testGuestToJsonAndXmlConverter() throws IOException {
         List<Guest> testData = GuestConverter.getTestData();

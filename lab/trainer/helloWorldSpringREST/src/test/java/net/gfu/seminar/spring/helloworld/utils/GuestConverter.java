@@ -20,8 +20,16 @@ import java.util.List;
 public final class GuestConverter {
 
     public static String toJson(Guest guest) throws JsonProcessingException {
+        return convertToJson(guest);
+    }
+
+    public static String toJson(List<Guest> guestList) throws JsonProcessingException {
+        return convertToJson(guestList);
+    }
+
+    public static <T> String convertToJson(T object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(guest);
+        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
     }
 
     public static String toXml(Guest guest) {
@@ -42,11 +50,6 @@ public final class GuestConverter {
         return writer.toString();
     }
 
-    public static String toJson(List<Guest> guestList) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(guestList);
-    }
-
     public static List<Guest> getTestData() throws IOException {
         return parseCSV("/names.csv");
     }
@@ -64,6 +67,7 @@ public final class GuestConverter {
         } catch (IOException ex) {
             System.err.println(ex.getLocalizedMessage());
         }
+        asStream.close();
         return guestList;
     }
 
