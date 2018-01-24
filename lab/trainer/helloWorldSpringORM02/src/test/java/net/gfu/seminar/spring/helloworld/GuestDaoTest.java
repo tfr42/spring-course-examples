@@ -39,9 +39,9 @@ public class GuestDaoTest {
 
 	@Before
 	public void setUp() throws Exception {
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Rainer','Unsinn')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Anna','Gramm')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Hans','Dampf')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (1,'Rainer','Unsinn')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (2,'Anna','Gramm')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (3,'Hans','Dampf')");
 	}
 
 	@BeforeTransaction

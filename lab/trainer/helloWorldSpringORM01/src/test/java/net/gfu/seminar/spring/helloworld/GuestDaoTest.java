@@ -7,11 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -44,9 +39,9 @@ public class GuestDaoTest {
 
 	@Before
 	public void setUp() throws Exception {
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Rainer','Unsinn')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Anna','Gramm')");
-		jt.execute("INSERT INTO guests (firstname,lastname) VALUES ('Hans','Dampf')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (1,'Rainer','Unsinn')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (2,'Anna','Gramm')");
+		jt.execute("INSERT INTO guests (id,firstname,lastname) VALUES (3,'Hans','Dampf')");
 	}
 
 	@BeforeTransaction
@@ -119,7 +114,5 @@ public class GuestDaoTest {
 				(int) jt.queryForObject("SELECT count(id) from guests where id="
 						+ guest.getId(), Integer.class));
 	}
-	
-
 
 }

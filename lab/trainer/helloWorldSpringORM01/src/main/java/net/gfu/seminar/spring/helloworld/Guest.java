@@ -1,8 +1,10 @@
 package net.gfu.seminar.spring.helloworld;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Scanner;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +28,8 @@ public class Guest implements Serializable  {
 	private String firstName;
 	@Value("#{'Fall'}")
 	private String lastName;
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
 	public Guest() {
@@ -84,4 +87,16 @@ public class Guest implements Serializable  {
 		this.id = id;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Guest guest = (Guest) o;
+		return Objects.equals(id, guest.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }
