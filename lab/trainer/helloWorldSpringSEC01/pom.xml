@@ -12,7 +12,7 @@
 	<description>Spring MVC with Spring Security and XML-based configuration</description>
 	<url>http://localhost:8080/helloWorldSpringSEC01/</url>
 	<properties>
-		<spring.version>4.3.11.RELEASE</spring.version>
+		<spring.version>4.3.14.RELEASE</spring.version>
 		<spring-security.version>4.2.3.RELEASE</spring-security.version>
 	</properties>
 	<build>
