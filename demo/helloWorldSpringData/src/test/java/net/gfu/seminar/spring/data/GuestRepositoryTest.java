@@ -19,12 +19,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = { JPAConfiguration.class })
 @Transactional
 public class GuestRepositoryTest {
@@ -42,9 +42,9 @@ public class GuestRepositoryTest {
 		session.doWork(new Work() {
 	        @Override
 	        public void execute(Connection connection) throws SQLException {
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Hans','Dampf')");
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Anna','Gramm')");
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Rainer','Unsinn')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id, firstname,lastname) VALUES (1,'Hans','Dampf')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id, firstname,lastname) VALUES (2,'Anna','Gramm')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id, firstname,lastname) VALUES (3,'Rainer','Unsinn')");
 	        }
 	    });
 	}

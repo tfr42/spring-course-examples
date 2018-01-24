@@ -33,6 +33,7 @@ public class JPAConfiguration {
 	@Bean
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+		vendorAdapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
 		vendorAdapter.setGenerateDdl(true);
 
 
