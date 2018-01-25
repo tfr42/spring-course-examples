@@ -23,7 +23,7 @@
   </logger>
   
   <logger name="org.springframework.transaction">
-  	<level value="INFO"/>
+  	<level value="DEBUG"/>
   </logger>
   
   <logger name="org.springframework.aop">
@@ -35,19 +35,19 @@
   </logger>
 
   <logger name="org.springframework.data">
-  	<level value="INFO"/>
+  	<level value="DEBUG"/>
   </logger>
   
   <logger name="org.hibernate">
   	<level value="INFO"/>
   </logger>
   
-  <logger name="java.sql">
+  <logger name="org.hibernate.hql">
   	<level value="WARN"/>
   </logger>
   
-  <logger name="net.gfu.seminar.spring.helloworld">
-  	<level value="DEBUG"/>
+  <logger name="net.gfu.seminar.spring.data">
+  	<level value="TRACE"/>
   </logger>
 
   <root>

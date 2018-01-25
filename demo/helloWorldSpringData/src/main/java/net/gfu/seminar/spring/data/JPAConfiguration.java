@@ -34,8 +34,8 @@ public class JPAConfiguration {
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		vendorAdapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
+		vendorAdapter.setShowSql(true);
 		vendorAdapter.setGenerateDdl(true);
-
 
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setJpaVendorAdapter(vendorAdapter);

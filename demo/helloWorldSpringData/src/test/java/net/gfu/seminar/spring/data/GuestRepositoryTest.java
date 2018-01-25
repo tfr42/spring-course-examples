@@ -25,7 +25,7 @@ import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = { JPAConfiguration.class })
+@ContextConfiguration(classes = { JPAConfiguration.class, SpringDataExecutionLoggingConfiguration.class })
 @Transactional
 public class GuestRepositoryTest {
 
@@ -65,7 +65,7 @@ public class GuestRepositoryTest {
 	}
 
 	@Test
-	public void testEnityManager() {
+	public void testEntityManager() {
 		assertNotNull(em);
 	}
 
