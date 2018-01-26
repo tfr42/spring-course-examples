@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("guest")
-@Scope(value="request")
+@Scope("request")
 public class AddGuestForm implements Serializable {
 	private static final long serialVersionUID = 1136068035817345380L;
 	private String firstname;
