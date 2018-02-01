@@ -25,8 +25,8 @@ public class GuestList {
         return this.guests;
     }
 
-    public void setGuests(List<Guest> employees) {
-        this.guests = employees;
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
     }
 
 }
