@@ -59,7 +59,7 @@ public class Guest implements Serializable  {
 	}
 
 	public String toString() {
-		return "GuestImpl [id=" + id + ", firstName=" + firstName
+		return "Guest [id=" + id + ", firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
 	}
 
