@@ -9,7 +9,7 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringMVC01</artifactId>
 	<packaging>war</packaging>
-	<url>http://localhost:8080/helloWorldSpringMVC01/</url>
+	<url>http://localhost:48080/helloWorldSpringMVC01/</url>
 	<properties>
 		<jackson.version>2.9.2</jackson.version>
 	</properties>

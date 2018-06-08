@@ -51,7 +51,7 @@
 	<wsdl:service name="HelloWorldService">
 		<wsdl:port binding="tns:HelloWorldSOAP" name="HelloWorldSOAP">
 			<soap:address
-				location="http://localhost:8080/helloWorldSpringWebServices/HelloWorldService" />
+				location="http://localhost:48080/helloWorldSpringWebServices/HelloWorldService" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

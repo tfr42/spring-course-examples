@@ -11,7 +11,7 @@
 	<packaging>war</packaging>
 	<name>helloWorldSpringWebServices</name>
 	<description>HelloWorld with Spring WebServices</description>
-	<url>http://localhost:8080/helloWorldSpringWebServices/HelloWorldService.wsdl</url>
+	<url>http://localhost:48080/helloWorldSpringWebServices/HelloWorldService.wsdl</url>
 	<properties>
         <spring-ws.version>2.2.4.RELEASE</spring-ws.version>
         <spring.version>4.0.9.RELEASE</spring.version>

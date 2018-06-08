@@ -9,7 +9,7 @@
 	<groupId>net.gfu.seminar.spring.helloworld</groupId>
 	<artifactId>helloWorldSpringREST</artifactId>
 	<packaging>war</packaging>
-	<url>http://localhost:8080/helloWorldSpringREST/</url>
+	<url>http://localhost:48080/helloWorldSpringREST/</url>
 	<properties>
 		<jersey.version>1.19.4</jersey.version>
 		<jackson.version>2.9.2</jackson.version>

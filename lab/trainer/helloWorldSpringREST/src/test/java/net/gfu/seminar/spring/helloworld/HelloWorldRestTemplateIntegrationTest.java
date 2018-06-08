@@ -22,7 +22,7 @@ public class HelloWorldRestTemplateIntegrationTest {
 	@Test
 	public void testGetResourceHelloWorld() {
 		String response = restTemplate.getForObject(
-				"http://localhost:8080/helloWorldSpringREST/rest/helloworld",
+				"http://localhost:48080/helloWorldSpringREST/rest/helloworld",
 				String.class);
 		LOG.info("REST response= " + response);
 		assertEquals("Hello, world!", response);

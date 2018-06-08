@@ -14,6 +14,6 @@
     <property name="marshaller" ref="jaxbMarshaller"/>
     <property name="unmarshaller" ref="jaxbMarshaller"/>
     <property name="defaultUri"
-              value="http://localhost:8080/helloWorldSpringWebServices/HelloWorldService" />
+              value="http://localhost:48080/helloWorldSpringWebServices/HelloWorldService" />
   </bean>
 </beans>

@@ -32,7 +32,7 @@ public class GreetingRestIntegrationTest {
 			throws TransformerFactoryConfigurationError, TransformerException {
 		Source result = restTemplate
 				.getForObject(
-						"http://localhost:8080/helloWorldSpringMVC01/greeting/{id}",
+						"http://localhost:48080/helloWorldSpringMVC01/greeting/{id}",
 						Source.class, "1");
 		assertNotNull(result);
 		String resultAsString = transformXmlToString(result);

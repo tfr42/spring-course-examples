@@ -16,13 +16,13 @@ Eclipse Jetty with:
     
 ## JAX-RS example
 
-http://localhost:8080/helloWorldSpringREST/jaxrs/helloworld
+http://localhost:48080/helloWorldSpringREST/jaxrs/helloworld
 
 Class: `net.gfu.seminar.jaxrs.helloworld.HelloWorld` 
  
 ## Spring Web MVC example
  
-http://localhost:8080/helloWorldSpringREST/rest/helloworld
+http://localhost:48080/helloWorldSpringREST/rest/helloworld
 
 Class: `net.gfu.seminar.spring.helloworld.HelloWorld`
 
@@ -56,5 +56,5 @@ Additional configuration in `controller-servlet.xml`:
     <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"/>
 
 #### Swagger UI
-- Swagger UI available at http://localhost:8080/helloWorldSpringREST/rest/swagger-ui.html
-- Swagger API at: http://localhost:8080/helloWorldSpringREST/rest/v2/api-docs
+- Swagger UI available at http://localhost:48080/helloWorldSpringREST/rest/swagger-ui.html
+- Swagger API at: http://localhost:48080/helloWorldSpringREST/rest/v2/api-docs

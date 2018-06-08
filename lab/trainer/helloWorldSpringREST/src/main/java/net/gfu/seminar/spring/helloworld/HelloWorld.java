@@ -34,7 +34,7 @@ public class HelloWorld implements ApplicationContextAware {
 
 	/**
 	 * HTTP GET
-	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld
+	 * http://localhost:48080/helloWorldSpringREST/rest/helloworld
 	 * @return a String as text/plain
 	 */
 	@RequestMapping(method = RequestMethod.GET)
@@ -44,7 +44,7 @@ public class HelloWorld implements ApplicationContextAware {
 
 	/**
 	 * HTTP GET
-	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Hans%20Wurst
+	 * http://localhost:48080/helloWorldSpringREST/rest/helloworld/Hans%20Wurst
 	 * @param name a name
 	 * @return a String with the given name as text/plain
 	 */
@@ -55,7 +55,7 @@ public class HelloWorld implements ApplicationContextAware {
 
 	/**
 	 * HTTP GET
-	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/Rainer/Zufall
+	 * http://localhost:48080/helloWorldSpringREST/rest/helloworld/Rainer/Zufall
 	 * @param firstname a firstname
 	 * @param lastname a lastname
 	 * @return the message as text/xml or application/xml
@@ -69,7 +69,7 @@ public class HelloWorld implements ApplicationContextAware {
 	
 	/**
 	 * HTTP GET
-	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest/Rainer/Zufall
+	 * http://localhost:48080/helloWorldSpringREST/rest/helloworld/guest/Rainer/Zufall
 	 * @param firstname a firstname
 	 * @param lastname a lastname
 	 * @return the guest as application/json
@@ -83,7 +83,7 @@ public class HelloWorld implements ApplicationContextAware {
 
 	/**
 	 * HTTP PUT
-	 * http://localhost:8080/helloWorldSpringREST/rest/helloworld/guest
+	 * http://localhost:48080/helloWorldSpringREST/rest/helloworld/guest
 	 * @param guest a new guest as application/json or application/xml
 	 * @return the guest as application/json or application/xml
 	 */
@@ -104,7 +104,7 @@ public class HelloWorld implements ApplicationContextAware {
 
 	/**
 	 * Refresh the Context
-	 * http://localhost:8080/helloWorldSpringREST/rest/reload
+	 * http://localhost:48080/helloWorldSpringREST/rest/reload
 	 */
 	@RequestMapping(value = "/reload", method = RequestMethod.HEAD)
 	public void refreshContext(){

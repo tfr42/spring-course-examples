@@ -25,7 +25,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 public class HelloWorldRestClientIntegrationTest {
 
 	private static final Logger LOG = Logger.getLogger(HelloWorldRestClientIntegrationTest.class);
-	private static final String uri = "http://localhost:8080/helloWorldSpringREST/";
+	private static final String uri = "http://localhost:48080/helloWorldSpringREST/";
 	private WebResource resource;
 
 	@Before

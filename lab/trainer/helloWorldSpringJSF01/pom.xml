@@ -11,7 +11,7 @@
 	<packaging>war</packaging>
 	<name>helloWorldSpringJSF01</name>
 	<description>JSF 2.2 with Spring</description>
-	<url>http://localhost:8080/helloWorldSpringJSF01/</url>
+	<url>http://localhost:48080/helloWorldSpringJSF01/</url>
 	<build>
 		<plugins>
 			<plugin>

@@ -10,7 +10,7 @@
 	<artifactId>helloWorldSpringSEC01</artifactId>
 	<packaging>war</packaging>
 	<description>Spring MVC with Spring Security and XML-based configuration</description>
-	<url>http://localhost:8080/helloWorldSpringSEC01/</url>
+	<url>http://localhost:48080/helloWorldSpringSEC01/</url>
 	<properties>
 		<spring.version>4.3.14.RELEASE</spring.version>
 		<spring-security.version>4.2.4.RELEASE</spring-security.version>

@@ -20,11 +20,11 @@ public class AddGuestIntegrationTest {
 	@Before public void setup() {
 		driver = new HtmlUnitDriver();
 		// And now use this to visit the welcome page
-		driver.get("http://localhost:8080/helloWorldSpringJSF01/add.jsf");
+		driver.get("http://localhost:48080/helloWorldSpringJSF01/add.jsf");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Alternatively the same thing can be done like this
-		// driver.navigate().to("http://localhost:8080/helloWorldSpringJSF01/");
+		// driver.navigate().to("http://localhost:48080/helloWorldSpringJSF01/");
 	}
 
 	@Test

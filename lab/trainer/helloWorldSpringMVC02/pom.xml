@@ -10,7 +10,7 @@
 	<artifactId>helloWorldSpringMVC02</artifactId>
 	<packaging>war</packaging>
 	<name>helloWorldSpringMVC02</name>
-	<url>http://localhost:8080/helloWorldSpringMVC02</url>
+	<url>http://localhost:48080/helloWorldSpringMVC02</url>
 	<description>Spring MVC with JavaConfig</description>
 	<properties>
 		<jackson.version>2.9.2</jackson.version>

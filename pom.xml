@@ -112,7 +112,7 @@
 						<stopPort>9999</stopPort>
 						<stopWait>2</stopWait>
 						<httpConnector>
-							<port>8080</port>
+							<port>48080</port>
 							<idleTimeout>60000</idleTimeout>
 						</httpConnector>
 						<webApp>

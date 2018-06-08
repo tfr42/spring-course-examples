@@ -18,11 +18,11 @@ public class LoginIntegrationTest {
 	@Before public void setup() {
 		driver = new HtmlUnitDriver();
 		// And now use this to visit the welcome page
-		driver.get("http://localhost:8080/helloWorldSpringSEC01/");
+		driver.get("http://localhost:48080/helloWorldSpringSEC01/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Alternatively the same thing can be done like this
-		// driver.navigate().to("http://localhost:8080/helloWorldSpringSEC01/");
+		// driver.navigate().to("http://localhost:48080/helloWorldSpringSEC01/");
 	}
 
 	@Test
