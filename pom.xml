@@ -16,7 +16,7 @@
 		<hibernate-validator.version>5.4.2.Final</hibernate-validator.version>
 		<mockito.version>1.10.19</mockito.version>
 		<selenium.version>2.50.1</selenium.version>
-		<jetty-plugin.version>9.2.24.v20180105</jetty-plugin.version>
+		<jetty-plugin.version>9.2.25.v20180606</jetty-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -401,7 +401,7 @@
 			</activation>
 			<properties>
 				<java.version>1.8</java.version>
-				<jetty-plugin.version>9.4.8.v20171121</jetty-plugin.version>
+				<jetty-plugin.version>9.4.8.v20180619</jetty-plugin.version>
 			</properties>
 			<build>
 				<plugins>
