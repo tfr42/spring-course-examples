@@ -13,7 +13,7 @@
 	<url>http://localhost:48080/helloWorldSpringMVC02</url>
 	<description>Spring MVC with JavaConfig</description>
 	<properties>
-		<jackson.version>2.9.2</jackson.version>
+		<jackson.version>2.9.6</jackson.version>
 	</properties>
 	<build>
 		<finalName>helloWorldSpringMVC02</finalName>

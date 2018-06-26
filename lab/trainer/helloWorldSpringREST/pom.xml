@@ -12,8 +12,8 @@
 	<url>http://localhost:48080/helloWorldSpringREST/</url>
 	<properties>
 		<jersey.version>1.19.4</jersey.version>
-		<jackson.version>2.9.2</jackson.version>
-		<swaggerfox.version>2.7.0</swaggerfox.version>
+		<jackson.version>2.9.6</jackson.version>
+		<swaggerfox.version>2.9.2</swaggerfox.version>
 	</properties>
 	<build>
 		<plugins>

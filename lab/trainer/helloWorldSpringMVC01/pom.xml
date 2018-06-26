@@ -11,7 +11,7 @@
 	<packaging>war</packaging>
 	<url>http://localhost:48080/helloWorldSpringMVC01/</url>
 	<properties>
-		<jackson.version>2.9.2</jackson.version>
+		<jackson.version>2.9.6</jackson.version>
 	</properties>
 	<build>
 		<finalName>helloWorldSpringMVC01</finalName>
