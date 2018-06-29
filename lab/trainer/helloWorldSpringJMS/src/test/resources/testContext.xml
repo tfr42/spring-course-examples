@@ -39,10 +39,4 @@
 		<ref bean="guest2"/>
 	</util:list>
 
-	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance" />
-	
-	<bean id="date" name="now" class="java.util.Date" factory-bean="calendar"
-		factory-method="getTime">
-	</bean>
-	
 </beans>
