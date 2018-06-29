@@ -87,7 +87,6 @@ public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 
 			@Override
 			public Guest mapRow(ResultSet rs, int row) throws SQLException {
-				// TODO Auto-generated method stub
 				return new GuestImpl(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"));
 			}
 			

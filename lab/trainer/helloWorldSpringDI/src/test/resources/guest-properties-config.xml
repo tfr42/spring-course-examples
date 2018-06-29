@@ -52,7 +52,6 @@
 		<ref bean="placeholderGuest"/>
 		<ref bean="birthdayChild"/>
 	</util:list>
-	
 
 	<bean id="kGuests" class="net.gfu.seminar.spring.helloworld.GuestListBean">
 		<property name="guests" value="#{specialGuestList.![firstName]}" />

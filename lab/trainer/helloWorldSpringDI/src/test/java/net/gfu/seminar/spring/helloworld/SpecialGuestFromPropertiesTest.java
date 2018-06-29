@@ -23,19 +23,19 @@ public class SpecialGuestFromPropertiesTest {
 
 	@Autowired
 	@Qualifier("specialGuest")
-	Guest guest;
+	private Guest guest;
 
 	@Autowired
 	@Qualifier("specialGuestExternal")
-	Guest externalGuest;
+	private Guest externalGuest;
 
 	@Autowired
 	@Qualifier("placeholderGuest")
-	Guest placeholderGuest;
+	private Guest placeholderGuest;
 
 	@Autowired
 	@Qualifier("birthdayChild")
-	BirthdayChild birthdayChild;
+	private BirthdayChild birthdayChild;
 	
 	@Value("#{nameProperties.firstName?:'Elvis'}")
 	private String anotherName;

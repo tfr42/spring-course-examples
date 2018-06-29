@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
+public class 	GuestJdbcDao extends JdbcDaoSupport implements GuestDao {
 	private static final Logger LOG = Logger.getLogger(GuestJdbcDao.class);
 
 	@Override

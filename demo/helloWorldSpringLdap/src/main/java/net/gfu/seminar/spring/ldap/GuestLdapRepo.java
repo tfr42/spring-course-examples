@@ -11,6 +11,7 @@ import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapTemplate;
 
 public class GuestLdapRepo implements GuestRepo {
+
 	private LdapTemplate ldapTemplate;
 
 	public void setLdapTemplate(LdapTemplate ldapTemplate) {
