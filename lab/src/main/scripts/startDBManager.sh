@@ -1,2 +1,2 @@
 #! /bin/bash
-java -cp ~/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar org.hsqldb.util.DatabaseManagerSwing &
+java -cp ~/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar org.hsqldb.util.DatabaseManagerSwing &
