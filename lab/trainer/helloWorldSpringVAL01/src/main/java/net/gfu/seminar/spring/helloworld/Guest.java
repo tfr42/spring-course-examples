@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 @Component("guest")
 public class Guest implements Serializable {
+
     private static final long serialVersionUID = -4700804809827556933L;
+
     @NotNull
     private String firstName;
 

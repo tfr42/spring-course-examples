@@ -19,7 +19,7 @@ public class ValidatingGreetingService extends Greeting {
 	@Override
 	public void setGuest(@Valid Guest guest) {
 		Set<ConstraintViolation<Guest>> validationResult = validator.validate(guest);
-		Assert.isTrue(validationResult.isEmpty());
+		Assert.isTrue(validationResult.isEmpty(), "Guest is not valid");
 		super.setGuest(guest);
 	}
 	

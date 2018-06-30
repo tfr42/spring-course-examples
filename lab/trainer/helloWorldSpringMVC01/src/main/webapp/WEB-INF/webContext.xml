@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="guestDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao" init-method="init">
+	<bean id="guestDao" class="net.gfu.seminar.spring.helloworld.GuestJdbcDao">
 		<constructor-arg ref="dataSource" />
 	</bean>
 

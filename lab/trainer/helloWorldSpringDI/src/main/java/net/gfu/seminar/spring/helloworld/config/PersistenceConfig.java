@@ -4,12 +4,15 @@ import javax.sql.DataSource;
 
 import net.gfu.seminar.spring.helloworld.GuestDao;
 import net.gfu.seminar.spring.helloworld.GuestJdbcDao;
+import net.gfu.seminar.spring.helloworld.GuestJdbcPrepareStatementDao;
+import net.gfu.seminar.spring.helloworld.GuestJdbcSimpleInsertDao;
 import net.gfu.seminar.spring.helloworld.config.ApplicationConfig;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
@@ -23,7 +26,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @PropertySource("classpath:/jdbc.properties")
-@Import(ApplicationConfig.class)
 @EnableTransactionManagement
 public class PersistenceConfig {
 	@Value("${jdbc.driverClassName}")
@@ -58,6 +60,16 @@ public class PersistenceConfig {
 		return new GuestJdbcDao(dataSource());
 	}
 
+	@Bean(name="dao") @Profile("PSCDao")
+	public GuestDao guestPscDao() {
+		return new GuestJdbcPrepareStatementDao(dataSource());
+	}
+
+	@Bean(name="dao") @Profile("SIDao")
+	public GuestDao guestSiDao() {
+		return new GuestJdbcSimpleInsertDao(dataSource());
+	}
+
 	@Bean
 	public JdbcTemplate jt() {
 		return new JdbcTemplate(dataSource());
@@ -77,15 +89,14 @@ public class PersistenceConfig {
 	}
 
 	/**
-	 * This static bean is only required in case the @Value annotation is used on fields of a @Configuration
-	 * annotated class.
+	 * This static bean is only required in case the @Value annotation is used on field level.
 	 *
 	 * @see http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html
 	 */
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer pspc() {
 		PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
-		// This replaces the @PropertySource annotation
+		// This would replace the @PropertySource annotation
 		// Resource[] resourceLocations = new Resource[] {
 		// new ClassPathResource("guest.properties"),
 		// };
