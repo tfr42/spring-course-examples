@@ -14,6 +14,7 @@ public class ApplicationWithSpringJavaConfig {
 	public static void main(String[] args) {
 		// creates new Application Context
 		GenericApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		ctx.registerShutdownHook(); // gracefully shutdown Spring ApplicationContext when main() ends
 		System.out.println(((GreetingService) ctx.getBean("greeting")).welcome());
 		ctx.close();
 	}
