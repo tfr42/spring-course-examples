@@ -11,8 +11,8 @@
     <packaging>war</packaging>
     <description>HelloWorld with Spring WebFlow</description>
     <properties>
-        <springwebflow.version>2.4.7.RELEASE</springwebflow.version>
-        <spring.version>4.3.14.RELEASE</spring.version>
+        <springwebflow.version>2.4.8.RELEASE</springwebflow.version>
+        <spring.version>4.3.22.RELEASE</spring.version>
     </properties>
     <build>
         <finalName>helloWorldSpringWebFlow</finalName>
