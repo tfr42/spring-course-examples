@@ -10,9 +10,8 @@
 	<artifactId>helloWorldSpringData</artifactId>
 	<description>HelloWorld with Spring Data</description>
 	<properties>
-        <spring-data.version>1.9.4.RELEASE</spring-data.version>
-        <spring.version>4.1.9.RELEASE</spring.version>
-        <hibernate.version>4.3.11.Final</hibernate.version>
+        <spring-data.version>2.1.4.RELEASE</spring-data.version>
+        <hibernate.version>5.4.2.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,8 +21,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.1.Final</version>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.2.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>

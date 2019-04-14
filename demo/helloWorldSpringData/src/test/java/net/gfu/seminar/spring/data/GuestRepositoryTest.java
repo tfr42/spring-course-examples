@@ -7,6 +7,7 @@ import static org.junit.Assert.assertNull;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -42,9 +43,9 @@ public class GuestRepositoryTest {
 		session.doWork(new Work() {
 	        @Override
 	        public void execute(Connection connection) throws SQLException {
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Hans','Dampf')");
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Anna','Gramm')");
-	            connection.createStatement().executeUpdate("INSERT INTO GUEST (firstname,lastname) VALUES ('Rainer','Unsinn')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id,firstname,lastname) VALUES (1,'Hans','Dampf')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id,firstname,lastname) VALUES (2,'Anna','Gramm')");
+	            connection.createStatement().executeUpdate("INSERT INTO GUEST (id,firstname,lastname) VALUES (3,'Rainer','Unsinn')");
 	        }
 	    });
 	}
@@ -118,6 +119,6 @@ public class GuestRepositoryTest {
 	public void testDelete() {
 		Guest guest = guestRepository.findAll().iterator().next();
 		guestRepository.delete(guest);
-		assertNull(guestRepository.findById(guest.getId()));
+		assertEquals(Optional.empty(),guestRepository.findById(guest.getId()));
 	}
 }

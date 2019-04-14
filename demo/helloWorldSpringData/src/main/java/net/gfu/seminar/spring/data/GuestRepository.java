@@ -1,6 +1,7 @@
 package net.gfu.seminar.spring.data;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface GuestRepository extends CrudRepository<Guest, Long> {
 
-	Guest findById(Long key);
+	Optional<Guest> findById(Long key);
 
 	@Query(value = "from Guest as g where g.lastName = :name")
 	List<Guest> findByName(@Param("name") String name);

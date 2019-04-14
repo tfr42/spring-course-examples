@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
+			<version>${validation-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
