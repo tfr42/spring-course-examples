@@ -29,9 +29,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
+@ContextConfiguration(locations = {"classpath:/applicationContext.xml"})
 // TODO: choose profiles: jdbc, hibernate
-@ActiveProfiles(profiles = { "jdbc" })
+@ActiveProfiles(profiles = {"jdbc"})
 @Transactional
 @Rollback
 public class GuestDaoTest {

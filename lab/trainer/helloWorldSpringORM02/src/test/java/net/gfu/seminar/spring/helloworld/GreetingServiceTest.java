@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {  "classpath:/applicationContext.xml" })
-@ActiveProfiles(profiles={"jdbc"})
+@ContextConfiguration(locations = {"classpath:/applicationContext.xml"})
+@ActiveProfiles(profiles = {"jdbc"})
 @Transactional
 public class GreetingServiceTest {
 
