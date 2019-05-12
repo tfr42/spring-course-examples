@@ -28,11 +28,11 @@ public class LoginIntegrationTest {
 	@Test
 	public  void testSuccesfulLogin() {
         // Find the text input element by its name
-        WebElement usernameInputField = driver.findElement(By.name("username"));
+        WebElement usernameInputField = driver.findElement(By.id("username"));
         // Enter username
         usernameInputField.sendKeys("efall");
         
-        WebElement passwordInputField = driver.findElement(By.name("password"));
+        WebElement passwordInputField = driver.findElement(By.id("password"));
         // Enter password
         passwordInputField.sendKeys("pass");
 
@@ -49,11 +49,11 @@ public class LoginIntegrationTest {
 	@Test
 	public  void testFailedLogin() {
         // Find the text input element by its name
-        WebElement usernameInputField = driver.findElement(By.name("username"));
+        WebElement usernameInputField = driver.findElement(By.id("username"));
         // Enter username
         usernameInputField.sendKeys("foo");
         
-        WebElement passwordInputField = driver.findElement(By.name("password"));
+        WebElement passwordInputField = driver.findElement(By.id("password"));
         // Enter password
         passwordInputField.sendKeys("bar");
 
