@@ -30,10 +30,10 @@ public class AddGuestIntegrationTest {
 	@Test
 	public  void testAddGuestWithValidValues() {
         // Find the text input element by its name
-        WebElement firstnameInputField = driver.findElement(By.name("addGuestForm:firstname"));
+        WebElement firstnameInputField = driver.findElement(By.id("addGuestForm:firstname"));
         firstnameInputField.sendKeys("Hans");
         
-        WebElement lastnameInputField = driver.findElement(By.name("addGuestForm:lastname"));
+        WebElement lastnameInputField = driver.findElement(By.id("addGuestForm:lastname"));
         lastnameInputField.sendKeys("Fall");
 
         // Now submit the form. WebDriver will find the form for us from the element
