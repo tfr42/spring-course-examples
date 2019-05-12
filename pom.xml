@@ -8,16 +8,16 @@
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>1.8</java.version>
-		<aspectj.version>1.8.10</aspectj.version>
-		<slf4j.version>1.7.22</slf4j.version>
 		<spring.version>5.1.7.RELEASE</spring.version>
+		<aspectj.version>1.8.13</aspectj.version>
+		<slf4j.version>1.7.26</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<hsqldb.version>2.3.4</hsqldb.version>
 		<validation-api.version>2.0.1.Final</validation-api.version>
-		<hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
-		<mockito.version>1.9.5</mockito.version>
-		<selenium.version>2.49.1</selenium.version>
 		<jetty-plugin.version>9.2.18.v20160721</jetty-plugin.version>
+		<hibernate-validator.version>5.4.3.Final</hibernate-validator.version>
+		<mockito.version>1.10.19</mockito.version>
+		<selenium.version>2.53.1</selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
