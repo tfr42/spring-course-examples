@@ -13,15 +13,15 @@
 	<description>HelloWorld with Spring WebServices</description>
 	<url>http://localhost:48080/helloWorldSpringWebServices/HelloWorldService.wsdl</url>
 	<properties>
-        <spring-ws.version>2.2.4.RELEASE</spring-ws.version>
-        <spring.version>4.0.9.RELEASE</spring.version>
+        <spring-ws.version>2.4.5.RELEASE</spring-ws.version>
+        <spring.version>4.2.9.RELEASE</spring.version>
 	</properties>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb22-plugin</artifactId>
-				<version>0.13.2</version>
+				<version>0.14.0</version>
 				<executions>
 					<execution>
 						<goals>
