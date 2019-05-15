@@ -15,6 +15,7 @@
     <module>helloWorldSpringIntegration</module>
     <module>helloWorldSpringLdap</module>
     <module>helloWorldSpringWebServices</module>
+    <module>helloWorldGroovy</module>
   </modules>
   <description>Demo workspace</description>
   <name>demo</name>
